@@ -1,0 +1,1797 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KURAYOSHI RETRO VELO 2025 - Time Slip Ride</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Kaushan+Script&family=Shippori+Mincho:wght@500;700;800&family=Zen+Maru+Gothic:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* =========================================
+           VARIABLES & THEME
+        ========================================= */
+        :root {
+            --c-bg: #f8f4e6;
+            --c-text: #333333;
+            --c-deep-green: #1e4d40;
+            --c-mustard: #d4af37;
+            --c-deep-red: #a83333;
+            --c-accent-cream: #fffce0;
+            --c-tire-black: #222222;
+            --f-title: 'Dela Gothic One', cursive;
+            --f-serif: 'Shippori Mincho', serif;
+            --f-body: 'Zen Maru Gothic', sans-serif;
+            --f-en: 'Kaushan Script', cursive;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--c-bg);
+            color: var(--c-text);
+            font-family: var(--f-body);
+            margin: 0;
+            line-height: 1.8;
+            letter-spacing: 0.05em;
+        }
+
+        .bg-texture {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZjhmNGU2Ii8+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiMyMjIiIG9wYWNpdHk9IjAuMTUiLz48L3N2Zz4=');
+            z-index: -1;
+            pointer-events: none;
+            opacity: 0.8;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.2s;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-30 {
+            margin-top: 30px;
+        }
+
+        .mb-40 {
+            margin-bottom: 40px;
+        }
+
+        /* =========================================
+           HEADER
+        ========================================= */
+        .retro-header {
+            background: var(--c-bg);
+            border-bottom: 4px solid var(--c-deep-green);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-logo {
+            display: flex;
+            flex-direction: column;
+            line-height: 1;
+            margin: 0;
+            z-index: 1001;
+        }
+
+        .logo-main {
+            font-family: var(--f-title);
+            font-size: 1.6rem;
+            color: var(--c-deep-green);
+            letter-spacing: 0.05em;
+            text-shadow: 2px 2px 0 var(--c-mustard);
+        }
+
+        .logo-sub {
+            font-family: var(--f-en);
+            font-size: 0.9rem;
+            color: var(--c-mustard);
+            margin-top: 2px;
+            font-weight: bold;
+        }
+
+        .retro-nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .retro-nav ul {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .retro-nav a {
+            font-family: var(--f-title);
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            color: var(--c-deep-green);
+            border-bottom: 3px solid transparent;
+            padding-bottom: 2px;
+        }
+
+        .retro-nav a:hover {
+            border-bottom-color: var(--c-mustard);
+            color: var(--c-mustard);
+        }
+
+        .btn-header-action {
+            background: var(--c-deep-red);
+            color: var(--c-accent-cream) !important;
+            font-family: var(--f-title);
+            padding: 8px 25px;
+            border-radius: 4px;
+            margin-left: 20px;
+            border: 3px solid var(--c-deep-green) !important;
+            box-shadow: 3px 3px 0 var(--c-deep-green);
+            transition: 0.2s;
+        }
+
+        .btn-header-action:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 1px 1px 0 var(--c-deep-green);
+            background: var(--c-mustard);
+            color: var(--c-deep-green) !important;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 30px;
+            height: 25px;
+            position: relative;
+            z-index: 1001;
+        }
+
+        .mobile-menu-btn span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: var(--c-deep-green);
+            position: absolute;
+            left: 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        .mobile-menu-btn span:nth-child(1) {
+            top: 0;
+        }
+
+        .mobile-menu-btn span:nth-child(2) {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .mobile-menu-btn span:nth-child(3) {
+            bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .mobile-menu-btn.active span:nth-child(1) {
+                top: 50%;
+                transform: translateY(-50%) rotate(45deg);
+                background-color: var(--c-mustard);
+            }
+
+            .mobile-menu-btn.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-menu-btn.active span:nth-child(3) {
+                bottom: 50%;
+                transform: translateY(50%) rotate(-45deg);
+                background-color: var(--c-mustard);
+            }
+
+            .retro-nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                height: 100vh;
+                background-color: var(--c-deep-green);
+                flex-direction: column;
+                justify-content: center;
+                transition: 0.4s ease-in-out;
+                z-index: 1000;
+                background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0, 0, 0, 0.2) 10px, rgba(0, 0, 0, 0.2) 12px);
+            }
+
+            .retro-nav.active {
+                right: 0;
+            }
+
+            .retro-nav ul {
+                flex-direction: column;
+                gap: 30px;
+                margin-bottom: 40px;
+            }
+
+            .retro-nav a {
+                font-size: 1.2rem;
+                color: var(--c-mustard);
+            }
+
+            .btn-header-action {
+                margin-left: 0;
+                background: var(--c-mustard);
+                color: var(--c-deep-green) !important;
+                font-size: 1.4rem;
+                padding: 15px 50px;
+            }
+        }
+
+        /* =========================================
+           HERO
+        ========================================= */
+        .hero-section {
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 5px solid var(--c-deep-green);
+            z-index: 1;
+        }
+
+        /* プレビュー用にダミー画像を指定 */
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://placehold.jp/24/f0f0f0/cccccc/1200x800.png?text=Line%20Drawing%20Overlay');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+            background-color: rgba(248, 244, 230, 0.85);
+            background-blend-mode: multiply;
+        }
+
+        .hero-layout {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .hero-text-area {
+            flex: 1;
+            z-index: 2;
+        }
+
+        .hero-label {
+            display: inline-block;
+            background: var(--c-deep-green);
+            color: var(--c-mustard);
+            font-family: var(--f-title);
+            padding: 4px 12px;
+            font-size: 0.8rem;
+            margin-bottom: 25px;
+            letter-spacing: 0.2em;
+            box-shadow: 3px 3px 0 var(--c-text);
+        }
+
+        .hero-headline {
+            margin-bottom: 35px;
+        }
+
+        .hero-headline .jp-main {
+            display: block;
+            font-family: var(--f-serif);
+            font-weight: 800;
+            font-size: 3.2rem;
+            line-height: 1.3;
+            color: var(--c-text);
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 0 rgba(212, 175, 55, 0.3);
+        }
+
+        .hero-headline .en-sub {
+            display: block;
+            font-family: var(--f-en);
+            font-size: 1.8rem;
+            color: var(--c-mustard);
+            font-weight: bold;
+            text-shadow: 1px 1px 0 var(--c-deep-green);
+        }
+
+        .hero-lead {
+            font-family: var(--f-serif);
+            font-weight: 500;
+            font-size: 1.15rem;
+            margin-bottom: 35px;
+            border-left: 5px solid var(--c-mustard);
+            padding-left: 25px;
+            line-height: 2.2;
+            color: #444;
+            background: rgba(212, 175, 55, 0.1);
+            padding: 20px 25px;
+        }
+
+        .hero-tags .tag {
+            display: inline-block;
+            border: 2px solid var(--c-deep-green);
+            background: var(--c-accent-cream);
+            color: var(--c-deep-green);
+            padding: 5px 15px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            font-family: var(--f-serif);
+            font-weight: bold;
+            box-shadow: 2px 2px 0 var(--c-deep-green);
+        }
+
+        .date-badge {
+            display: inline-block;
+            background: var(--c-deep-red);
+            color: var(--c-accent-cream);
+            font-family: var(--f-title);
+            padding: 10px 25px;
+            margin-top: 25px;
+            font-size: 1.1rem;
+            border: 3px solid var(--c-mustard);
+            box-shadow: 5px 5px 0 var(--c-deep-green);
+        }
+
+        /* Record Animation */
+        .hero-visual-area {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .record-tire-container {
+            width: 380px;
+            height: 380px;
+            position: relative;
+            border-radius: 50%;
+            background-color: var(--c-tire-black);
+            box-shadow: 15px 15px 0 var(--c-mustard), inset 0 0 0 10px rgba(0, 0, 0, 0.5);
+            animation: float-disk 7s ease-in-out infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 5px solid #333;
+        }
+
+        .record-tire-container::after {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border-radius: 50%;
+            border: 3px dashed var(--c-mustard);
+            opacity: 0.7;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .record-disk {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            position: relative;
+            background: repeating-radial-gradient(#111 0, #111 2px, #2a2a2a 3px, #111 4px);
+            border: 6px solid #555;
+            animation: spin-disk 20s linear infinite;
+            z-index: 2;
+        }
+
+        .record-disk::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 45%, transparent 55%, rgba(255, 255, 255, 0.1) 100%);
+            pointer-events: none;
+        }
+
+        .record-label {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 110px;
+            height: 110px;
+            background-color: var(--c-deep-red);
+            border-radius: 50%;
+            border: 6px solid var(--c-mustard);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            box-shadow: inset 0 0 0 4px var(--c-deep-green);
+        }
+
+        .label-text {
+            font-family: var(--f-title);
+            color: var(--c-mustard);
+            font-size: 0.85rem;
+            line-height: 1.2;
+            letter-spacing: 0.05em;
+        }
+
+        .record-label::after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: var(--c-deep-green);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        @keyframes spin-disk {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes float-disk {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-layout {
+                flex-direction: column-reverse;
+                text-align: center;
+                gap: 30px;
+            }
+
+            .hero-headline .jp-main {
+                font-size: 2.4rem;
+            }
+
+            .hero-lead {
+                text-align: left;
+                font-size: 1rem;
+                border-left-width: 5px;
+            }
+
+            .record-tire-container {
+                width: 300px;
+                height: 300px;
+            }
+
+            .record-disk {
+                width: 230px;
+                height: 230px;
+            }
+        }
+
+        /* =========================================
+           COMMON & SECTIONS
+        ========================================= */
+        .section {
+            padding: 90px 0;
+        }
+
+        .bg-cream {
+            background-color: var(--c-bg);
+        }
+
+        .bg-retro-red {
+            background-color: var(--c-deep-green);
+            color: var(--c-accent-cream);
+            background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(212, 175, 55, 0.1) 10px, rgba(212, 175, 55, 0.1) 12px);
+            border-top: 5px solid var(--c-mustard);
+            border-bottom: 5px solid var(--c-mustard);
+        }
+
+        .bg-dot-pattern {
+            background-color: var(--c-accent-cream);
+            background-image: radial-gradient(var(--c-mustard) 2px, transparent 2px);
+            background-size: 15px 15px;
+            border-top: 4px solid var(--c-deep-green);
+        }
+
+        .bg-dark {
+            background-color: #1f1f1f;
+            color: #fff;
+            border-top: 5px solid var(--c-deep-green);
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .eng-title {
+            display: block;
+            font-family: var(--f-en);
+            font-size: 1.8rem;
+            color: var(--c-mustard);
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 0 var(--c-deep-green);
+        }
+
+        .jp-title {
+            font-family: var(--f-serif);
+            font-weight: 800;
+            font-size: 2.2rem;
+            margin: 0;
+            letter-spacing: 0.1em;
+        }
+
+        .color-yellow {
+            color: var(--c-mustard);
+        }
+
+        .text-white .jp-title {
+            text-shadow: 3px 3px 0 var(--c-text);
+        }
+
+        .text-white .eng-title {
+            color: var(--c-mustard);
+            text-shadow: 2px 2px 0 var(--c-deep-green);
+        }
+
+        /* SIDE LABELS */
+        .side-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 60px 0 40px;
+        }
+
+        .side-line {
+            height: 2px;
+            background: var(--c-deep-green);
+            flex: 1;
+            opacity: 0.3;
+        }
+
+        .side-text {
+            font-family: var(--f-title);
+            font-size: 1.5rem;
+            color: var(--c-deep-green);
+            background: var(--c-mustard);
+            padding: 5px 20px;
+            border: 2px solid var(--c-deep-green);
+            box-shadow: 4px 4px 0 #333;
+            transform: rotate(-2deg);
+        }
+
+        .side-text.type-b {
+            background: var(--c-deep-red);
+            color: var(--c-accent-cream);
+            transform: rotate(1deg);
+        }
+
+        /* =========================================
+           SIDE-A : STORY
+        ========================================= */
+        .concept-section {
+            padding-bottom: 60px;
+        }
+
+        .concept-text {
+            font-family: var(--f-serif);
+            font-size: 1.15rem;
+            text-align: center;
+            line-height: 2.6;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .keyword-highlight {
+            background: linear-gradient(transparent 60%, rgba(212, 175, 55, 0.3) 60%);
+            font-weight: bold;
+        }
+
+        /* Quote Intermission */
+        .quote-intermission {
+            padding: 80px 0;
+            text-align: center;
+            background-color: var(--c-bg);
+            background-image: radial-gradient(#ccc 1px, transparent 1px);
+            background-size: 20px 20px;
+            position: relative;
+        }
+
+        .quote-intermission::before,
+        .quote-intermission::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 2px;
+            background: var(--c-mustard);
+            margin: 0 auto;
+        }
+
+        .quote-en {
+            font-family: var(--f-en);
+            font-size: 1.8rem;
+            color: var(--c-mustard);
+            margin: 20px 0 10px;
+            text-shadow: 1px 1px 0 var(--c-deep-green);
+        }
+
+        .quote-ja {
+            font-family: var(--f-serif);
+            font-weight: bold;
+            font-size: 1.2rem;
+            line-height: 2;
+            color: var(--c-deep-green);
+            margin-bottom: 20px;
+        }
+
+        /* Marquee */
+        .marquee-section {
+            padding: 40px 0 60px;
+            overflow: hidden;
+            background: var(--c-bg);
+            border-bottom: 1px dashed rgba(30, 77, 64, 0.3);
+            position: relative;
+        }
+
+        .marquee-section::before,
+        .marquee-section::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 12px;
+            background-image: repeating-linear-gradient(90deg, var(--c-deep-green) 0, var(--c-deep-green) 8px, transparent 8px, transparent 16px);
+            opacity: 0.2;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .marquee-section::before {
+            top: 20px;
+        }
+
+        .marquee-section::after {
+            bottom: 40px;
+        }
+
+        .marquee-container {
+            display: flex;
+            width: fit-content;
+        }
+
+        .marquee-track {
+            display: flex;
+            gap: 20px;
+            animation: marquee-scroll 40s linear infinite;
+        }
+
+        .marquee-item {
+            width: 320px;
+            height: 220px;
+            flex-shrink: 0;
+            border: 8px solid #fff;
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.15);
+            position: relative;
+            background: #e0d4b0;
+            overflow: hidden;
+            transform: rotate(var(--rot));
+        }
+
+        .marquee-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: sepia(0.4) contrast(0.9);
+            transition: 0.3s;
+        }
+
+        .marquee-item:hover img {
+            filter: sepia(0) contrast(1);
+            transform: scale(1.05);
+        }
+
+        @keyframes marquee-scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* =========================================
+           SIDE-B : JOURNEY
+        ========================================= */
+        #side-b-wrapper {
+            background-color: #f2eee0;
+            border-top: 1px dashed rgba(30, 77, 64, 0.2);
+        }
+
+        /* The Stage */
+        .bg-typography-layer {
+            position: absolute;
+            top: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: var(--f-title);
+            font-size: 12rem;
+            color: var(--c-deep-green);
+            opacity: 0.04;
+            white-space: nowrap;
+            z-index: 0;
+            pointer-events: none;
+            line-height: 1;
+        }
+
+        .stage-cinema-section {
+            position: relative;
+            z-index: 1;
+            padding: 40px 0 80px;
+        }
+
+        .cinema-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .cinema-visual {
+            position: relative;
+            height: 450px;
+        }
+
+        .img-main {
+            width: 85%;
+            height: 380px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .img-main img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: sepia(0.2) contrast(0.95);
+            display: block;
+        }
+
+        .img-frame-border {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 100%;
+            height: 100%;
+            border: 1px solid var(--c-deep-green);
+            z-index: -1;
+        }
+
+        .img-sub {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 200px;
+            height: 160px;
+            z-index: 2;
+            border: 4px solid var(--c-bg);
+            box-shadow: -10px -10px 0 rgba(212, 175, 55, 0.2);
+        }
+
+        .img-sub img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cinema-text {
+            position: relative;
+            writing-mode: vertical-rl;
+            text-orientation: upright;
+            height: 400px;
+        }
+
+        .vertical-head {
+            font-family: var(--f-serif);
+            font-size: 2.4rem;
+            color: var(--c-deep-green);
+            letter-spacing: 0.1em;
+            margin: 0 0 0 40px;
+            line-height: 1.4;
+            border-top: 5px solid var(--c-deep-red);
+            padding-top: 20px;
+        }
+
+        .vertical-body p {
+            font-family: var(--f-serif);
+            font-size: 1rem;
+            line-height: 2.2;
+            color: #444;
+            margin-left: 1.5em;
+            text-align: justify;
+        }
+
+        .scene-spec {
+            writing-mode: horizontal-tb;
+            margin-top: 0;
+            position: absolute;
+            bottom: 0;
+            right: 120%;
+            width: 200px;
+            border-top: 1px solid var(--c-mustard);
+            padding-top: 10px;
+        }
+
+        .scene-spec dl {
+            display: grid;
+            grid-template-columns: 70px 1fr;
+            font-size: 0.75rem;
+            gap: 5px;
+        }
+
+        .scene-spec dt {
+            font-family: var(--f-title);
+            color: var(--c-mustard);
+        }
+
+        .scene-spec dd {
+            font-family: var(--f-en);
+            margin: 0;
+            color: var(--c-deep-green);
+        }
+
+        @media (max-width: 768px) {
+            .bg-typography-layer {
+                font-size: 5rem;
+                top: 60px;
+            }
+
+            .cinema-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .cinema-visual {
+                height: auto;
+                padding-bottom: 40px;
+            }
+
+            .img-main {
+                width: 90%;
+                height: 250px;
+            }
+
+            .img-sub {
+                width: 140px;
+                height: 100px;
+                bottom: 10px;
+                right: 10px;
+            }
+
+            .cinema-text {
+                writing-mode: horizontal-tb;
+                height: auto;
+            }
+
+            .vertical-head {
+                border-top: none;
+                border-left: 5px solid var(--c-deep-red);
+                padding-top: 0;
+                padding-left: 15px;
+                margin: 0 0 20px 0;
+                font-size: 1.8rem;
+            }
+
+            .vertical-body p {
+                margin-left: 0;
+                margin-bottom: 15px;
+            }
+
+            .scene-spec {
+                position: static;
+                width: 100%;
+                margin-top: 20px;
+            }
+        }
+
+        /* Connector */
+        .scene-transition-connector {
+            height: 120px;
+            background: #f2eee0;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .connection-line {
+            width: 2px;
+            height: 100%;
+            background-image: linear-gradient(to bottom, var(--c-deep-green) 50%, transparent 50%);
+            background-size: 2px 20px;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0.6;
+            z-index: 1;
+        }
+
+        .connection-text {
+            margin-top: 40px;
+            background: #f2eee0;
+            padding: 10px 20px;
+            z-index: 2;
+            font-family: var(--f-serif);
+            color: var(--c-deep-green);
+            font-size: 0.95rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            border: 1px solid var(--c-deep-green);
+            border-radius: 30px;
+            box-shadow: 3px 3px 0 var(--c-mustard);
+        }
+
+        .smell-icon {
+            font-size: 1.2rem;
+            color: var(--c-deep-red);
+            animation: waver 2s infinite ease-in-out;
+        }
+
+        @keyframes waver {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-3px) rotate(10deg);
+            }
+        }
+
+        #gourmet {
+            border-top: 8px solid var(--c-mustard);
+            position: relative;
+        }
+
+        #gourmet::before {
+            content: '▼';
+            position: absolute;
+            top: -22px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--c-mustard);
+            font-size: 1.5rem;
+            z-index: 5;
+        }
+
+        /* Gourmet & Course & Others (Existing) */
+        .sweets-diner-menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+        }
+
+        .menu-card {
+            background: var(--c-bg);
+            color: var(--c-text);
+            padding: 30px;
+            border-radius: 4px;
+            border: 3px solid var(--c-deep-green);
+            box-shadow: 8px 8px 0 var(--c-mustard);
+            transition: transform 0.2s;
+        }
+
+        .menu-card:hover {
+            transform: translate(3px, 3px);
+            box-shadow: 2px 2px 0 var(--c-mustard);
+        }
+
+        .menu-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            text-align: center;
+            text-shadow: 3px 3px 0 var(--c-accent-cream);
+        }
+
+        .menu-info h3 {
+            font-family: var(--f-en);
+            font-size: 1.4rem;
+            color: var(--c-deep-green);
+            margin: 0;
+            text-align: center;
+        }
+
+        .ja-name {
+            font-family: var(--f-serif);
+            font-weight: bold;
+            font-size: 1.3rem;
+            text-align: center;
+            margin: 10px 0 15px;
+            border-bottom: 3px dashed var(--c-deep-red);
+            padding-bottom: 10px;
+            display: block;
+        }
+
+        .desc {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            opacity: 0.9;
+            text-align: justify;
+        }
+
+        .note-text-lg {
+            font-size: 1.1rem;
+            font-family: var(--f-serif);
+            margin-bottom: 40px;
+            color: var(--c-accent-cream);
+        }
+
+        .course-vs-layout {
+            display: flex;
+            gap: 50px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .course-box {
+            flex: 1;
+            min-width: 300px;
+            max-width: 480px;
+            background: var(--c-bg);
+            border: 4px solid var(--c-deep-green);
+            padding: 40px;
+            position: relative;
+            border-radius: 4px;
+        }
+
+        .course-label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: var(--c-accent-cream);
+            padding: 8px 20px;
+            font-family: var(--f-title);
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            border-bottom: 3px solid rgba(0, 0, 0, 0.2);
+            border-right: 3px solid rgba(0, 0, 0, 0.2);
+        }
+
+        .course-short {
+            border-color: var(--c-deep-green);
+            box-shadow: 12px 12px 0 var(--c-mustard);
+        }
+
+        .course-short .course-label {
+            background: var(--c-deep-green);
+            color: var(--c-mustard);
+        }
+
+        .course-short h3 {
+            color: var(--c-deep-green);
+            text-shadow: 2px 2px 0 var(--c-mustard);
+        }
+
+        .course-middle {
+            border-color: var(--c-deep-red);
+            box-shadow: 12px 12px 0 var(--c-deep-red);
+        }
+
+        .course-middle .course-label {
+            background: var(--c-deep-red);
+        }
+
+        .course-middle h3 {
+            color: var(--c-deep-red);
+            text-shadow: 1px 1px 0 var(--c-mustard);
+        }
+
+        .spec-grid {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            border-top: 2px dashed var(--c-deep-green);
+            border-bottom: 2px dashed var(--c-deep-green);
+            padding: 20px 0;
+            margin: 25px 0;
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .spec-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .spec-item .label {
+            font-size: 0.8rem;
+            color: var(--c-deep-green);
+            font-family: var(--f-title);
+            letter-spacing: 0.1em;
+        }
+
+        .spec-item .value {
+            font-family: var(--f-title);
+            font-size: 1.8rem;
+            line-height: 1;
+            margin-top: 5px;
+            color: var(--c-text);
+        }
+
+        .feature-list li {
+            background: var(--c-accent-cream);
+            border: 1px solid var(--c-deep-green);
+            padding: 5px 10px;
+            margin-bottom: 5px;
+            font-family: var(--f-serif);
+            box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            border: 3px solid var(--c-deep-green);
+            color: var(--c-accent-cream);
+            padding: 15px 50px;
+            font-weight: bold;
+            font-family: var(--f-title);
+            letter-spacing: 0.1em;
+            transition: 0.2s;
+            background: var(--c-deep-green);
+            box-shadow: 5px 5px 0 var(--c-mustard);
+        }
+
+        .btn-secondary:hover {
+            transform: translate(3px, 3px);
+            box-shadow: 2px 2px 0 var(--c-mustard);
+            background: var(--c-mustard);
+            color: var(--c-deep-green);
+        }
+
+        .timeline-container {
+            max-width: 650px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 30px;
+            height: 100%;
+            width: 6px;
+            background: transparent;
+            border-left: 6px dashed var(--c-deep-green);
+            opacity: 0.5;
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 35px;
+            position: relative;
+            align-items: flex-start;
+        }
+
+        .time {
+            width: 60px;
+            height: 60px;
+            background: var(--c-deep-green);
+            color: var(--c-mustard);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--f-en);
+            font-size: 1.1rem;
+            font-weight: bold;
+            border: 4px solid var(--c-mustard);
+            flex-shrink: 0;
+            z-index: 1;
+            box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .event-box {
+            margin-left: 30px;
+            background: #fff;
+            flex: 1;
+            padding: 20px;
+            border: 3px solid var(--c-deep-green);
+            border-left-width: 6px;
+            box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        .event-box h4 {
+            margin: 0 0 8px;
+            font-family: var(--f-serif);
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: var(--c-deep-green);
+        }
+
+        .spec-sheet {
+            max-width: 800px;
+            margin: 0 auto;
+            border-top: 2px solid #555;
+            border-bottom: 2px solid #555;
+            padding: 30px 0;
+        }
+
+        .spec-sheet dl {
+            display: grid;
+            grid-template-columns: 160px 1fr;
+            gap: 20px;
+        }
+
+        .spec-sheet dt {
+            font-family: var(--f-title);
+            color: var(--c-mustard);
+            text-align: right;
+            padding-right: 25px;
+            border-right: 2px dashed #555;
+            letter-spacing: 0.05em;
+        }
+
+        .spec-sheet dd {
+            margin: 0;
+            padding-bottom: 25px;
+            border-bottom: 1px dashed #333;
+        }
+
+        .spec-sheet dd:last-child {
+            border-bottom: none;
+        }
+
+        .price-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+        }
+
+        .cat {
+            padding: 5px 15px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            font-family: var(--f-title);
+            color: var(--c-accent-cream);
+            border: 2px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .cat-middle {
+            background: var(--c-deep-red);
+        }
+
+        .cat-short {
+            background: var(--c-deep-green);
+            color: var(--c-mustard);
+        }
+
+        .price {
+            font-family: var(--f-title);
+            font-size: 1.3rem;
+            color: var(--c-mustard);
+        }
+
+        @media (max-width: 768px) {
+            .spec-sheet dl {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .spec-sheet dt {
+                text-align: left;
+                border-right: none;
+                padding-right: 0;
+                margin-top: 20px;
+            }
+        }
+
+        .entry-section {
+            background-color: var(--c-deep-green);
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+CjxjaXJjbGUgY3g9IjEiIGN5PSIxIiByPSIxIiBmaWxsPSJyZ2JhKDIxMiwgMTc1LCA1NSwgMC4yKSIvPgo8L3N2Zz4=');
+            color: var(--c-mustard);
+            border-top: 5px solid var(--c-mustard);
+            border-bottom: 5px solid var(--c-mustard);
+        }
+
+        .entry-catch {
+            font-family: var(--f-title);
+            font-size: 3.5rem;
+            margin: 0;
+            letter-spacing: 0.05em;
+            text-shadow: 3px 3px 0 #000;
+        }
+
+        .entry-sub {
+            font-family: var(--f-serif);
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            color: var(--c-accent-cream);
+        }
+
+        .btn-entry-big {
+            display: inline-block;
+            background: var(--c-deep-red);
+            color: var(--c-accent-cream);
+            font-family: var(--f-title);
+            font-size: 1.4rem;
+            padding: 20px 80px;
+            border: 4px solid var(--c-mustard);
+            box-shadow: 8px 8px 0 #000;
+            transition: 0.2s;
+        }
+
+        .btn-entry-big:hover {
+            transform: translate(4px, 4px);
+            box-shadow: 4px 4px 0 #000;
+            background: var(--c-mustard);
+            color: var(--c-deep-red);
+            border-color: var(--c-deep-red);
+        }
+
+        .footer-retro {
+            background: #1a1a1a;
+            color: var(--c-mustard);
+            text-align: center;
+            padding: 40px 0;
+            font-size: 0.9rem;
+            border-top: 5px solid var(--c-deep-red);
+        }
+
+        /* Animation Classes */
+        .js-fade {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1.2s ease, transform 1.2s ease;
+        }
+
+        .js-fade.scroll-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-1 {
+            transition-delay: 0.2s;
+        }
+
+        .delay-2 {
+            transition-delay: 0.4s;
+        }
+
+        .delay-3 {
+            transition-delay: 0.6s;
+        }
+
+        .delay-4 {
+            transition-delay: 0.8s;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="bg-texture"></div>
+
+    <header class="retro-header">
+        <div class="container header-flex">
+            <h1 class="brand-logo">
+                <span class="logo-main">KURAYOSHI <br>RETRO VELO</span>
+                <span class="logo-sub">Time Slip Ride 2025</span>
+            </h1>
+
+            <button class="mobile-menu-btn">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="retro-nav">
+                <ul>
+                    <li><a href="#concept" class="nav-link">STORY</a></li>
+                    <li><a href="#stage" class="nav-link">STAGE</a></li>
+                    <li><a href="#course" class="nav-link">TRACKS</a></li>
+                    <li><a href="#gourmet" class="nav-link">GOURMET</a></li>
+                    <li><a href="#outline" class="nav-link">OUTLINE</a></li>
+                </ul>
+                <a href="#entry" class="btn-header-action nav-link">ENTRY</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <div class="container hero-layout">
+            <div class="hero-text-area js-fade">
+                <div class="hero-label">TOTTORI / KURAYOSHI</div>
+                <h2 class="hero-headline">
+                    <span class="jp-main">あの日の景色へ、<br>ペダルを漕いで。</span>
+                    <span class="en-sub">Ride into the Scene.</span>
+                </h2>
+                <p class="hero-lead">
+                    映画『遥かなる街へ』の舞台・倉吉を巡る旅。<br>
+                    大人のためのタイムスリップ・サイクリング。<br>
+                    ペダルを漕ぐ音だけが響く、古い映画のような世界へ。
+                </p>
+                <div class="hero-tags">
+                    <span class="tag">#レトロベロ</span>
+                    <span class="tag">#絶品グルメライド</span>
+                    <span class="tag">#遥かなる街へ</span>
+                </div>
+                <div class="hero-actions">
+                    <span class="date-badge">2025 SPRING</span>
+                </div>
+            </div>
+
+            <div class="hero-visual-area js-fade delay-1">
+                <div class="record-tire-container">
+                    <div class="record-disk">
+                        <div class="record-label">
+                            <span class="label-text">RETRO<br>VELO<br>SIDE-A</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-border-bottom"></div>
+    </section>
+
+    <div id="side-a-wrapper">
+
+        <div class="container" id="concept">
+            <div class="side-label js-fade">
+                <div class="side-line"></div>
+                <div class="side-text">SIDE-A : STORY</div>
+                <div class="side-line"></div>
+            </div>
+            <section class="concept-section">
+                <p class="concept-text js-fade delay-1">
+                    谷口ジロー氏の傑作『遥かな町へ』の舞台となったこの街。<br>
+                    白壁の路地を抜け、打吹山を仰ぎ見れば、<br>
+                    まるで自分が物語の主人公になったような錯覚に包まれます。<br><br>
+                    「倉吉レトロベロ」は、速さを競うレースではありません。<br>
+                    テーマは<span class="keyword-highlight">「シネマティック・ライド」</span>。<br>
+                    <br>
+                    大人の分別をしばし忘れ、<br>
+                    ペダルを回して「あの日の自分」を探しに行きませんか。
+                </p>
+            </section>
+        </div>
+
+        <div class="quote-intermission js-fade">
+            <p class="quote-en">"Time flows differently here."</p>
+            <p class="quote-ja">ここでは、時間さえも<br>ゆっくりとペダルを漕いでいる。</p>
+        </div>
+
+        <section class="marquee-section js-fade">
+            <div class="marquee-container">
+                <div class="marquee-track">
+                    <div class="marquee-item" style="--rot: 1deg;"><img
+                            src="https://placehold.jp/32/cccccc/ffffff/320x220.png?text=SCENE%201" alt="Scene"></div>
+                    <div class="marquee-item" style="--rot: -2deg;"><img
+                            src="https://placehold.jp/32/bbbbbb/ffffff/320x220.png?text=SCENE%202" alt="Scene"></div>
+                    <div class="marquee-item" style="--rot: 1.5deg;"><img
+                            src="https://placehold.jp/32/cccccc/ffffff/320x220.png?text=SCENE%203" alt="Scene"></div>
+                    <div class="marquee-item" style="--rot: -1deg;"><img
+                            src="https://placehold.jp/32/bbbbbb/ffffff/320x220.png?text=SCENE%204" alt="Scene"></div>
+                    <div class="marquee-item" style="--rot: 2deg;"><img
+                            src="https://placehold.jp/32/cccccc/ffffff/320x220.png?text=SCENE%205" alt="Scene"></div>
+                    <div class="marquee-item" style="--rot: 1deg;"><img
+                            src="https://placehold.jp/32/cccccc/ffffff/320x220.png?text=SCENE%201" alt="Scene"></div>
+                    <div class="marquee-item" style="--rot: -2deg;"><img
+                            src="https://placehold.jp/32/bbbbbb/ffffff/320x220.png?text=SCENE%202" alt="Scene"></div>
+                    <div class="marquee-item" style="--rot: 1.5deg;"><img
+                            src="https://placehold.jp/32/cccccc/ffffff/320x220.png?text=SCENE%203" alt="Scene"></div>
+                    <div class="marquee-item" style="--rot: -1deg;"><img
+                            src="https://placehold.jp/32/bbbbbb/ffffff/320x220.png?text=SCENE%204" alt="Scene"></div>
+                    <div class="marquee-item" style="--rot: 2deg;"><img
+                            src="https://placehold.jp/32/cccccc/ffffff/320x220.png?text=SCENE%205" alt="Scene"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="side-b-wrapper">
+
+        <div class="container" id="stage">
+            <div class="bg-typography-layer">THE STAGE</div>
+
+            <div class="side-label js-fade">
+                <div class="side-line"></div>
+                <div class="side-text type-b">SIDE-B : THE JOURNEY</div>
+                <div class="side-line"></div>
+            </div>
+
+            <section class="stage-cinema-section">
+                <div class="cinema-grid">
+                    <div class="cinema-visual js-fade delay-1">
+                        <div class="img-main">
+                            <img src="https://placehold.jp/24/cccccc/ffffff/600x400.png?text=MAIN%20STAGE" alt="倉吉の街並み">
+                            <div class="img-frame-border"></div>
+                        </div>
+                        <div class="img-sub">
+                            <img src="https://placehold.jp/24/888888/ffffff/200x160.png?text=SUB" alt="赤瓦">
+                        </div>
+                    </div>
+                    <div class="cinema-text js-fade delay-2">
+                        <h3 class="vertical-head">赤瓦、<br>静寂の迷宮。</h3>
+                        <div class="vertical-body">
+                            <p>
+                                そこは、時が止まったままのオープンセット。<br>
+                                玉川沿いに並ぶ白壁土蔵群。<br>
+                                石橋の欄干に自転車を立てかければ、<br>
+                                ファインダーの中はもう、昭和の銀幕。
+                            </p>
+                            <p>
+                                路地の奥から、誰かが手招きしている気がする。<br>
+                                筋書きのないドラマが、ここで待っている。
+                            </p>
+                        </div>
+                        <div class="scene-spec">
+                            <dl>
+                                <dt>LOCATION</dt>
+                                <dd>Kurayoshi, Tottori</dd>
+                                <dt>SCENE</dt>
+                                <dd>#02 White Wall Lane</dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <section id="course" class="section bg-dot-pattern">
+            <div class="container">
+                <div class="section-heading js-fade">
+                    <span class="eng-title">SELECT TRACK</span>
+                    <h2 class="jp-title">選べる２つの物語（ルート）</h2>
+                </div>
+                <p class="text-center mb-40 js-fade delay-1">関金温泉エリアを発着点に、<br>体力と気分に合わせて選べる2つの盤面。</p>
+                <div class="course-vs-layout">
+                    <div class="course-box course-short js-fade delay-1">
+                        <div class="course-label">SCENE A</div>
+                        <h3>廃線跡とレトロ散歩<br><span class="course-name-en">SHORT TRACK</span></h3>
+                        <div class="spec-grid">
+                            <div class="spec-item"><span class="label">DIST</span><span
+                                    class="value">9.8<small>km</small></span></div>
+                            <div class="spec-item"><span class="label">UP</span><span
+                                    class="value">98<small>m</small></span></div>
+                        </div>
+                        <p class="course-desc">「せきがね廃線路」など、歴史遺産をのんびり巡るポタリング。カメラ片手に、映画のロケ地のような風景を探す旅へ。</p>
+                        <ul class="feature-list">
+                            <li>✅ <strong>特製スイーツ券</strong>付き</li>
+                            <li>✅ 関金廃線路観光案内所</li>
+                        </ul>
+                    </div>
+                    <div class="course-box course-middle js-fade delay-2">
+                        <div class="course-label">SCENE B</div>
+                        <h3>遙かなる絶景と美食<br><span class="course-name-en">MIDDLE TRACK</span></h3>
+                        <div class="spec-grid">
+                            <div class="spec-item"><span class="label">DIST</span><span
+                                    class="value">34.7<small>km</small></span></div>
+                            <div class="spec-item"><span class="label">UP</span><span
+                                    class="value">222<small>m</small></span></div>
+                        </div>
+                        <p class="course-desc">白壁土蔵群や倉吉駅方面へ足を延ばす充実のツーリング。ゴール後は名湯・関金温泉で汗を流して。</p>
+                        <ul class="feature-list">
+                            <li>✅ <strong>温泉入浴券</strong>付き</li>
+                            <li>✅ 倉吉駅周辺・白壁エリア</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="text-center js-fade delay-3" style="margin-top:40px;">
+                    <a href="#" class="btn-secondary">VIEW ROUTE MAP</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="scene-transition-connector">
+            <div class="connection-line"></div>
+            <div class="connection-text js-fade">
+                <span class="smell-icon">♨</span>
+                <span class="text">甘い香りに誘われて...</span>
+            </div>
+        </div>
+
+        <section id="gourmet" class="section bg-retro-red text-white">
+            <div class="container">
+                <div class="section-heading text-white js-fade">
+                    <span class="eng-title color-yellow">LOCAL GASTRONOMY</span>
+                    <h2 class="jp-title text-stroke-none">迷い込んだ先で出会う、<br>至福の補給食。</h2>
+                </div>
+                <p class="text-center mb-40 note-text-lg js-fade delay-1">
+                    白壁の路地裏散策でお腹が空いたら。<br>
+                    地元・倉吉の名店が誇る「食」のエンターテインメント。
+                </p>
+                <div class="sweets-diner-menu">
+                    <div class="menu-card js-fade delay-1">
+                        <div class="menu-icon">🍜</div>
+                        <div class="menu-info">
+                            <h3>Soul Food</h3>
+                            <p class="ja-name">牛骨ラーメン（試食）</p>
+                            <p class="desc">鳥取中部が誇るソウルフード。<br>牛脂の甘みと香ばしさが、疲れた体に染み渡る。</p>
+                        </div>
+                    </div>
+                    <div class="menu-card js-fade delay-2">
+                        <div class="menu-icon">🍡</div>
+                        <div class="menu-info">
+                            <h3>Classic Sweets</h3>
+                            <p class="ja-name">打吹公園だんご</p>
+                            <p class="desc">創業から変わらない、素朴で優しい三色の甘み。<br>時代を超えて愛される「倉吉の顔」。</p>
+                        </div>
+                    </div>
+                    <div class="menu-card js-fade delay-3">
+                        <div class="menu-icon">☕</div>
+                        <div class="menu-info">
+                            <h3>Retro Cafe</h3>
+                            <p class="ja-name">洋菓子と珈琲</p>
+                            <p class="desc">市内の人気洋菓子店「チロル」等のケーキや、<br>レトロな喫茶メニューで優雅な休憩を。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="schedule" class="section bg-cream">
+            <div class="container">
+                <div class="section-heading js-fade">
+                    <span class="eng-title">TIME TABLE</span>
+                    <h2 class="jp-title">当日のタイムライン</h2>
+                </div>
+                <div class="timeline-container">
+                    <div class="timeline-item js-fade delay-1">
+                        <div class="time">AM</div>
+                        <div class="event-box">
+                            <h4>集合・受付</h4>
+                            <p>都市交流センター（関金）に集合。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item js-fade delay-2">
+                        <div class="time">Start</div>
+                        <div class="event-box">
+                            <h4>順次スタート 🚲</h4>
+                            <p>グループごとに間隔を空けて出発。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item js-fade delay-3">
+                        <div class="time">Aid</div>
+                        <div class="event-box">
+                            <h4>エイド・観光 🍜</h4>
+                            <p>チェックポイントで絶品グルメを補給。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item js-fade delay-4">
+                        <div class="time">Goal</div>
+                        <div class="event-box">
+                            <h4>ゴール・温泉 ♨</h4>
+                            <p>完走後は関金温泉でリラックス。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="outline" class="section bg-dark text-white">
+            <div class="container">
+                <div class="section-heading text-white js-fade">
+                    <span class="eng-title color-yellow">SPEC SHEET</span>
+                    <h2 class="jp-title text-stroke-none">開催概要</h2>
+                </div>
+                <div class="spec-sheet js-fade delay-1">
+                    <dl>
+                        <dt>EVENT NAME</dt>
+                        <dd>倉吉レトロベロ 2025</dd>
+                        <dt>DATE</dt>
+                        <dd>2025年3月末〜4月初旬（予定）<br><small class="color-yellow">※現在調整中です</small></dd>
+                        <dt>LOCATION</dt>
+                        <dd>集合：都市交流センター（鳥取県倉吉市関金町）</dd>
+                        <dt>ENTRY FEE</dt>
+                        <dd>
+                            <div class="price-row"><span class="cat cat-middle">MIDDLE</span><span
+                                    class="price">¥4,000</span></div>
+                            <div class="price-row"><span class="cat cat-short">SHORT</span><span
+                                    class="price">¥2,500</span></div>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </section>
+    </div>
+    <section id="entry" class="section entry-section js-fade">
+        <div class="container text-center relative">
+            <h2 class="entry-catch">RIDE INTO THE STORY</h2>
+            <p class="entry-sub">12月〜1月頃 エントリー開始予定。<br>SNSで最新情報をチェック。</p>
+            <a href="#" class="btn-entry-big">OFFICIAL SITE <span class="arrow">→</span></a>
+        </div>
+    </section>
+
+    <footer class="footer-retro">
+        <div class="container">
+            <p>Copyright © Tottori Central Tourism Council.<br>Designed for Nostalgic Riders.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Menu
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('.retro-nav');
+        const navLinks = document.querySelectorAll('.nav-link');
+        menuBtn.addEventListener('click', () => { menuBtn.classList.toggle('active'); nav.classList.toggle('active'); });
+        navLinks.forEach(link => { link.addEventListener('click', () => { menuBtn.classList.remove('active'); nav.classList.remove('active'); }); });
+
+        // Scroll Observer
+        const fadeElements = document.querySelectorAll('.js-fade');
+        const scrollObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('scroll-in');
+                    scrollObserver.unobserve(entry.target);
+                }
+            });
+        }, { rootMargin: "0px 0px -100px 0px" });
+        fadeElements.forEach(el => { scrollObserver.observe(el); });
+    </script>
+</body>
+
+</html>

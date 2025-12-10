@@ -1,0 +1,2708 @@
+/* =========================================
+   BASE STYLES & VARIABLES
+========================================= */
+:root {
+    --color-bg: #fffcf0;
+    --color-text: #5d5d5d;
+    --color-pink: #ff9a9e;
+    --color-pink-light: #fecfef;
+    --color-blue: #a1c4fd;
+    --color-accent: #ff6b6b;
+    --color-brown: #5d4037;
+    --color-pop-pink: #ff8fa3;
+
+    /* フォント設定 */
+    --font-main: 'Zen Maru Gothic', sans-serif;
+    --font-title: 'Kiwi Maru', serif;
+    --font-en: 'Grandstander', cursive;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    margin: 0;
+    line-height: 1.8;
+    background-image: radial-gradient(#ececec 1px, transparent 1px);
+    background-size: 20px 20px;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.sp-only {
+    display: none;
+}
+
+/* =========================================
+   HERO POSTER SECTION (New Modern Kawaii)
+========================================= */
+.hero-poster {
+    /* 背景を少しリッチに：グリッド模様＋ふわふわグラデ */
+    background-color: #fff0f5;
+    background-image:
+        linear-gradient(rgba(255, 154, 158, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 154, 158, 0.1) 1px, transparent 1px);
+    background-size: 40px 40px;
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 0 100px;
+}
+
+/* 背景のふわふわBlob（オーロラ効果） */
+.hero-bg-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.6;
+    z-index: 0;
+    animation: floatBlob 20s infinite alternate;
+}
+
+.blob-1 {
+    width: 40vw;
+    height: 40vw;
+
+    /* 変更後: ふんわりとした薄い桜色 (ミスティローズ) */
+    background: #ffe4e1;
+
+    /* 以前の色（参考）: background: #a1c4fd; (青) / #fff4bd (黄色) */
+
+    top: -10%;
+    right: -10%;
+}
+
+.blob-2 {
+    width: 30vw;
+    height: 30vw;
+    background: #fecfef;
+    bottom: 0%;
+    left: -5%;
+    animation-duration: 25s;
+}
+
+@keyframes floatBlob {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate(30px, 50px) scale(1.1);
+    }
+}
+
+.hero-inner {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- 左側：テキストエリア --- */
+.hero-content {
+    flex: 1;
+    padding-right: 40px;
+}
+
+.title-sub {
+    font-family: var(--font-en);
+    font-weight: 900;
+    color: var(--color-pink);
+    letter-spacing: 0.1em;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.title-main-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 20px;
+    font-family: var(--font-main);
+    line-height: 1.2;
+}
+
+/* ステッカー風文字デザイン */
+.char-block {
+    font-size: clamp(3.5rem, 6vw, 5rem);
+    font-weight: 900;
+    position: relative;
+    z-index: 1;
+    /* 白フチ＋ドロップシャドウ */
+    -webkit-text-stroke: 6px #fff;
+    paint-order: stroke fill;
+    text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.1);
+}
+
+.color-brown {
+    color: var(--color-brown);
+}
+
+.color-pink {
+    color: var(--color-pop-pink);
+}
+
+/* 「あま〜い」をぷるんとはねさせる */
+.pop-anim {
+    display: inline-block;
+    animation: jelly 2s infinite;
+    transform-origin: center bottom;
+}
+
+@keyframes jelly {
+
+    0%,
+    100% {
+        transform: scale(1, 1);
+    }
+
+    25% {
+        transform: scale(0.9, 1.1);
+    }
+
+    50% {
+        transform: scale(1.1, 0.9);
+    }
+
+    75% {
+        transform: scale(0.95, 1.05);
+    }
+}
+
+.hero-catch {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #777;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(5px);
+    padding: 15px 20px;
+    border-radius: 15px;
+    display: inline-block;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.hero-catch strong {
+    color: var(--color-accent);
+    background: linear-gradient(transparent 70%, var(--color-pink-light) 70%);
+}
+
+.hero-actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* 新しいボタン：ぷっくり3D感 */
+.btn-hero-new {
+    background: var(--color-pop-pink);
+    color: #fff;
+    font-family: var(--font-en);
+    font-size: 1.4rem;
+    font-weight: bold;
+    padding: 12px 40px;
+    border-radius: 50px;
+    border: 3px solid #fff;
+    box-shadow:
+        0 8px 0 #f06d85,
+        /* 厚み */
+        0 15px 20px rgba(255, 107, 107, 0.3);
+    /* 影 */
+    transition: transform 0.1s;
+    position: relative;
+    top: 0;
+}
+
+.btn-hero-new:active {
+    top: 8px;
+    box-shadow:
+        0 0 0 #f06d85,
+        0 0 5px rgba(255, 107, 107, 0.3);
+}
+
+.btn-hero-new .arrow-bounce {
+    display: inline-block;
+    font-size: 1.2rem;
+    margin-left: 5px;
+    animation: arrowJump 1s infinite alternate;
+}
+
+@keyframes arrowJump {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(5px);
+    }
+}
+
+.date-tag {
+    background: #fff;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: bold;
+    color: #5d5d5d;
+    box-shadow: 0 4px 0 #eee;
+    font-family: var(--font-en);
+    transform: rotate(-5deg);
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* --- 右側：ビジュアルエリア --- */
+.hero-visual-new {
+    flex: 1;
+    position: relative;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* うねうね動くメイン画像 */
+.morph-image-wrapper {
+    position: relative;
+    z-index: 5;
+}
+
+.morph-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+    box-shadow: 10px 10px 0 rgba(161, 196, 253, 0.3);
+    animation: morphing 8s ease-in-out infinite;
+    background: #fff;
+    border: 5px solid #fff;
+}
+
+@keyframes morphing {
+    0% {
+        border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+    }
+
+    33% {
+        border-radius: 70% 30% 30% 70% / 60% 40% 60% 40%;
+    }
+
+    66% {
+        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    }
+
+    100% {
+        border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+    }
+}
+
+/* 画像周りの回転テキスト */
+.spinning-text {
+    position: absolute;
+    /* 位置とサイズを微調整して、メインビジュアルの周りにフィットさせる */
+    top: -15%;
+    left: -15%;
+    width: 130%;
+    height: 130%;
+    animation: spin 20s linear infinite;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* テキストのフォントサイズも少し調整 */
+.spinning-text text {
+    fill: var(--color-pink);
+    font-family: var(--font-en);
+    font-weight: bold;
+    font-size: 15px;
+    /* 少し小さくしてフィット感を高める */
+    letter-spacing: 2px;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* 浮遊するサブ写真（ポラロイド風） */
+.float-photo {
+    position: absolute;
+    background: #fff;
+    padding: 8px 8px 25px 8px;
+    /* 下を広くしてポラロイド風に */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    z-index: 6;
+    transition: transform 0.3s;
+    animation: floatCard 6s ease-in-out infinite;
+}
+
+.float-photo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: #eee;
+}
+
+.float-photo:hover {
+    transform: scale(1.1) !important;
+    z-index: 10;
+}
+
+.p-1 {
+    width: 140px;
+    top: 50px;
+    left: -20px;
+    transform: rotate(-15deg);
+    animation-delay: 0s;
+}
+
+.p-2 {
+    width: 130px;
+    bottom: 40px;
+    right: 0px;
+    transform: rotate(10deg);
+    animation-delay: 3s;
+}
+
+@keyframes floatCard {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(var(--r, 0deg));
+    }
+
+    50% {
+        transform: translateY(-15px) rotate(var(--r, 0deg));
+    }
+}
+
+.p-1 {
+    --r: -15deg;
+}
+
+.p-2 {
+    --r: 10deg;
+}
+
+/* キラキラ装飾 */
+.deco-sparkle {
+    position: absolute;
+    font-size: 2rem;
+    animation: sparkle 2s infinite;
+}
+
+.s-1 {
+    top: 10%;
+    right: 20%;
+    animation-delay: 0.5s;
+    font-size: 2.5rem;
+}
+
+.s-2 {
+    bottom: 20%;
+    left: 10%;
+    animation-delay: 1.2s;
+}
+
+.s-3 {
+    top: 0;
+    left: 40%;
+    font-size: 1.5rem;
+}
+
+@keyframes sparkle {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.3);
+        opacity: 0.7;
+    }
+}
+
+/* 波の区切り */
+.wave-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    line-height: 0;
+}
+
+/* =========================================
+   SECTIONS & COMPONENTS (Content Area)
+========================================= */
+.section {
+    padding: 100px 0;
+    position: relative;
+}
+
+.section-subtitle {
+    color: var(--color-pink);
+    font-family: var(--font-title);
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.section-title {
+    font-family: var(--font-title);
+    font-size: 2.2rem;
+    color: var(--color-text);
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+/* ノート風ボックス */
+.note-paper {
+    background: #fff;
+    padding: 60px;
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    background-image: linear-gradient(#e1e1e1 1px, transparent 1px);
+    background-size: 100% 2em;
+    line-height: 2em;
+}
+
+.tape-top {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-2deg);
+    width: 150px;
+    height: 35px;
+    background: rgba(161, 196, 253, 0.5);
+}
+
+/* Sweets Grid */
+.bg-check {
+    background-color: #fff9f9;
+    background-image: repeating-linear-gradient(45deg, #fff0f0 25%, transparent 25%, transparent 75%, #fff0f0 75%, #fff0f0), repeating-linear-gradient(45deg, #fff0f0 25%, #fff9f9 25%, #fff9f9 75%, #fff0f0 75%, #fff0f0);
+    background-position: 0 0, 10px 10px;
+    background-size: 20px 20px;
+}
+
+.sweets-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+}
+
+.sweets-card {
+    background: #fff;
+    padding: 15px;
+    width: 280px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    position: relative;
+    transition: transform 0.3s;
+}
+
+.sweets-card:nth-child(even) {
+    transform: rotate(2deg);
+}
+
+.sweets-card:nth-child(odd) {
+    transform: rotate(-2deg);
+}
+
+.pin {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 2rem;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+.sweets-img {
+    height: 180px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.sweets-info h3 {
+    font-size: 1.2rem;
+    border-bottom: 2px dotted var(--color-pink);
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+/* =========================================
+   COURSE SECTION
+========================================= */
+.course-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.course-box {
+    flex: 1;
+    min-width: 300px;
+    background: #fff;
+    border-radius: 20px;
+    padding: 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    position: relative;
+    border: 2px solid #eee;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.tape-center {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px dotted #ccc;
+    transform: rotate(-2deg);
+    z-index: 10;
+}
+
+.course-header {
+    padding: 30px 20px 20px;
+    text-align: center;
+    color: #fff;
+}
+
+.course-header h3 {
+    margin: 10px 0;
+    font-family: var(--font-title);
+}
+
+.course-header .distance {
+    font-size: 1.2rem;
+    font-weight: bold;
+    opacity: 0.9;
+}
+
+.badge {
+    background: rgba(255, 255, 255, 0.3);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+}
+
+.course-body {
+    padding: 20px;
+}
+
+.course-body .desc {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.specs {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.specs li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    border-bottom: 1px dashed #ddd;
+    padding-bottom: 5px;
+}
+
+.specs li:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.specs span {
+    font-weight: bold;
+    color: #888;
+}
+
+.map-area-mini {
+    height: 150px;
+    background: #eee;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #aaa;
+    border: 4px solid #fff;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.course-pink {
+    border-color: var(--color-pink-light);
+}
+
+.course-pink .course-header {
+    background: var(--color-pink);
+}
+
+.course-blue {
+    border-color: #bce0e0;
+}
+
+.course-blue .course-header {
+    background: #6dd5ed;
+}
+
+/* 足跡 */
+.footsteps {
+    position: absolute;
+    top: 50px;
+    right: 10%;
+    font-size: 2rem;
+    color: var(--color-pink-light);
+    transform: rotate(30deg);
+    opacity: 0.6;
+}
+
+.footsteps span {
+    display: inline-block;
+    animation: fadeStep 3s infinite;
+}
+
+.footsteps span:nth-child(2) {
+    animation-delay: 0.5s;
+    margin-top: -20px;
+    margin-left: 10px;
+}
+
+.footsteps span:nth-child(3) {
+    animation-delay: 1s;
+    margin-top: -40px;
+    margin-left: 20px;
+}
+
+@keyframes fadeStep {
+
+    0%,
+    100% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* =========================================
+   SCHEDULE SECTION (Clean & Fixed)
+========================================= */
+.timeline-box {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    border: 4px dotted var(--color-blue);
+}
+
+.timeline {
+    position: relative;
+    padding: 0;
+}
+
+/* 縦の点線：時間(70px) + 余白の右側に配置 */
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 84px;
+    width: 2px;
+    height: 100%;
+    background: repeating-linear-gradient(to bottom, var(--color-pink) 0, var(--color-pink) 5px, transparent 5px, transparent 10px);
+}
+
+.timeline li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.timeline .time {
+    width: 70px;
+    flex-shrink: 0;
+    text-align: right;
+    padding-right: 15px;
+    padding-top: 18px;
+    font-weight: bold;
+    color: var(--color-pink);
+    font-family: var(--font-title);
+    line-height: 1.2;
+}
+
+.timeline .content {
+    flex: 1;
+    background: #fffcf0;
+    padding: 15px 20px;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-left: 25px;
+}
+
+.timeline .content::before {
+    content: '●';
+    position: absolute;
+    left: -32px;
+    top: 16px;
+    color: var(--color-pink);
+    font-size: 1.2rem;
+    line-height: 1;
+    background: #fff;
+    border-radius: 50%;
+    z-index: 1;
+    text-align: center;
+    width: 16px;
+    height: 16px;
+}
+
+.timeline h4 {
+    margin: 0 0 5px 0;
+    font-size: 1.1rem;
+    border-bottom: 1px dashed #ddd;
+    padding-bottom: 5px;
+    line-height: 1.4;
+}
+
+.timeline p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* =========================================
+   FAQ
+========================================= */
+.faq-list {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    margin-bottom: 30px;
+}
+
+.question,
+.answer {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.icon-q,
+.icon-a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: bold;
+    flex-shrink: 0;
+    margin-top: 5px;
+}
+
+.icon-q {
+    background: var(--color-pink);
+    margin-right: 15px;
+}
+
+.icon-a {
+    background: var(--color-blue);
+    margin-right: 15px;
+}
+
+.question p,
+.answer p {
+    background: #fff;
+    padding: 15px 20px;
+    border-radius: 20px;
+    position: relative;
+    margin: 0;
+    font-size: 0.95rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.question p {
+    border-top-left-radius: 0;
+}
+
+.question p::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -10px;
+    border-top: 15px solid #fff;
+    border-left: 15px solid transparent;
+}
+
+.answer {
+    flex-direction: row-reverse;
+}
+
+.answer .icon-a {
+    margin-right: 0;
+    margin-left: 15px;
+}
+
+.answer p {
+    background: #eef6ff;
+    border-top-right-radius: 0;
+}
+
+.answer p::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -10px;
+    border-top: 15px solid #eef6ff;
+    border-right: 15px solid transparent;
+}
+
+/* =========================================
+   OUTLINE (Overview)
+========================================= */
+.outline-board {
+    max-width: 800px;
+    margin: 40px auto 0;
+    background: #fff;
+    padding: 60px 40px 40px;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border: 1px solid #eee;
+}
+
+.board-clip {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 40px;
+    background: #888;
+    border-radius: 5px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.board-clip::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 10px;
+    background: #666;
+    border-radius: 20px;
+}
+
+.outline-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.outline-table th,
+.outline-table td {
+    padding: 15px;
+    border-bottom: 2px dashed #f0f0f0;
+    text-align: left;
+    vertical-align: top;
+}
+
+.outline-table th {
+    width: 30%;
+    color: var(--color-pink);
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.price-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.label-cat {
+    background: var(--color-blue);
+    color: #fff;
+    font-size: 0.8rem;
+    padding: 2px 10px;
+    border-radius: 10px;
+    margin-right: 10px;
+    width: 80px;
+    text-align: center;
+}
+
+.price {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.note {
+    font-size: 0.85rem;
+    color: #999;
+    display: block;
+    margin-top: 5px;
+}
+
+/* =========================================
+   ACCESS
+========================================= */
+.postcard {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    border: 1px solid #ddd;
+}
+
+.stamp-area {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.stamp {
+    width: 80px;
+    height: 80px;
+    border: 2px dashed #dca;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #dca;
+    font-weight: bold;
+    transform: rotate(-15deg);
+    font-size: 0.8rem;
+    text-align: center;
+    opacity: 0.7;
+}
+
+.address-area {
+    padding-left: 120px;
+    margin-bottom: 30px;
+}
+
+.address-area h4 {
+    font-size: 1.2rem;
+    color: var(--color-text);
+    margin-bottom: 5px;
+}
+
+.address-area hr {
+    border: none;
+    border-top: 1px dotted #ccc;
+    margin: 15px 0;
+}
+
+.map-embed-placeholder {
+    width: 100%;
+    height: 300px;
+    background: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    border: 5px solid #fff;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* =========================================
+   ENTRY & BUTTONS
+========================================= */
+.entry-box {
+    background: #fff;
+    border: 4px dashed var(--color-pink-light);
+    border-radius: 30px;
+    padding: 60px;
+    text-align: center;
+    background-color: #fffcf0;
+}
+
+/* 共通のボタン */
+.btn-main {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: #fff;
+    color: var(--color-text);
+    padding: 15px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: var(--font-main);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 2px solid var(--color-pink);
+    box-shadow: 4px 4px 0 var(--color-pink-light);
+}
+
+.btn-main:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--color-pink);
+}
+
+.btn-main:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--color-pink);
+}
+
+/* ミニボタン（ルートマップなど） */
+.btn-mini {
+    padding: 10px 25px;
+    font-size: 0.95rem;
+    border-color: var(--color-blue);
+    box-shadow: 4px 4px 0 #bce0e0;
+}
+
+.btn-mini:hover {
+    box-shadow: 6px 6px 0 var(--color-blue);
+}
+
+.btn-mini:active {
+    box-shadow: 2px 2px 0 var(--color-blue);
+}
+
+/* ピンク強調（下部エントリーボタン） */
+.btn-pink {
+    background: var(--color-pink);
+    color: #fff !important;
+    font-size: 1.2rem;
+    padding: 18px 50px;
+    border: 4px solid #fff;
+    box-shadow: 0 0 0 2px var(--color-pink), 0 10px 20px rgba(255, 107, 107, 0.3);
+}
+
+.btn-pink span {
+    font-size: 1.4rem;
+    margin-left: 5px;
+    animation: heartBeat 2s infinite;
+}
+
+.btn-pink:hover {
+    background: var(--color-accent);
+    transform: scale(1.05) rotate(-2deg);
+    box-shadow: 0 0 0 2px var(--color-accent), 0 15px 25px rgba(255, 107, 107, 0.4);
+}
+
+.btn-pink:active {
+    transform: scale(0.95);
+}
+
+/* =========================================
+   FOOTER & FLOATING DECORATIONS
+========================================= */
+.footer {
+    background: var(--color-pink-light);
+    color: var(--color-text);
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.9rem;
+}
+
+.bg-decoration {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.float-item {
+    position: absolute;
+    font-size: 3rem;
+    opacity: 0.2;
+    animation: float 10s infinite linear;
+}
+
+.item-1 {
+    top: 10%;
+    left: 5%;
+    animation-duration: 8s;
+}
+
+.item-2 {
+    top: 50%;
+    right: 10%;
+    animation-duration: 12s;
+    animation-delay: 2s;
+}
+
+.item-3 {
+    bottom: 15%;
+    left: 20%;
+    animation-duration: 9s;
+    animation-delay: 1s;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* =========================================
+   FLOATING NAVIGATION
+========================================= */
+.floating-nav {
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 252, 240, 0.95);
+    backdrop-filter: blur(8px);
+    border-radius: 60px;
+    padding: 0 30px;
+    border: 3px dotted var(--color-pink-light);
+    box-shadow: 0 10px 25px rgba(255, 154, 158, 0.4);
+    z-index: 1000;
+    width: 90%;
+    max-width: 420px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.floating-nav ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.floating-nav li {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.floating-nav a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.floating-nav a:not(.main-action a):hover {
+    transform: translateY(-5px);
+}
+
+.floating-nav a:not(.main-action a):active {
+    transform: scale(0.95);
+}
+
+.nav-icon {
+    font-size: 1.5rem;
+    line-height: 1;
+    margin-bottom: 4px;
+    filter: drop-shadow(0 2px 0 rgba(0, 0, 0, 0.1));
+}
+
+.nav-text {
+    font-size: 0.65rem;
+    font-weight: bold;
+    color: var(--color-text);
+    font-family: var(--font-title);
+    letter-spacing: 0.05em;
+}
+
+/* MAIN ACTION BUTTON */
+.main-action {
+    position: relative;
+    top: -20px;
+}
+
+.main-action a {
+    background: linear-gradient(135deg, #ff9a9e 0%, #ff6b6b 100%);
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 4px solid #fff;
+    box-shadow: 0 8px 15px rgba(255, 107, 107, 0.4), inset 0 2px 5px rgba(255, 255, 255, 0.4);
+    color: #fff;
+    animation: heartBeat 3s infinite;
+}
+
+.main-action .nav-icon {
+    font-size: 1.8rem;
+    margin-bottom: 0;
+    margin-top: 2px;
+}
+
+.main-action .nav-text {
+    position: absolute;
+    bottom: -22px;
+    background: #fff;
+    padding: 2px 8px;
+    border-radius: 10px;
+    color: var(--color-accent);
+    border: 1px solid var(--color-pink-light);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.main-action a:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.main-action a:active {
+    transform: scale(0.95);
+}
+
+@media screen and (max-height: 500px) {
+    .floating-nav {
+        display: none;
+    }
+}
+
+/* =========================================
+   ANIMATIONS & UTILITIES
+========================================= */
+.scroll-fade {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.scroll-fade.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.delay-100 {
+    transition-delay: 0.1s;
+}
+
+.delay-200 {
+    transition-delay: 0.2s;
+}
+
+@keyframes wiggle-happy {
+
+    0%,
+    100% {
+        transform: rotate(0deg) scale(1);
+    }
+
+    25% {
+        transform: rotate(-3deg) scale(1.02);
+    }
+
+    50% {
+        transform: rotate(3deg) scale(1.02);
+    }
+
+    75% {
+        transform: rotate(-1deg) scale(1.02);
+    }
+}
+
+.sweets-card:hover,
+.course-box:hover {
+    animation: wiggle-happy 0.5s ease-in-out;
+    z-index: 10;
+}
+
+@keyframes heartBeat {
+
+    0%,
+    28%,
+    70% {
+        transform: scale(1);
+    }
+
+    14%,
+    42% {
+        transform: scale(1.1);
+    }
+}
+
+/* =========================================
+   RESPONSIVE DESIGN (Mobile)
+========================================= */
+@media screen and (max-width: 768px) {
+    .sp-only {
+        display: inline;
+    }
+
+    /* Hero */
+    .hero-poster {
+        flex-direction: column;
+        padding-top: 100px;
+        height: auto;
+    }
+
+    .hero-inner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-content {
+        padding-right: 0;
+        margin-bottom: 40px;
+    }
+
+    .title-sub {
+        justify-content: center;
+    }
+
+    .title-main-wrapper {
+        justify-content: center;
+    }
+
+    .char-block {
+        font-size: 15vw;
+        -webkit-text-stroke: 4px #fff;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .hero-visual-new {
+        height: 350px;
+        width: 100%;
+        margin-bottom: 50px;
+    }
+
+    .morph-image-wrapper {
+        width: 280px;
+        height: 280px;
+    }
+
+    .float-photo {
+        transform: scale(0.8);
+    }
+
+    .p-1 {
+        left: 0;
+    }
+
+    .p-2 {
+        right: 0;
+    }
+
+    /* Section & General */
+    .container {
+        padding: 0 15px;
+    }
+
+    .section {
+        padding: 60px 0;
+    }
+
+    .course-grid {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .course-box,
+    .sweets-card {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    /* Timeline (Optimized for Mobile) */
+    .timeline-box {
+        padding: 30px 15px;
+    }
+
+    .timeline::before {
+        left: 14px;
+    }
+
+    .timeline li {
+        flexDirection: column;
+    }
+
+    .timeline .time {
+        width: 100%;
+        text-align: left;
+        margin-bottom: 5px;
+        padding-left: 40px;
+        padding-top: 0;
+        box-sizing: border-box;
+    }
+
+    .timeline .content {
+        margin-left: 40px;
+        width: calc(100% - 40px);
+        box-sizing: border-box;
+    }
+
+    .timeline .content::before {
+        left: -33px;
+        top: -28px;
+    }
+
+    /* Outline & Access */
+    .outline-table th,
+    .outline-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .outline-table th {
+        border-bottom: none;
+        padding-bottom: 5px;
+        color: var(--color-blue);
+    }
+
+    .stamp-area {
+        position: relative;
+        top: auto;
+        left: auto;
+        margin: 0 auto 20px;
+        width: 80px;
+    }
+
+    .address-area {
+        padding-left: 0;
+        text-align: center;
+    }
+}
+
+/* --- 1. 追加した「2025」のデザイン（以前のスタイルを復刻） --- */
+.title-year {
+    display: inline-block;
+    font-family: var(--font-en);
+    /* メイン文字に対する比率 */
+    vertical-align: middle;
+    margin-left: 10px;
+    padding: 2px 12px;
+    border-radius: 50px;
+
+    /* 以前のデザイン：チョコ色背景＋白ステッチ */
+    background: #5d4037;
+    color: #fff;
+    border: 2px dashed #ffffff;
+    box-shadow:
+        0 0 0 3px var(--color-pink),
+        /* 外側のピンク枠 */
+        5px 5px 0 rgba(255, 154, 158, 0.4);
+    /* 影 */
+
+    transform: rotate(-10deg) translateY(-15px);
+    /* 少し傾けて上に */
+    position: relative;
+    top: -5px;
+    text-shadow: none;
+    /* 親の影を消す */
+    -webkit-text-stroke: 0;
+    /* 親の縁取りを消す */
+}
+
+/* --- 2. レスポンシブ強化（スマホ最適化） --- */
+@media screen and (max-width: 768px) {
+
+    /* 全体の余白調整 */
+    .hero-poster {
+        padding-top: 80px;
+        padding-bottom: 60px;
+        min-height: auto;
+        height: auto;
+        display: block;
+        /* フレックス解除して縦積みに */
+    }
+
+    .hero-inner {
+        flex-direction: column;
+        gap: 30px;
+        width: 100%;
+        padding: 0 15px;
+        box-sizing: border-box;
+    }
+
+    .hero-content {
+        padding-right: 0;
+        text-align: center;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    /* タイトルの自動サイズ調整 */
+    .title-sub {
+        justify-content: center;
+        font-size: 1rem;
+    }
+
+    .title-main-wrapper {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 5px;
+        margin-bottom: 15px;
+    }
+
+    .char-block {
+        /* 画面幅に合わせて文字サイズを変動させる */
+        font-size: 13vw;
+        -webkit-text-stroke: 4px #fff;
+    }
+
+    .title-year {
+        margin-left: 5px;
+        transform: rotate(-5deg) translateY(-5px);
+    }
+
+    /* キャッチコピー */
+    .hero-catch {
+        font-size: 0.9rem;
+        text-align: left;
+        /* 文章は左揃えの方が読みやすい */
+        display: inline-block;
+        margin: 0 auto 30px;
+        width: 90%;
+    }
+
+    /* ボタンエリア */
+    .hero-actions {
+        justify-content: center;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    /* ビジュアルエリア（画像） */
+    .hero-visual-new {
+        height: 320px;
+        /* スマホでの高さ固定 */
+        width: 100%;
+        margin-top: 10px;
+        overflow: visible;
+        /* 回転テキストが見切れないように */
+    }
+
+    .morph-image-wrapper {
+        width: 260px;
+        height: 260px;
+    }
+
+    /* 回転テキストのスマホ位置調整 */
+    .spinning-text {
+        top: -12%;
+        left: -12%;
+        width: 124%;
+        height: 124%;
+    }
+
+    /* 浮遊写真のサイズ調整 */
+    .float-photo {
+        transform: scale(0.7);
+    }
+
+    .p-1 {
+        top: 0;
+        left: -10px;
+    }
+
+    .p-2 {
+        bottom: 0;
+        right: -10px;
+    }
+}
+
+/* =========================================
+   CUSTOM LAYOUT: RIGHT OVERLAY (PC ONLY)
+   イラストを右側に大きくはみ出させる調整
+========================================= */
+@media screen and (min-width: 769px) {
+
+    /* コンテナからはみ出すのを許可する設定 */
+    .hero-poster {
+        overflow-x: hidden;
+        /* 横スクロールバーが出ないようにする */
+    }
+
+    .hero-inner {
+        position: relative;
+        /* 必要であれば z-index を調整 */
+    }
+
+    /* 右側の画像エリア（ビジュアルエリア）の調整 */
+    .hero-visual-new {
+        /* 1. テキスト(1)に対して画像(1.6)の比率を大きくして場所を確保 */
+        flex: 1.6;
+
+        /* 2. コンテナの右端の壁を無視して、右に突き抜けさせる */
+        margin-right: -150px;
+
+        /* 位置の微調整（少し右に寄せる） */
+        transform: translateX(30px);
+
+        /* 前面に表示して背景装飾（Blob）より目立たせる */
+        z-index: 5;
+    }
+
+    /* 画像自体のサイズ調整 */
+    .morph-image-wrapper {
+        /* 親要素からはみ出してさらに大きく表示 */
+        width: 120%;
+        height: auto;
+        /* 少し左にずらしてバランスを取る */
+        margin-left: -10%;
+    }
+
+    /* テキストエリアが圧迫されすぎないようにする保険 */
+    .hero-content {
+        flex-shrink: 0;
+        /* 縮小しないようにする */
+        max-width: 500px;
+        /* テキストの読みやすさを維持する最大幅 */
+    }
+}
+
+/* =========================================
+   NO MOTION SETTINGS
+   すべてのアニメーションを停止する
+========================================= */
+
+/* 1. 背景の色の玉（Blob）の動きを止める */
+.hero-bg-blob {
+    animation: none !important;
+}
+
+/* 2. メイン画像のうねうね変形を止める */
+.morph-img {
+    animation: none !important;
+    /* 形を固定（初期状態の有機的な丸みで固定） */
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+}
+
+/* 3. 画像周りの文字の回転を止める */
+.spinning-text {
+    animation: none !important;
+}
+
+/* 5. その他の浮遊・装飾アニメーションを一括停止 */
+.float-photo,
+/* 浮いている写真 */
+.float-item,
+/* 背景の浮遊アイテム */
+.deco-sparkle,
+/* キラキラ */
+.arrow-bounce,
+/* 矢印のバウンス */
+.btn-pink span,
+/* ボタンのアイコン */
+.main-action a,
+/* フローティングボタン */
+.sweets-card:hover,
+/* カードの揺れ */
+.course-box:hover {
+    animation: none !important;
+    transform: none !important;
+    /* 回転などもリセット */
+}
+
+/* =========================================
+   SOPHISTICATED MOBILE LAYOUT (Right-Aligned Visual)
+   Flow: Title/Text -> Right Image -> Button
+========================================= */
+
+@media screen and (max-width: 768px) {
+
+    /* --- 1. レイアウトの初期化 --- */
+    .hero-poster {
+        padding-top: 100px;
+        /* ヘッダーとの距離 */
+        padding-bottom: 40px;
+    }
+
+    .hero-inner {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 0 20px;
+        box-sizing: border-box;
+        overflow: visible;
+        /* 画像のはみ出しを許可 */
+    }
+
+    /* --- 2. タイトル＆詳細 (Top) --- */
+    .hero-content {
+        order: 1;
+        /* 1番目 */
+        width: 100%;
+        padding: 0;
+        margin-bottom: 0;
+        text-align: left;
+        /* 左揃えで知的な印象に */
+        background: transparent;
+        box-shadow: none;
+        backdrop-filter: none;
+        border: none;
+        z-index: 2;
+        /* 画像より手前に表示 */
+    }
+
+    /* タイトル周り */
+    .title-sub {
+        justify-content: flex-start;
+        /* 左寄せ */
+        margin-left: 5px;
+        font-size: 0.9rem;
+    }
+
+    .title-main-wrapper {
+        justify-content: flex-start;
+        /* 左寄せ */
+        flex-wrap: wrap;
+        margin-bottom: 15px;
+        position: relative;
+    }
+
+    .char-block {
+        font-size: 13vw;
+        /* インパクト大 */
+        line-height: 1.1;
+    }
+
+    /* 年号タグ：タイトルの右上に小さく添える */
+    .title-year {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 0;
+        transform: rotate(5deg) scale(0.9);
+    }
+
+    /* 詳細テキスト：画像の邪魔にならないよう幅を制限 */
+    .hero-catch {
+        text-align: left;
+        font-size: 0.9rem;
+        line-height: 1.8;
+        padding: 0 0 0 5px;
+        margin: 0;
+        max-width: 65%;
+        /* 右側に画像が来るスペースを空ける */
+        background: transparent;
+        box-shadow: none;
+        color: #666;
+    }
+
+    /* --- 3. 画像エリア (Middle-Right) --- */
+    .hero-visual-new {
+        order: 2;
+        /* 2番目 */
+        width: 90%;
+        /* 画面の右側9割を使う */
+        height: 260px;
+
+        /* 配置テクニック：右に寄せて、上に少し被せる */
+        margin-left: auto;
+        /* 右寄せ */
+        margin-right: -30px;
+        /* 画面端から少しはみ出させる（見切れ効果） */
+        margin-top: -60px;
+        /* テキストの下部に重ねて一体感を出す */
+        margin-bottom: 30px;
+        /* ボタンとの余白 */
+
+        display: flex;
+        justify-content: flex-end;
+        /* 画像自体も右寄せ */
+        align-items: center;
+        z-index: 1;
+        /* テキストの背面 */
+    }
+
+    .morph-image-wrapper {
+        width: 100%;
+        height: 100%;
+        /* 影を右下に流して奥行きを強調 */
+        filter: drop-shadow(-10px 10px 20px rgba(161, 196, 253, 0.3));
+    }
+
+    /* 回転テキスト位置調整 */
+    .spinning-text {
+        left: auto;
+        right: -10%;
+        /* 右側に寄せる */
+    }
+
+    /* --- 4. エントリーボタン (Bottom) --- */
+    .hero-actions {
+        order: 3;
+        /* 3番目 */
+        flex-direction: column;
+        width: 100%;
+        gap: 15px;
+        z-index: 10;
+        margin-top: 10px;
+    }
+
+    /* 日付タグ */
+    .date-tag {
+        align-self: flex-start;
+        /* 左寄せ */
+        transform: rotate(0deg);
+        background: transparent;
+        box-shadow: none;
+        padding: 0 0 0 5px;
+        color: var(--color-pop-pink);
+        font-size: 1rem;
+    }
+
+    /* ボタン：画面下部にどっしりと配置 */
+    .btn-hero-new {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 18px;
+        font-size: 1.3rem;
+        border-radius: 20px;
+        /* 以前より丸みを抑えてモダンに */
+        box-shadow: 0 10px 25px rgba(255, 107, 107, 0.3);
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .btn-hero-new:active {
+        top: 0;
+        transform: scale(0.98);
+    }
+}
+
+/* =========================================
+   MOBILE LAYOUT: VERTICAL FLOW
+   Order: 1.Text -> 2.Image(Right) -> 3.Button
+========================================= */
+
+@media screen and (max-width: 768px) {
+
+    /* --- コンテナ設定：縦並びを強制 --- */
+    .hero-poster {
+        padding-top: 90px;
+        padding-bottom: 60px;
+        height: auto;
+    }
+
+    .hero-inner {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 0 20px;
+        box-sizing: border-box;
+        overflow: visible;
+        gap: 0;
+        /* 余白は各要素のマージンで調整 */
+    }
+
+    /* --- 1. タイトルと詳細テキスト (一番上) --- */
+    .hero-content {
+        order: 1;
+        width: 100%;
+        padding: 0;
+        margin-bottom: 10px;
+        /* 画像との距離（少し詰める） */
+        text-align: left;
+        background: transparent;
+        border: none;
+        backdrop-filter: none;
+        box-shadow: none;
+        z-index: 2;
+        /* 画像より手前に文字を表示 */
+    }
+
+    /* タイトル周り */
+    .title-sub {
+        justify-content: flex-start;
+        margin-left: 2px;
+    }
+
+    .title-main-wrapper {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 5px;
+        margin-bottom: 15px;
+    }
+
+    .char-block {
+        font-size: 13vw;
+        /* スマホ幅に合わせて大きく */
+        line-height: 1.1;
+    }
+
+    .title-year {
+        position: absolute;
+        top: -5px;
+        right: 0;
+        transform: rotate(5deg) scale(0.9);
+    }
+
+    /* 詳細テキスト：画像のスペースを空けるため少し幅を絞る */
+    .hero-catch {
+        text-align: left;
+        font-size: 0.95rem;
+        margin: 0;
+        padding-left: 5px;
+        /* 右側に画像が来ることを想定して、文章の右端を空ける */
+        max-width: 70%;
+        line-height: 1.7;
+    }
+
+    /* --- 2. 画像エリア (真ん中・右寄せ) --- */
+    .hero-visual-new {
+        order: 2;
+        width: 100%;
+        height: 280px;
+        /* 画像エリアの高さ確保 */
+
+        display: flex;
+        justify-content: flex-end;
+        /* 【重要】画像を右端に寄せる */
+        align-items: center;
+
+        /* テキストの下部に少し食い込ませて一体感を出す */
+        margin-top: -50px;
+        margin-bottom: 30px;
+        /* ボタンとの距離をしっかり空ける */
+
+        /* 画面右端から少し見切れさせる演出 */
+        margin-right: -25px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .morph-image-wrapper {
+        /* 画像サイズ調整 */
+        width: 85%;
+        max-width: 300px;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        /* 影をつけて浮き上がらせる */
+        filter: drop-shadow(-5px 10px 15px rgba(0, 0, 0, 0.1));
+    }
+
+    .spinning-text {
+        right: -5%;
+        left: auto;
+    }
+
+    /* --- 3. エントリーボタン (一番下) --- */
+    .hero-actions {
+        order: 3;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+        z-index: 10;
+    }
+
+    /* ボタンデザイン調整 */
+    .btn-hero-new {
+        width: 100%;
+        /* 横幅いっぱい */
+        max-width: 400px;
+        padding: 18px;
+        font-size: 1.2rem;
+        justify-content: center;
+        box-shadow: 0 8px 0 #f06d85, 0 15px 20px rgba(255, 107, 107, 0.2);
+    }
+
+    .btn-hero-new:active {
+        box-shadow: 0 0 0 #f06d85;
+        transform: translateY(8px);
+    }
+
+    /* 日付タグ */
+    .date-tag {
+        align-self: center;
+        /* 中央揃え */
+        background: rgba(255, 255, 255, 0.6);
+        border: 1px solid #fff;
+    }
+}
+
+/* =========================================
+   FIXED POSITIONING FOR ENTRY BUTTON
+   Force button to bottom regardless of HTML structure
+========================================= */
+
+@media screen and (max-width: 768px) {
+
+    /* 1. 全体の枠：ボタンを表示するための「底上げ（余白）」を作ります */
+    .hero-inner {
+        position: relative;
+        /* 子要素の基準点にする */
+        padding-bottom: 140px;
+        /* ボタンエリアの高さ分だけ下に余白を確保 */
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* 2. テキストエリア：ボタンが抜けた後の微調整 */
+    .hero-content {
+        order: 1;
+        margin-bottom: 0;
+        /* 余白リセット */
+        z-index: 2;
+        /* 高さ指定を解除して中身にフィットさせる */
+        height: auto;
+    }
+
+    /* 3. 画像エリア：テキストのすぐ下に配置（右寄せ） */
+    .hero-visual-new {
+        order: 2;
+        /* 2番目に表示 */
+        width: 100%;
+        height: 260px;
+        /* 画像エリアの高さ */
+
+        /* 配置：右下に寄せる */
+        display: flex;
+        justify-content: flex-end;
+        /* 中身の画像を右寄せ */
+        align-items: flex-end;
+        /* 下揃え */
+
+        margin-top: -40px;
+        /* 上のテキストに少し重ねる */
+        margin-right: -20px;
+        /* 画面右端に少しはみ出させる */
+        margin-bottom: 0;
+
+        position: relative;
+        z-index: 1;
+    }
+
+    /* 画像自体の調整 */
+    .morph-image-wrapper {
+        width: 80%;
+        /* 控えめなサイズにしてバランスを取る */
+        max-width: 320px;
+        height: auto;
+    }
+
+    /* 4. ボタンエリア：【重要】強制的に最下部へ移動 */
+    .hero-actions {
+        /* 通常の流れ（フロー）から切り離して絶対配置にする */
+        position: absolute;
+        bottom: 0;
+        /* 親要素の底に張り付け */
+        left: 0;
+        width: 100%;
+        /* 横幅いっぱい */
+
+        /* レイアウト調整 */
+        display: flex;
+        flex-direction: column-reverse;
+        /* 日付を上に、ボタンを下に */
+        gap: 10px;
+        align-items: center;
+        justify-content: center;
+
+        z-index: 10;
+        /* 一番手前に表示 */
+        margin: 0;
+        padding-bottom: 10px;
+        /* 画面下端との余白 */
+    }
+
+    /* ボタンの見た目調整 */
+    .btn-hero-new {
+        width: 90%;
+        /* 左右に少し余白を持たせる */
+        max-width: 400px;
+        box-shadow: 0 10px 20px rgba(255, 107, 107, 0.2);
+    }
+
+    /* "2025 SPRING" のタグ調整 */
+    .date-tag {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(4px);
+        font-size: 0.9rem;
+        transform: rotate(0deg);
+        /* 傾きを直して読みやすく */
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    /* --- 既存のコードの該当部分を以下のように変更します --- */
+
+    /* 画像エリアのコンテナ（位置調整はそのまま） */
+    .hero-visual-new {
+        order: 2;
+        width: 100%;
+        height: 260px;
+        display: flex;
+        justify-content: flex-end;
+        /* 右寄せ */
+        align-items: center;
+        /* 上下中央揃えで見栄え良く */
+        margin-top: -40px;
+        margin-right: -10px;
+        /* はみ出しを少し抑える */
+        margin-bottom: 0;
+        position: relative;
+        z-index: 1;
+    }
+
+    /* ▼▼▼ ここが変更のポイント ▼▼▼ */
+
+    /* 画像のラッパー（写真の「枠」になります） */
+    .morph-image-wrapper {
+        width: auto;
+        height: auto;
+        max-width: 65%;
+        /* サイズ感の調整 */
+        aspect-ratio: 1 / 1;
+        /* 正方形にする（縦長写真なら 4/5 などに変更可） */
+
+        /* 写真風スタイル */
+        border: 8px solid #fff;
+        /* 太い白フチ */
+        border-radius: 2px;
+        /* ほぼ直角（わずかに角を丸めてリアルに） */
+        background: #fff;
+        /* 背景白 */
+
+        /* リアルなドロップシャドウに変更 */
+        filter: none;
+        box-shadow:
+            0 1px 2px rgba(0, 0, 0, 0.05),
+            /* 小さな影 */
+            0 15px 30px rgba(0, 0, 0, 0.15);
+        /* 大きな影で浮遊感 */
+
+        /* 少し傾けて「置いてある」感を出す */
+        transform: rotate(3deg);
+    }
+
+    /* 中身の画像（うねうねを停止） */
+    .morph-img {
+        border-radius: 0 !important;
+        /* 丸みリセット */
+        animation: none !important;
+        /* うねうねアニメーション停止 */
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        /* 枠いっぱいにトリミングして表示 */
+        border: 1px solid #eee;
+        /* 写真と白枠の境界線 */
+    }
+
+    /* 写真風デザインに合わないため、回転する文字は非表示にする */
+    .spinning-text {
+        display: none;
+    }
+
+    /* ▲▲▲ 変更ここまで ▲▲▲ */
+
+    /* （以下、ボタンの絶対配置コードなどはそのまま維持） */
+    /* ... */
+}
+
+/* =========================================
+   FINAL POLISH: NO RIGHT MARGIN & MAGAZINE LAYOUT
+   Refined layout with strict overflow control
+========================================= */
+
+/* 1. 基本設定：横スクロールと謎の余白を強制排除 */
+html,
+body {
+    overflow-x: hidden;
+    /* 横にはみ出た要素を隠す */
+    width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+
+    /* --- コンテナ設定 --- */
+    .hero-poster {
+        /* 上下の余白バランス調整 */
+        padding-top: 80px;
+        padding-bottom: 0;
+        width: 100%;
+        overflow: hidden;
+        /* ここでもはみ出し防止 */
+        position: relative;
+    }
+
+    .hero-inner {
+        position: relative;
+        width: 100%;
+        /* 【重要】右のパディングを0にして、画像を右端まで届かせる */
+        padding: 0 0 160px 20px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* --- テキストエリア (左上) --- */
+    .hero-content {
+        order: 1;
+        width: 100%;
+        /* 右端までスペースはあるが、改行で調整 */
+        z-index: 5;
+        /* 画像より手前に */
+        margin-bottom: -40px;
+        /* 画像に少し被せる */
+        text-align: left;
+    }
+
+    /* タイトル：ロゴっぽくギュッと詰める */
+    .title-main-wrapper {
+        display: inline-block;
+        /* 塊にする */
+        line-height: 1;
+        margin-bottom: 15px;
+        position: relative;
+    }
+
+    .char-block {
+        font-size: 14vw;
+        /* インパクト重視 */
+        letter-spacing: -0.05em;
+        /* 文字を詰める */
+        margin-right: -5px;
+    }
+
+    .title-year {
+        top: -10px;
+        right: -10px;
+        transform: rotate(12deg) scale(0.8);
+        box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    /* キャッチコピー：読みやすく */
+    .hero-catch {
+        font-size: 0.95rem;
+        line-height: 1.8;
+        padding: 5px 10px 5px 0;
+        backdrop-filter: blur(2px);
+        display: inline-block;
+        max-width: 80%;
+        border-radius: 0 10px 10px 0;
+    }
+
+    /* --- 画像エリア (右中段) --- */
+    .hero-visual-new {
+        order: 2;
+        width: 100%;
+        height: auto;
+        /* 高さは中身なりに */
+        min-height: 280px;
+
+        display: flex;
+        /* 右寄せ設定 */
+        justify-content: flex-end;
+        align-items: center;
+
+        margin: 0;
+        /* 右端ピッタリに配置（親のpadding-rightが0なので届く） */
+        padding-right: 0;
+
+        position: relative;
+        z-index: 2;
+    }
+
+    /* 写真風デザインの調整 */
+    .morph-image-wrapper {
+        width: 75vw;
+        /* 画面幅の75% */
+        max-width: 320px;
+        aspect-ratio: 1 / 1;
+
+        /* 写真のスタイル */
+        background: #fff;
+        border: 6px solid #fff;
+        border-radius: 3px;
+
+        /* 影をリッチに：浮遊感 */
+        box-shadow:
+            0 5px 10px rgba(0, 0, 0, 0.1),
+            0 20px 40px rgba(0, 0, 0, 0.15);
+
+        /* 配置の微調整：少し右にずらし、傾ける */
+        transform: translateX(10px) rotate(4deg);
+    }
+
+    /* 画像の中身 */
+    .morph-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border: 1px solid #f0f0f0;
+        border-radius: 0 !important;
+        animation: none !important;
+    }
+
+    /* --- ボタンエリア (最下部固定) --- */
+    .hero-actions {
+        position: absolute;
+        bottom: 20px;
+        /* 下から少し浮かせる */
+        left: 0;
+        width: 100%;
+
+        display: flex;
+        flex-direction: column-reverse;
+        /* 上:タグ 下:ボタン */
+        gap: 12px;
+        align-items: center;
+        z-index: 10;
+        padding: 0 20px;
+        /* 左右に余白 */
+        box-sizing: border-box;
+    }
+
+    /* エントリーボタン */
+    .btn-hero-new {
+        width: 100%;
+        max-width: 100%;
+        padding: 16px;
+        font-size: 1.2rem;
+        background: var(--color-pop-pink);
+        /* 少し透明感を出して重なりを綺麗に */
+        opacity: 0.95;
+        box-shadow: 0 10px 20px rgba(255, 107, 107, 0.25);
+        border: 3px solid #fff;
+    }
+
+    /* タグ (2025 SPRING) */
+    .date-tag {
+        font-size: 0.85rem;
+        background: #fff;
+        border: 1px solid var(--color-pink-light);
+        color: var(--color-pop-pink);
+        padding: 4px 15px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        transform: rotate(0deg);
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    /* --- コンテナ設定 --- */
+    .hero-poster {
+        /* 上部余白を0に変更 */
+        padding-top: 0;
+
+        /* 下部余白は調整（必要に応じて） */
+        padding-bottom: 0;
+
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+    }
+
+    /* その他のスタイルはそのまま維持... */
+    .hero-inner {
+        position: relative;
+        width: 100%;
+        padding: 0 0 160px 20px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+
+        /* もしタイトルが画面上端にくっつきすぎる場合は
+           ここで少し下げます（例: margin-top: 20px;） */
+    }
+
+    /* ... 以下、前回のコードの続き ... */
+}
+
+/* =========================================
+   RESTORE: TIMELINE MOBILE STYLES
+   Fix alignment for small screens
+========================================= */
+
+@media screen and (max-width: 768px) {
+
+    /* 外枠の余白を調整 */
+    .timeline-box {
+        padding: 30px 15px;
+    }
+
+    /* 縦の点線を左端に寄せる */
+    .timeline::before {
+        left: 14px;
+    }
+
+    /* 「時間」と「内容」を縦積みにする */
+    .timeline li {
+        flex-direction: column;
+        margin-bottom: 25px;
+    }
+
+    /* 時間エリアの調整 */
+    .timeline .time {
+        width: 100%;
+        text-align: left;
+        margin-bottom: 5px;
+        padding-left: 40px;
+        /* アイコンと被らないよう右へ */
+        padding-top: 0;
+        padding-right: 0;
+    }
+
+    /* 内容ボックスの調整 */
+    .timeline .content {
+        margin-left: 35px;
+        /* 点線の右側に配置 */
+        width: auto;
+        /* 幅指定を解除 */
+        box-sizing: border-box;
+    }
+
+    /* ピンクの丸印（●）の位置調整 */
+    .timeline .content::before {
+        left: -29px;
+        /* 点線の上に丸が来るように */
+        top: -25px;
+        /* 時間の横（上）に移動 */
+    }
+}
+
+/* =========================================
+   CONCEPT SECTION MOBILE OPTIMIZATION
+   Compact Note & 2-Column Grid
+========================================= */
+
+@media screen and (max-width: 768px) {
+
+    /* --- 1. ノート風エリア (Note Paper) --- */
+    .note-paper {
+        padding: 40px 20px;
+        /* 内側の余白を狭くして文字スペース確保 */
+        width: auto;
+        margin: 0 15px 40px;
+        /* 画面端に少し隙間を作る */
+
+        /* 罫線の間隔をスマホの文字サイズに合わせる */
+        background-size: 100% 1.8em;
+        line-height: 1.8em;
+        font-size: 0.95rem;
+    }
+
+    .tape-top {
+        width: 100px;
+        /* テープを少し小さく */
+        height: 25px;
+        top: -12px;
+    }
+
+    /* --- 2. スイーツカードエリア (Grid Layout) --- */
+    .sweets-grid {
+        display: grid;
+        /* グリッドレイアウトに変更 */
+        grid-template-columns: repeat(2, 1fr);
+        /* 均等に2列 */
+        gap: 15px;
+        /* カード同士の間隔 */
+        padding: 0 10px;
+        /* 全体の横余白 */
+    }
+
+    /* カード本体 */
+    .sweets-card {
+        width: auto;
+        /* 幅はグリッドに任せる */
+        padding: 10px;
+        margin: 0;
+
+        /* スマホでは傾きをなくして整然と並べる */
+        transform: none !important;
+        border-radius: 10px;
+    }
+
+    /* 偶数・奇数の傾きもリセット */
+    .sweets-card:nth-child(even),
+    .sweets-card:nth-child(odd) {
+        transform: none !important;
+    }
+
+    /* カード内の画像 */
+    .sweets-img {
+        height: 110px;
+        /* 高さを抑えてコンパクトに */
+        font-size: 2.5rem;
+        /* アイコンサイズ調整 */
+        margin-bottom: 10px;
+    }
+
+    /* ピン（飾り） */
+    .pin {
+        font-size: 1.5rem;
+        top: -8px;
+        right: -8px;
+    }
+
+    /* テキスト情報 */
+    .sweets-info h3 {
+        font-size: 1rem;
+        /* 見出しを少し小さく */
+        margin-top: 0;
+        margin-bottom: 5px;
+    }
+
+    .sweets-info p {
+        font-size: 0.8rem;
+        /* 説明文を小さく */
+        line-height: 1.4;
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    /* ... 他のコード ... */
+
+    /* --- 写真風デザインのアップグレード --- */
+    .morph-image-wrapper {
+        /* サイズと配置 */
+        width: 70vw;
+        max-width: 300px;
+        aspect-ratio: 1 / 1;
+        /* 正方形 */
+
+        /* ポラロイド風の台紙デザイン */
+        background-color: #fff;
+        /* 下の余白を広くしてポラロイドっぽく（上左右:10px, 下:35px） */
+        padding: 10px 10px 35px 10px;
+
+        /* リアルな影（青みなし、黒の濃淡のみ） */
+        filter: none;
+        box-shadow:
+            0 3px 6px rgba(0, 0, 0, 0.15),
+            /* 近くの濃い影 */
+            0 15px 35px rgba(0, 0, 0, 0.1);
+        /* 遠くのふわっとした影 */
+
+        /* 配置：少し傾ける */
+        transform: translateX(10px) rotate(4deg);
+
+        /* テープを表示するための基準点 */
+        position: relative;
+    }
+
+    /* ★追加：マスキングテープの装飾 */
+    .morph-image-wrapper::before {
+        content: '';
+        position: absolute;
+        top: -12px;
+        /* 写真の上に少しはみ出す */
+        left: 50%;
+        transform: translateX(-50%) rotate(-3deg);
+        /* 写真とは逆向きに傾ける */
+
+        width: 110px;
+        /* テープの幅 */
+        height: 32px;
+        /* テープの高さ */
+
+        /* 半透明のテープ（メンディングテープ風） */
+        background-color: rgba(255, 255, 255, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.6);
+
+        /* すりガラス効果で下の柄を透かす */
+        backdrop-filter: blur(3px);
+        -webkit-backdrop-filter: blur(3px);
+
+        /* テープの影 */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+
+        z-index: 10;
+        pointer-events: none;
+    }
+
+    /* 画像本体 */
+    .morph-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+
+        /* アニメーション停止と角丸リセット */
+        border-radius: 0 !important;
+        animation: none !important;
+
+        /* 写真の縁を少し薄暗くして立体感を出す */
+        border: 1px solid #eee;
+
+        /* 少しセピアがかったフィルターでエモさをプラス（お好みで削除可） */
+        filter: sepia(0.1) contrast(1.05);
+    }
+
+    /* ... 他のコード ... */
+}

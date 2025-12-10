@@ -1,0 +1,539 @@
+/* =========================================
+   INSTAGRAM STYLE BASE
+========================================= */
+:root {
+    /* カラーパレット */
+    --c-bg: #ffffff;
+    /* 背景は白 */
+    --c-bg-secondary: #fafafa;
+    /* 薄いグレー（区切りなど） */
+    --c-text-main: #262626;
+    /* メインテキスト（ほぼ黒） */
+    --c-text-sub: #8e8e8e;
+    /* サブテキスト（グレー） */
+    --c-link: #00376b;
+    /* リンク色（濃い青） */
+    --c-accent: #ff3040;
+    /* いいねの赤 */
+    --c-border: #dbdbdb;
+    /* 境界線 */
+    --c-story-gradient: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    /* ストーリーズのリング色 */
+
+    /* フォント */
+    --font-main: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-accent: 'Zen Maru Gothic', sans-serif;
+    /* アクセント用の丸文字 */
+}
+
+/* リセットと基本設定 */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-main);
+    background-color: var(--c-bg-secondary);
+    /* 全体は薄いグレー */
+    color: var(--c-text-main);
+    line-height: 1.5;
+    padding-bottom: 60px;
+    /* タブバーの分あける */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.bold {
+    font-weight: 600;
+}
+
+/* メインコンテンツコンテナ（スマホ幅を想定） */
+.app-main {
+    max-width: 600px;
+    margin: 50px auto 0;
+    /* ヘッダーの分あける */
+    background-color: var(--c-bg);
+    min-height: 100vh;
+}
+
+/* =========================================
+   APP HEADER (Top Fixed)
+========================================= */
+.app-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: var(--c-bg);
+    border-bottom: 1px solid var(--c-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    z-index: 100;
+}
+
+.app-header .logo {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+    font-family: var(--font-accent);
+    /* ここだけ少し可愛く */
+    letter-spacing: 0.05em;
+}
+
+.header-left,
+.header-right {
+    display: flex;
+    align-items: center;
+    color: var(--c-text-main);
+}
+
+.header-right .material-icons-outlined {
+    margin-left: 20px;
+    font-size: 24px;
+}
+
+/* =========================================
+   STORIES AREA
+========================================= */
+.stories-area {
+    background: var(--c-bg);
+    padding: 15px 0;
+    border-bottom: 1px solid var(--c-border);
+}
+
+.stories-scroll {
+    display: flex;
+    overflow-x: auto;
+    padding: 0 15px;
+    gap: 15px;
+    scrollbar-width: none;
+    /* Firefox用 */
+    -webkit-overflow-scrolling: touch;
+}
+
+.stories-scroll::-webkit-scrollbar {
+    display: none;
+    /* Chrome/Safari用 */
+}
+
+.story-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 68px;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+/* ストーリーズのリング */
+.story-ring {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    padding: 3px;
+    /* リングの太さ */
+    background: var(--c-border);
+    /* 既読はグレー */
+    position: relative;
+}
+
+.story-item.new .story-ring,
+.story-item.active .story-ring {
+    background: var(--c-story-gradient);
+    /* 未読・アクティブはグラデーション */
+}
+
+.story-img {
+    width: 100%;
+    height: 100%;
+    background: #eee;
+    border-radius: 50%;
+    border: 2px solid var(--c-bg);
+    /* 内側の白枠 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+}
+
+.story-name {
+    font-size: 0.75rem;
+    margin-top: 5px;
+    color: var(--c-text-main);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+.entry-highlight {
+    color: var(--c-accent);
+    font-weight: bold;
+}
+
+/* 区切り線 */
+.divider {
+    height: 10px;
+    background: transparent;
+}
+
+/* =========================================
+   INSTA POST STYLE
+========================================= */
+.insta-post {
+    background: var(--c-bg);
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--c-border);
+}
+
+/* Post Header */
+.post-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px;
+}
+
+.post-user {
+    display: flex;
+    align-items: center;
+}
+
+.user-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    margin-right: 10px;
+    border: 1px solid var(--c-border);
+}
+
+.profile-icon {
+    background: var(--c-story-gradient);
+    color: #fff;
+    border: none;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-right: 5px;
+}
+
+.location {
+    font-size: 0.75rem;
+    color: var(--c-text-sub);
+}
+
+.more-btn {
+    color: var(--c-text-main);
+}
+
+/* Post Image Container (正方形または縦長) */
+.post-image-container {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    /* 基本は正方形 */
+    background: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* TOPのヒーロービジュアル */
+.hero-visual {
+    background-image: url('https://images.unsplash.com/photo-1532986376273-b238d03a1761?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');
+    /* ダミー画像（サイクリング） */
+    background-size: cover;
+    background-position: center;
+    aspect-ratio: 4 / 5;
+    /* 少し縦長に */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #fff;
+    padding: 20px;
+}
+
+.hero-year {
+    display: inline-block;
+    border: 1px solid #fff;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin-bottom: 15px;
+}
+
+.hero-content h2 {
+    font-family: var(--font-accent);
+    font-size: 1.8rem;
+    line-height: 1.4;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+/* コースマップビジュアル */
+.course-visual {
+    background-image: url('https://images.unsplash.com/photo-1625243782290-9648057cb429?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');
+    /* ダミー画像（地図） */
+    background-size: cover;
+}
+
+.course-info-overlay {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    backdrop-filter: blur(5px);
+}
+
+.course-badge {
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin: 5px;
+    background: #fff;
+    border: 1px solid var(--c-border);
+}
+
+.course-badge.pink {
+    color: #ff6b6b;
+    border-color: #ff6b6b;
+}
+
+.course-badge.blue {
+    color: #4a90e2;
+    border-color: #4a90e2;
+}
+
+/* Post Actions (いいね、コメントなど) */
+.post-actions {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px 5px;
+}
+
+.actions-left .icon-btn {
+    margin-right: 15px;
+}
+
+.icon-btn {
+    font-size: 26px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.icon-btn:active {
+    transform: scale(1.2);
+}
+
+.icon-btn.active {
+    color: var(--c-accent);
+}
+
+/* いいね済み */
+
+/* Post Caption Area */
+.post-caption-area {
+    padding: 0 15px 15px;
+}
+
+.likes {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+}
+
+.caption {
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.caption .user-name {
+    margin-right: 5px;
+}
+
+.caption-link {
+    color: var(--c-link);
+}
+
+.profile-link {
+    color: var(--c-link);
+    font-weight: 600;
+}
+
+.highlight-text {
+    background: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+    font-weight: bold;
+}
+
+.post-time {
+    font-size: 0.7rem;
+    color: var(--c-text-sub);
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
+/* =========================================
+   CAROUSEL (SNAP SCROLL)
+========================================= */
+.carousel-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    aspect-ratio: 1 / 1;
+    background: #f9f9f9;
+}
+
+.carousel-container::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-item {
+    scroll-snap-align: start;
+    min-width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    position: relative;
+}
+
+.item-tag {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+/* カルーセルのドットインジケーター（見た目だけ） */
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    background: var(--c-bg);
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    background: var(--c-border);
+    border-radius: 50%;
+    margin: 0 3px;
+}
+
+.dot.active {
+    background: var(--c-link);
+}
+
+/* End of Feed */
+.end-of-feed {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--c-text-sub);
+}
+
+.check-icon {
+    font-size: 48px;
+    color: #3897f0;
+    margin-bottom: 15px;
+}
+
+/* =========================================
+   APP TAB BAR (Bottom Navigation)
+========================================= */
+.app-tab-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: var(--c-bg);
+    border-top: 1px solid var(--c-border);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 100;
+    padding-bottom: env(safe-area-inset-bottom);
+    /* iPhone X系対応 */
+}
+
+.tab-item {
+    color: var(--c-text-main);
+    padding: 10px;
+}
+
+.tab-item .material-icons-outlined {
+    font-size: 28px;
+}
+
+.tab-item.active {
+    color: var(--c-text-main);
+    font-weight: bold;
+}
+
+/* 中央の投稿ボタン風 */
+.center-tab .material-icons-outlined {
+    font-size: 32px;
+}
+
+/* プロフィールアイコン風 */
+.tab-profile-icon {
+    width: 28px;
+    height: 28px;
+    background: #eee;
+    border-radius: 50%;
+    border: 1px solid var(--c-border);
+    background-image: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"%3E%3Ctext x="50%" y="55%" font-size="40" text-anchor="middle" dominant-baseline="central"%3E🚲%3C/text%3E%3C/svg%3E');
+    background-size: cover;
+}

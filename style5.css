@@ -1,0 +1,2304 @@
+/* =========================================
+   1. VARIABLES & BASE THEME
+========================================= */
+:root {
+    --c-bg: #f8f4e6;
+    --c-text: #333333;
+    --c-deep-green: #1e4d40;
+    --c-mustard: #d4af37;
+    --c-deep-red: #a83333;
+    --c-accent-cream: #fffce0;
+    --c-tire-black: #222222;
+
+    --f-title: 'Dela Gothic One', cursive;
+    --f-serif: 'Shippori Mincho', serif;
+    --f-body: 'Zen Maru Gothic', sans-serif;
+    --f-en: 'Kaushan Script', cursive;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--c-bg);
+    color: var(--c-text);
+    font-family: var(--f-body);
+    margin: 0;
+    line-height: 1.8;
+    letter-spacing: 0.05em;
+}
+
+/* 背景テクスチャ */
+.bg-texture {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZjhmNGU2Ii8+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiMyMjIiIG9wYWNpdHk9IjAuMTUiLz48L3N2Zz4=');
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.2s;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mt-30 {
+    margin-top: 30px;
+}
+
+.mb-40 {
+    margin-bottom: 40px;
+}
+
+/* =========================================
+   2. HEADER & NAVIGATION
+========================================= */
+.retro-header {
+    background: var(--c-bg);
+    border-bottom: 4px solid var(--c-deep-green);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand-logo {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+    margin: 0;
+    z-index: 1001;
+}
+
+.logo-main {
+    font-family: var(--f-title);
+    font-size: 1.6rem;
+    color: var(--c-deep-green);
+    letter-spacing: 0.05em;
+    text-shadow: 2px 2px 0 var(--c-mustard);
+}
+
+.logo-sub {
+    font-family: var(--f-en);
+    font-size: 0.9rem;
+    color: var(--c-mustard);
+    margin-top: 2px;
+    font-weight: bold;
+}
+
+.retro-nav {
+    display: flex;
+    align-items: center;
+}
+
+.retro-nav ul {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.retro-nav a {
+    font-family: var(--f-title);
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    color: var(--c-deep-green);
+    border-bottom: 3px solid transparent;
+    padding-bottom: 2px;
+}
+
+.retro-nav a:hover {
+    border-bottom-color: var(--c-mustard);
+    color: var(--c-mustard);
+}
+
+.btn-header-action {
+    background: var(--c-deep-red);
+    color: var(--c-accent-cream) !important;
+    font-family: var(--f-title);
+    padding: 8px 25px;
+    border-radius: 4px;
+    margin-left: 20px;
+    border: 3px solid var(--c-deep-green) !important;
+    box-shadow: 3px 3px 0 var(--c-deep-green);
+    transition: 0.2s;
+}
+
+.btn-header-action:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 var(--c-deep-green);
+    background: var(--c-mustard);
+    color: var(--c-deep-green) !important;
+}
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 30px;
+    height: 25px;
+    position: relative;
+    z-index: 1001;
+}
+
+.mobile-menu-btn span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--c-deep-green);
+    position: absolute;
+    left: 0;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+.mobile-menu-btn span:nth-child(1) {
+    top: 0;
+}
+
+.mobile-menu-btn span:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.mobile-menu-btn span:nth-child(3) {
+    bottom: 0;
+}
+
+/* Mobile Responsive Header */
+@media (max-width: 768px) {
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .mobile-menu-btn.active span:nth-child(1) {
+        top: 50%;
+        transform: translateY(-50%) rotate(45deg);
+        background-color: var(--c-mustard);
+    }
+
+    .mobile-menu-btn.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .mobile-menu-btn.active span:nth-child(3) {
+        bottom: 50%;
+        transform: translateY(50%) rotate(-45deg);
+        background-color: var(--c-mustard);
+    }
+
+    .retro-nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--c-deep-green);
+        flex-direction: column;
+        justify-content: center;
+        transition: 0.4s ease-in-out;
+        z-index: 1000;
+        background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0, 0, 0, 0.2) 10px, rgba(0, 0, 0, 0.2) 12px);
+    }
+
+    .retro-nav.active {
+        right: 0;
+    }
+
+    .retro-nav ul {
+        flex-direction: column;
+        gap: 30px;
+        margin-bottom: 40px;
+    }
+
+    .retro-nav a {
+        font-size: 1.2rem;
+        color: var(--c-mustard);
+    }
+
+    .btn-header-action {
+        margin-left: 0;
+        background: var(--c-mustard);
+        color: var(--c-deep-green) !important;
+        font-size: 1.4rem;
+        padding: 15px 50px;
+    }
+
+    /* Lang Switcher Mobile Fix */
+    .lang-switcher {
+        margin-left: 0;
+        margin-top: 16px;
+        align-self: center;
+    }
+}
+
+/* 言語切り替え */
+.lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 16px;
+    font-family: var(--f-title);
+}
+
+.lang-btn {
+    border: 2px solid var(--c-deep-green);
+    background-color: #ffffff;
+    color: var(--c-deep-green);
+    font-size: 0.7rem;
+    padding: 4px 10px;
+    border-radius: 999px;
+    cursor: pointer;
+    line-height: 1;
+    transition: 0.2s;
+}
+
+.lang-btn:hover {
+    transform: translateY(-1px);
+}
+
+.lang-btn.is-active {
+    background-color: var(--c-deep-green);
+    color: var(--c-mustard);
+}
+
+
+/* =========================================
+   3. HERO SECTION & ANIMATION
+========================================= */
+.hero-section {
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 5px solid var(--c-deep-green);
+    z-index: 1;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* ※背景画像パスは適宜調整 */
+    background-image: url('images/image_06.png');
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    background-color: rgba(248, 244, 230, 0.85);
+    background-blend-mode: multiply;
+}
+
+.hero-layout {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.hero-text-area {
+    flex: 1;
+    z-index: 2;
+}
+
+.hero-label {
+    display: inline-block;
+    background: var(--c-deep-green);
+    color: var(--c-mustard);
+    font-family: var(--f-title);
+    padding: 4px 12px;
+    font-size: 0.8rem;
+    margin-bottom: 25px;
+    letter-spacing: 0.2em;
+    box-shadow: 3px 3px 0 var(--c-text);
+}
+
+.hero-headline {
+    margin-bottom: 35px;
+}
+
+.hero-headline .jp-main {
+    display: block;
+    font-family: var(--f-serif);
+    font-weight: 800;
+    font-size: 3.2rem;
+    line-height: 1.3;
+    color: var(--c-text);
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 0 rgba(212, 175, 55, 0.3);
+}
+
+.hero-headline .en-sub {
+    display: block;
+    font-family: var(--f-en);
+    font-size: 1.8rem;
+    color: var(--c-mustard);
+    font-weight: bold;
+    text-shadow: 1px 1px 0 var(--c-deep-green);
+}
+
+.hero-lead {
+    font-family: var(--f-serif);
+    font-weight: 500;
+    font-size: 1.15rem;
+    margin-bottom: 35px;
+    border-left: 5px solid var(--c-mustard);
+    padding-left: 25px;
+    line-height: 2.2;
+    color: #444;
+    background: rgba(212, 175, 55, 0.1);
+    padding: 20px 25px;
+}
+
+.hero-tags .tag {
+    display: inline-block;
+    border: 2px solid var(--c-deep-green);
+    background: var(--c-accent-cream);
+    color: var(--c-deep-green);
+    padding: 5px 15px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    font-family: var(--f-serif);
+    font-weight: bold;
+    box-shadow: 2px 2px 0 var(--c-deep-green);
+}
+
+.date-badge {
+    display: inline-block;
+    background: var(--c-deep-red);
+    color: var(--c-accent-cream);
+    font-family: var(--f-title);
+    padding: 10px 25px;
+    margin-top: 25px;
+    font-size: 1.1rem;
+    border: 3px solid var(--c-mustard);
+    box-shadow: 5px 5px 0 var(--c-deep-green);
+}
+
+/* Record Animation */
+.hero-visual-area {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.record-tire-container {
+    width: 380px;
+    height: 380px;
+    position: relative;
+    border-radius: 50%;
+    background-color: var(--c-tire-black);
+    box-shadow: 15px 15px 0 var(--c-mustard), inset 0 0 0 10px rgba(0, 0, 0, 0.5);
+    animation: float-disk 7s ease-in-out infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid #333;
+}
+
+.record-tire-container::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border-radius: 50%;
+    border: 3px dashed var(--c-mustard);
+    opacity: 0.7;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.record-disk {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    position: relative;
+    background: repeating-radial-gradient(#111 0, #111 2px, #2a2a2a 3px, #111 4px);
+    border: 6px solid #555;
+    animation: spin-disk 20s linear infinite;
+    z-index: 2;
+}
+
+.record-disk::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 45%, transparent 55%, rgba(255, 255, 255, 0.1) 100%);
+    pointer-events: none;
+}
+
+.record-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 110px;
+    height: 110px;
+    background-color: var(--c-deep-red);
+    border-radius: 50%;
+    border: 6px solid var(--c-mustard);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: inset 0 0 0 4px var(--c-deep-green);
+}
+
+.label-text {
+    font-family: var(--f-title);
+    color: var(--c-mustard);
+    font-size: 0.85rem;
+    line-height: 1.2;
+    letter-spacing: 0.05em;
+}
+
+.record-label::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: var(--c-deep-green);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes spin-disk {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes float-disk {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-layout {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .hero-headline .jp-main {
+        font-size: 2.4rem;
+    }
+
+    .hero-lead {
+        text-align: left;
+        font-size: 1rem;
+        border-left-width: 5px;
+    }
+
+    .record-tire-container {
+        width: 300px;
+        height: 300px;
+    }
+
+    .record-disk {
+        width: 230px;
+        height: 230px;
+    }
+}
+
+
+/* =========================================
+   4. SIDE-A : STORY & MARQUEE
+========================================= */
+.side-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 60px 0 40px;
+}
+
+.side-line {
+    height: 2px;
+    background: var(--c-deep-green);
+    flex: 1;
+    opacity: 0.3;
+}
+
+.side-text {
+    font-family: var(--f-title);
+    font-size: 1.5rem;
+    color: var(--c-deep-green);
+    background: var(--c-mustard);
+    padding: 5px 20px;
+    border: 2px solid var(--c-deep-green);
+    box-shadow: 4px 4px 0 #333;
+    transform: rotate(-2deg);
+}
+
+.side-text.type-b {
+    background: var(--c-deep-red);
+    color: var(--c-accent-cream);
+    transform: rotate(1deg);
+}
+
+.concept-section {
+    padding-bottom: 60px;
+}
+
+.concept-text {
+    font-family: var(--f-serif);
+    font-size: 1.15rem;
+    text-align: center;
+    line-height: 2.6;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.concept-lead {
+    display: inline-block;
+    font-size: 1.9rem;
+    font-weight: 700;
+    font-family: 'Shippori Mincho', serif;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.5rem;
+    position: relative;
+}
+
+.cinematic-highlight {
+    font-weight: 700;
+    font-size: 1.45rem;
+    padding: 0 0.25em;
+    background: linear-gradient(transparent 60%, rgba(255, 215, 100, 0.45) 40%);
+    letter-spacing: 0.05em;
+    font-family: 'Shippori Mincho', serif;
+}
+
+/* Marquee */
+.marquee-section {
+    padding: 40px 0 60px;
+    overflow: hidden;
+    background: #e8e4d8;
+    border-top: 1px dashed rgba(30, 77, 64, 0.3);
+    border-bottom: 1px dashed rgba(30, 77, 64, 0.3);
+    position: relative;
+}
+
+.marquee-track {
+    display: flex;
+    gap: 20px;
+    animation: marquee-scroll 40s linear infinite;
+}
+
+.marquee-item {
+    width: 320px;
+    height: 220px;
+    flex-shrink: 0;
+    border: 8px solid #fff;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.15);
+    position: relative;
+    background: #e0d4b0;
+    overflow: hidden;
+    transform: rotate(var(--rot));
+}
+
+.marquee-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: sepia(0.4) contrast(0.9);
+    transition: 0.3s;
+}
+
+.marquee-item:hover img {
+    filter: sepia(0) contrast(1);
+    transform: scale(1.05);
+}
+
+@keyframes marquee-scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+
+/* =========================================
+   5. SIDE-B : SCENARIO (ZIGZAG & RAILROAD)
+========================================= */
+#side-b-wrapper {
+    border-top: 1px dashed rgba(30, 77, 64, 0.2);
+    position: relative;
+}
+
+.bg-typography-layer {
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--f-title);
+    font-size: 10rem;
+    color: var(--c-deep-green);
+    opacity: 0.03;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 0;
+}
+
+#scenario {
+    position: relative;
+    padding-bottom: 80px;
+    overflow: hidden;
+}
+
+/* --- 映画風タイトル (Cinematic Headline) --- */
+.section-heading {
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+    z-index: 1;
+}
+
+.eng-title {
+    display: block;
+    font-family: var(--f-en);
+    font-size: 1.8rem;
+    color: var(--c-mustard);
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 0 var(--c-deep-green);
+}
+
+.jp-sub-title {
+    display: block;
+    font-family: var(--f-body);
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #555;
+    margin-top: 10px;
+    letter-spacing: 0.1em;
+}
+
+.course-title-box.cinema-mode {
+    display: block;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 30px;
+    padding: 10px 0;
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+    text-align: center;
+    position: relative;
+}
+
+.course-label {
+    display: block;
+    font-family: var(--f-serif);
+    color: var(--c-deep-red);
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    margin-bottom: 5px;
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+    text-transform: none;
+}
+
+.course-label::before {
+    content: '−';
+    margin-right: 10px;
+    color: var(--c-mustard);
+}
+
+.course-label::after {
+    content: '−';
+    margin-left: 10px;
+    color: var(--c-mustard);
+}
+
+.course-main-title {
+    font-family: var(--f-serif);
+    font-weight: 800;
+    font-size: 3.2rem;
+    color: var(--c-deep-green);
+    margin: 0;
+    line-height: 1.3;
+    letter-spacing: 0.15em;
+    text-shadow: 2px 2px 0 #fff, 4px 4px 0 rgba(212, 175, 55, 0.6);
+}
+
+.title-decoration-line {
+    width: 80px;
+    height: 4px;
+    background-color: var(--c-deep-green);
+    margin: 20px auto 0;
+    border-radius: 2px;
+    position: relative;
+}
+
+.title-decoration-line::before,
+.title-decoration-line::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    background-color: var(--c-mustard);
+    border-radius: 50%;
+}
+
+.title-decoration-line::before {
+    left: -15px;
+}
+
+.title-decoration-line::after {
+    right: -15px;
+}
+
+/* --- シナリオ行 (Zigzag Layout) --- */
+.scenario-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5%;
+    position: relative;
+    z-index: 2;
+    padding: 20px 0;
+}
+
+/* テキストが先、画像が後（HTML順）だが、reverseクラスで見た目を反転 */
+.scenario-row.reverse {
+    flex-direction: row-reverse;
+}
+
+.row-text {
+    width: 45%;
+    position: relative;
+}
+
+.row-visual {
+    width: 45%;
+    position: relative;
+}
+
+.row-title {
+    font-family: var(--f-serif);
+    font-size: 1.8rem;
+    color: var(--c-text);
+    margin-bottom: 20px;
+    line-height: 1.5;
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.8);
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: 15px;
+}
+
+/* チケット風ラベル */
+.scene-ticket {
+    display: inline-block;
+    background: #333;
+    color: var(--c-mustard);
+    padding: 5px 15px;
+    font-family: var(--f-title);
+    border: 2px solid var(--c-mustard);
+    margin-bottom: 20px;
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
+    text-align: center;
+    min-width: 80px;
+    position: relative;
+}
+
+.scene-ticket::before,
+.scene-ticket::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    background: var(--c-bg);
+    border-radius: 50%;
+}
+
+.scene-ticket::before {
+    left: -5px;
+}
+
+.scene-ticket::after {
+    right: -5px;
+}
+
+.ticket-header {
+    display: block;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    opacity: 0.8;
+}
+
+.ticket-num {
+    display: block;
+    font-size: 1.8rem;
+    line-height: 1;
+}
+
+.feature-ticket {
+    background: var(--c-deep-red);
+    color: #fff;
+    border-color: #fff;
+}
+
+/* フィルム画像 (Film Style) */
+.img-wrapper.cinema-style {
+    position: relative;
+    z-index: 1;
+    background: #1a1a1a;
+    padding: 25px 35px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.25);
+    transform: rotate(0deg);
+    border-radius: 2px;
+}
+
+/* パーフォレーション（穴） */
+.img-wrapper.cinema-style::before,
+.img-wrapper.cinema-style::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 15px;
+    background-image: linear-gradient(to bottom, #f8f4e6 40%, transparent 40%);
+    background-size: 100% 20px;
+    background-position: 0 10px;
+}
+
+.img-wrapper.cinema-style::before {
+    left: 8px;
+}
+
+.img-wrapper.cinema-style::after {
+    right: 8px;
+}
+
+.img-wrapper.cinema-style img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: sepia(0.1) contrast(1.1);
+    border: 1px solid #333;
+}
+
+.img-wrapper.cinema-style:hover {
+    transform: translateY(-5px);
+    transition: 0.3s;
+    box-shadow: 15px 15px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* 線路風コネクター (Railroad) */
+.connector-curve {
+    width: 100%;
+    height: 140px;
+    position: relative;
+    z-index: 0;
+    pointer-events: none;
+    margin: -40px 0;
+    opacity: 0.9;
+}
+
+.connector-curve svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    overflow: visible;
+}
+
+.rail-ties {
+    fill: none;
+    stroke: var(--c-deep-green);
+    stroke-width: 16;
+    stroke-dasharray: 5, 12;
+    stroke-linecap: butt;
+    opacity: 0.6;
+}
+
+.rail-line {
+    fill: none;
+    stroke: #444;
+    stroke-width: 3;
+    stroke-dasharray: none;
+    opacity: 1;
+}
+
+/* 補足パーツ */
+.spec-list {
+    margin-top: 20px;
+    border-top: 1px dashed #ccc;
+    padding-top: 15px;
+}
+
+.spec-list li {
+    font-size: 0.95rem;
+    color: var(--c-deep-green);
+    margin-bottom: 5px;
+    font-family: var(--f-en);
+}
+
+.spec-list span {
+    font-weight: bold;
+    color: var(--c-deep-red);
+    margin-right: 10px;
+    font-family: var(--f-title);
+}
+
+.emphasis-text {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--c-deep-red);
+    margin-bottom: 20px !important;
+    line-height: 1.6 !important;
+    border-left: 5px solid var(--c-mustard);
+    padding-left: 15px;
+}
+
+.eat-walk-box {
+    background: #fffce0;
+    border: 2px dashed var(--c-mustard);
+    padding: 20px;
+    margin-top: 25px;
+    border-radius: 8px;
+}
+
+.eat-walk-box h4 {
+    margin: 0 0 10px;
+    font-family: var(--f-title);
+    color: var(--c-deep-red);
+    font-size: 1rem;
+}
+
+.eat-walk-box p {
+    font-size: 0.9rem !important;
+    line-height: 1.6 !important;
+    margin: 0 !important;
+    color: #555;
+}
+
+.caption-tag {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: var(--c-mustard);
+    color: var(--c-deep-green);
+    font-family: var(--f-en);
+    font-weight: bold;
+    padding: 5px 15px;
+}
+
+.deco-icon {
+    font-size: 2.5rem;
+    margin-top: 20px;
+    text-align: right;
+    opacity: 0.8;
+    transform: rotate(-10deg);
+}
+
+/* Mobile (Scenario) */
+@media (max-width: 768px) {
+    .course-title-box.cinema-mode {
+        margin-bottom: 20px;
+    }
+
+    .course-label {
+        font-size: 0.9rem;
+        letter-spacing: 0.1em;
+    }
+
+    .course-main-title {
+        font-size: 2.2rem;
+        line-height: 1.4;
+    }
+
+    .scenario-row,
+    .scenario-row.reverse {
+        flex-direction: column-reverse;
+        gap: 20px;
+        padding: 40px 0;
+    }
+
+    .row-text,
+    .row-visual {
+        width: 100%;
+    }
+
+    .row-title {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .scene-ticket {
+        display: block;
+        margin: 0 auto 15px;
+        width: fit-content;
+    }
+
+    /* スマホ用の線路（縦） */
+    .connector-curve {
+        height: 80px;
+        margin: 0;
+    }
+
+    .connector-curve svg {
+        display: none;
+    }
+
+    .connector-curve::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 0;
+        height: 100%;
+        width: 16px;
+        background-image: linear-gradient(to bottom, var(--c-deep-green) 40%, transparent 40%);
+        background-size: 100% 12px;
+        transform: translateX(-50%);
+        opacity: 0.5;
+        border-left: 2px solid #444;
+        border-right: 2px solid #444;
+    }
+
+    .img-wrapper.cinema-style {
+        padding: 15px 25px;
+    }
+}
+
+
+/* =========================================
+   6. EXCURSION & HISTORY (ARCHIVE)
+========================================= */
+/* Excursion (Spin-off) */
+.excursion-frame {
+    background: #e8e4d8;
+    padding: 50px;
+    border: 1px solid #999;
+    position: relative;
+    box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.excursion-frame::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    width: 140px;
+    height: 35px;
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transform: translateX(-50%) rotate(2deg);
+}
+
+.excursion-label {
+    display: inline-block;
+    background: #555;
+    color: #fff;
+    font-family: var(--f-en);
+    font-size: 0.9rem;
+    padding: 4px 15px;
+    margin-bottom: 20px;
+    letter-spacing: 0.1em;
+}
+
+.excursion-title {
+    font-family: var(--f-serif);
+    font-size: 2rem;
+    color: #333;
+    margin: 0 0 40px;
+    border-bottom: 2px solid #555;
+    padding-bottom: 10px;
+}
+
+.excursion-content {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+}
+
+.excursion-text {
+    flex: 1;
+}
+
+.excursion-text h3 {
+    font-family: var(--f-serif);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: var(--c-deep-green);
+}
+
+.excursion-text p {
+    font-family: var(--f-body);
+    font-size: 1rem;
+    line-height: 2;
+    margin-bottom: 30px;
+    text-align: justify;
+}
+
+.btn-excursion {
+    display: inline-block;
+    border: 2px solid #555;
+    color: #333;
+    padding: 12px 40px;
+    font-family: var(--f-body);
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-excursion:hover {
+    background: #555;
+    color: #fff;
+}
+
+.excursion-img {
+    flex: 1;
+    position: relative;
+    border: 8px solid #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transform: rotate(3deg);
+}
+
+.excursion-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: grayscale(100%) contrast(1.2);
+}
+
+/* Archive (History) */
+.bg-paper-dark {
+    background-color: #e6e2d6;
+    border-top: 1px solid #ccc;
+}
+
+.archive-container {
+    border: 4px double #555;
+    padding: 40px;
+    background: #f4f1ea;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.archive-header-row {
+    border-bottom: 2px solid #555;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.archive-id {
+    display: block;
+    font-family: 'Courier New', monospace;
+    color: var(--c-deep-red);
+    font-weight: bold;
+    letter-spacing: 0.1em;
+}
+
+.archive-main-title {
+    font-family: var(--f-serif);
+    font-size: 2rem;
+    margin: 10px 0 5px;
+    color: #222;
+}
+
+.archive-sub-title {
+    font-family: var(--f-en);
+    color: #666;
+    font-size: 0.9rem;
+    letter-spacing: 0.2em;
+}
+
+.archive-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+}
+
+.archive-desc p {
+    font-family: var(--f-body);
+    font-size: 0.95rem;
+    line-height: 1.9;
+    margin-bottom: 20px;
+    text-align: justify;
+    color: #333;
+}
+
+.archive-data-box {
+    background: #fff;
+    border: 1px solid #999;
+    padding: 20px;
+    position: relative;
+    align-self: start;
+}
+
+.archive-data-box dl {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 10px;
+    margin: 0;
+}
+
+.archive-data-box dt {
+    font-family: var(--f-serif);
+    font-weight: bold;
+    color: var(--c-deep-green);
+}
+
+.archive-data-box dd {
+    font-family: 'Courier New', monospace;
+    margin: 0;
+    color: #444;
+}
+
+.stamp-mark {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    border: 3px solid var(--c-deep-red);
+    color: var(--c-deep-red);
+    font-family: var(--f-title);
+    font-size: 1.5rem;
+    padding: 5px 10px;
+    transform: rotate(-15deg);
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.film-grain {
+    position: absolute;
+    inset: 0;
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjMDAwIiBvcGFjaXR5PSIwLjIiLz48L3N2Zz4=');
+    pointer-events: none;
+    mix-blend-mode: overlay;
+    opacity: 0.6;
+}
+
+@media (max-width: 768px) {
+    .excursion-content {
+        flex-direction: column-reverse;
+    }
+
+    .excursion-frame {
+        padding: 20px;
+    }
+
+    .excursion-img {
+        width: 100%;
+        transform: rotate(0);
+        margin-bottom: 20px;
+    }
+
+    .excursion-title {
+        font-size: 1.6rem;
+    }
+
+    .archive-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+
+/* =========================================
+   7. COMMON SECTIONS & FOOTER
+========================================= */
+.section {
+    padding: 90px 0;
+}
+
+.bg-paper {
+    background-color: #f4f1ea;
+}
+
+.bg-retro-red {
+    background-color: var(--c-deep-green);
+    color: var(--c-accent-cream);
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(212, 175, 55, 0.1) 10px, rgba(212, 175, 55, 0.1) 12px);
+    border-top: 5px solid var(--c-mustard);
+    border-bottom: 5px solid var(--c-mustard);
+}
+
+.bg-dark {
+    background-color: #1f1f1f;
+    color: #fff;
+    border-top: 5px solid var(--c-deep-green);
+}
+
+.text-white .jp-title {
+    text-shadow: 3px 3px 0 var(--c-text);
+}
+
+.text-white .eng-title {
+    color: var(--c-mustard);
+    text-shadow: 2px 2px 0 var(--c-deep-green);
+}
+
+/* Spec Sheet */
+.spec-sheet {
+    max-width: 800px;
+    margin: 0 auto;
+    border-top: 2px solid #555;
+    border-bottom: 2px solid #555;
+    padding: 30px 0;
+}
+
+.spec-sheet dl {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 20px;
+}
+
+.spec-sheet dt {
+    font-family: var(--f-title);
+    color: var(--c-mustard);
+    text-align: right;
+    padding-right: 25px;
+    border-right: 2px dashed #555;
+    letter-spacing: 0.05em;
+}
+
+.spec-sheet dd {
+    margin: 0;
+    padding-bottom: 25px;
+    border-bottom: 1px dashed #333;
+}
+
+.spec-sheet dd:last-child {
+    border-bottom: none;
+}
+
+.cat {
+    padding: 5px 15px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    font-family: var(--f-title);
+}
+
+.cat-short {
+    background: var(--c-deep-green);
+    color: var(--c-mustard);
+}
+
+/* Entry & Footer */
+.entry-section {
+    background-color: var(--c-deep-green);
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+CjxjaXJjbGUgY3g9IjEiIGN5PSIxIiByPSIxIiBmaWxsPSJyZ2JhKDIxMiwgMTc1LCA1NSwgMC4yKSIvPgo8L3N2Zz4=');
+    color: var(--c-mustard);
+    border-top: 5px solid var(--c-mustard);
+    border-bottom: 5px solid var(--c-mustard);
+    padding: 80px 0;
+}
+
+.entry-catch {
+    font-family: var(--f-title);
+    font-size: 3.5rem;
+    margin: 0;
+    letter-spacing: 0.05em;
+    text-shadow: 3px 3px 0 #000;
+}
+
+.entry-sub {
+    font-family: var(--f-serif);
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    opacity: 0.9;
+    color: var(--c-accent-cream);
+}
+
+.btn-entry-big {
+    display: inline-block;
+    background: #333;
+    color: #888;
+    font-family: var(--f-title);
+    font-size: 1.4rem;
+    padding: 20px 80px;
+    border: 4px solid #555;
+    box-shadow: none;
+    cursor: default;
+}
+
+.footer-retro {
+    background: #1a1a1a;
+    color: var(--c-mustard);
+    text-align: center;
+    padding: 40px 0;
+    font-size: 0.9rem;
+    border-top: 5px solid var(--c-deep-red);
+}
+
+/* Animation Classes */
+.js-fade {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.js-fade.scroll-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.delay-1 {
+    transition-delay: 0.2s;
+}
+
+.delay-2 {
+    transition-delay: 0.4s;
+}
+
+/* =========================================
+   8. LOADER (Minimal)
+========================================= */
+#cinematic-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+}
+
+.loader-bg-noise {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #1e4d40;
+    z-index: 0;
+    opacity: 1;
+    transition: opacity 0.5s;
+}
+
+.loader-shutter {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background-color: var(--c-deep-green);
+    z-index: 1;
+    transition: transform 1.2s cubic-bezier(0.8, 0, 0.2, 1);
+}
+
+.shutter-top {
+    top: 0;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.shutter-bottom {
+    bottom: 0;
+    border-top: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.loaded .shutter-top {
+    transform: translateY(-100%);
+}
+
+.loaded .shutter-bottom {
+    transform: translateY(100%);
+}
+
+.loaded .loader-visual-container,
+.loaded .loader-bg-noise {
+    opacity: 0;
+}
+
+.loader-visual-container {
+    position: relative;
+    z-index: 10;
+    width: 200px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.8s ease;
+}
+
+.record-svg {
+    width: 160px;
+    height: 160px;
+    animation: rotate-vinyl 4s linear infinite;
+}
+
+.groove-track {
+    fill: none;
+    stroke: var(--c-mustard);
+    stroke-width: 1;
+    opacity: 0.2;
+}
+
+.groove-progress {
+    fill: none;
+    stroke: var(--c-mustard);
+    stroke-width: 2;
+    stroke-dasharray: 500;
+    stroke-dashoffset: 500;
+    stroke-linecap: round;
+    animation: draw-groove 2.5s ease-out forwards;
+    opacity: 0.8;
+}
+
+.center-label {
+    fill: var(--c-deep-red);
+    stroke: var(--c-mustard);
+    stroke-width: 2;
+}
+
+.stylus-arm {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    pointer-events: none;
+    transform-origin: 90px 10px;
+    transform: rotate(-45deg);
+    animation: needle-drop 1.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.stylus-line {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 2px;
+    height: 100px;
+    background: var(--c-mustard);
+    transform: rotate(35deg);
+    transform-origin: top right;
+}
+
+.stylus-head {
+    position: absolute;
+    bottom: 8px;
+    left: 18px;
+    width: 8px;
+    height: 12px;
+    background: var(--c-mustard);
+    transform: rotate(35deg);
+}
+
+.loading-text-wrap {
+    margin-top: 30px;
+    font-family: var(--f-en);
+    color: var(--c-mustard);
+    font-size: 1.2rem;
+    letter-spacing: 0.1em;
+}
+
+@keyframes rotate-vinyl {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes draw-groove {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes needle-drop {
+    0% {
+        transform: rotate(-45deg);
+    }
+
+    100% {
+        transform: rotate(-10deg);
+    }
+}
+
+body.noscroll {
+    overflow: hidden;
+    height: 100vh;
+}
+
+/* =========================================
+   MARQUEE WITH TEXT OVERLAY
+   (文字デザイン維持 ＋ 背景画像くっきり版)
+========================================= */
+
+/* セクション全体 */
+.marquee-section.overlay-mode {
+    position: relative;
+    padding: 140px 0;
+    /* 上下の余白を広めに */
+    overflow: hidden;
+    background: #333;
+    /* 画像の隙間から見える色を暗く */
+    border-top: 4px solid var(--c-deep-green);
+    border-bottom: 4px solid var(--c-deep-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- 前面のテキスト (Quote Overlay) --- */
+.quote-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    text-align: center;
+    width: 100%;
+    padding: 0 20px;
+    pointer-events: none;
+    /* 下の画像をクリック可能にする場合 */
+}
+
+/* 英語テキスト（金色＋太い白フチ） */
+.quote-overlay .quote-en {
+    font-family: var(--f-en);
+    font-size: 3.5rem;
+    color: var(--c-mustard);
+    /* 金色 */
+    margin: 0 0 20px;
+    line-height: 1.2;
+    /* 文字の視認性を高める強力なフチ取り */
+    text-shadow:
+        3px 3px 0 #000,
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+}
+
+/* 日本語テキスト（白文字＋黒フチ） */
+.quote-overlay .quote-ja {
+    font-family: var(--f-serif);
+    font-weight: 800;
+    font-size: 1.4rem;
+    line-height: 2;
+    color: #fff;
+    margin: 0;
+    letter-spacing: 0.15em;
+    /* くっきりとした黒フチ */
+    text-shadow:
+        2px 2px 0 #000,
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+}
+
+/* テキスト下の金色の線 */
+.quote-overlay::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--c-mustard);
+    margin: 30px auto 0;
+    border: 1px solid #000;
+    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+}
+
+/* --- 背景の画像スライド (Marquee Container) --- */
+.marquee-section.overlay-mode .marquee-container {
+    width: 100%;
+    opacity: 1;
+    /* ★透明にしない（はっきり見せる） */
+    filter: brightness(0.7);
+    /* ★少しだけ暗くして文字を読みやすく */
+    z-index: 1;
+}
+
+/* 画像カードのスタイル */
+.marquee-section.overlay-mode .marquee-item {
+    width: 320px;
+    height: 220px;
+    flex-shrink: 0;
+    border: 4px solid #fff;
+    /* 写真らしい白枠 */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+    /* 回転を維持 */
+    transform: rotate(var(--rot));
+}
+
+/* ヴィネット（画面端を暗くする演出：任意） */
+.vignette-layer {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    /* 中央は透明、外側にかけて暗く */
+    background: radial-gradient(circle,
+            rgba(0, 0, 0, 0.1) 40%,
+            rgba(0, 0, 0, 0.6) 100%);
+    pointer-events: none;
+}
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+    .marquee-section.overlay-mode {
+        padding: 100px 0;
+    }
+
+    .quote-overlay .quote-en {
+        font-size: 2.2rem;
+    }
+
+    .quote-overlay .quote-ja {
+        font-size: 1rem;
+    }
+
+    .marquee-section.overlay-mode .marquee-item {
+        width: 240px;
+        height: 160px;
+    }
+}
+
+/* =========================================
+   SCENARIO : ZIGZAG RAILROAD LAYOUT
+========================================= */
+
+/* --- 1. 基本レイアウト (PC: Zigzag) --- */
+.scenario-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5%;
+    position: relative;
+    z-index: 2;
+    padding: 20px 0;
+}
+
+/* ★画像左・テキスト右にするクラス（CSS側で順序反転） */
+.scenario-row.reverse {
+    flex-direction: row-reverse;
+}
+
+.row-text {
+    width: 45%;
+    position: relative;
+}
+
+.row-visual {
+    width: 45%;
+    position: relative;
+}
+
+/* PCでのタイトル・チケット配置 */
+.text-header-flex {
+    display: block;
+    /* PCでは縦積み */
+    margin-bottom: 20px;
+}
+
+/* タイトルスタイル */
+.row-title {
+    font-family: var(--f-serif);
+    font-size: 1.8rem;
+    color: var(--c-text);
+    margin: 0;
+    line-height: 1.5;
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.8);
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: 15px;
+}
+
+/* チケット風ラベル */
+.scene-ticket {
+    display: inline-block;
+    background: #333;
+    color: var(--c-mustard);
+    padding: 5px 15px;
+    font-family: var(--f-title);
+    border: 2px solid var(--c-mustard);
+    margin-bottom: 15px;
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
+    text-align: center;
+    min-width: 80px;
+    position: relative;
+}
+
+.scene-ticket::after,
+.scene-ticket::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    background: var(--c-bg);
+    border-radius: 50%;
+}
+
+.scene-ticket::after {
+    right: -4px;
+}
+
+.scene-ticket::before {
+    left: -4px;
+}
+
+.ticket-header {
+    display: block;
+    font-size: 0.7rem;
+    opacity: 0.8;
+    letter-spacing: 0.1em;
+}
+
+.ticket-num {
+    display: block;
+    font-size: 1.8rem;
+    line-height: 1;
+}
+
+.feature-ticket {
+    background: var(--c-deep-red);
+    color: #fff;
+    border-color: #fff;
+}
+
+/* フィルム画像スタイル */
+.img-wrapper.cinema-style {
+    position: relative;
+    z-index: 1;
+    background: #1a1a1a;
+    padding: 25px 35px;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.25);
+    border-radius: 2px;
+}
+
+/* パーフォレーション（穴） */
+.img-wrapper.cinema-style::before,
+.img-wrapper.cinema-style::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 15px;
+    background-image: linear-gradient(to bottom, #f8f4e6 40%, transparent 40%);
+    background-size: 100% 20px;
+    background-position: 0 10px;
+}
+
+.img-wrapper.cinema-style::before {
+    left: 10px;
+}
+
+.img-wrapper.cinema-style::after {
+    right: 10px;
+}
+
+.img-wrapper.cinema-style img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: sepia(0.1) contrast(1.1);
+    border: 1px solid #333;
+}
+
+.img-wrapper.cinema-style:hover {
+    transform: scale(1.02);
+    transition: 0.3s;
+}
+
+/* --- 2. S字線路コネクター (PC用) --- */
+.connector-curve {
+    width: 100%;
+    height: 140px;
+    position: relative;
+    z-index: 0;
+    pointer-events: none;
+    margin: -40px 0;
+    /* 重ねる */
+    opacity: 0.9;
+}
+
+.connector-curve svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    overflow: visible;
+}
+
+/* 枕木 (太い点線) */
+.rail-ties {
+    fill: none;
+    stroke: var(--c-deep-green);
+    stroke-width: 16;
+    stroke-dasharray: 5, 12;
+    stroke-linecap: butt;
+    opacity: 0.6;
+}
+
+/* レール (細い実線) */
+.rail-line {
+    fill: none;
+    stroke: #444;
+    stroke-width: 3;
+    opacity: 1;
+}
+
+/* =========================================
+   3. MOBILE & RESPONSIVE (OPTIMIZED STACK)
+========================================= */
+@media (max-width: 768px) {
+
+    /* 1. レイアウト: 順序制御のためにFlexboxを使用 */
+    .scenario-row,
+    .scenario-row.reverse {
+        display: flex;
+        flex-direction: column;
+        padding: 40px 0 20px;
+        gap: 0;
+        /* マージンで個別制御 */
+    }
+
+    /* テキストラッパーを無効化し、中身を直接並び替え対象にする */
+    .row-text {
+        display: contents;
+    }
+
+    /* --- 順序並び替え (ORDER) --- */
+
+    /* ① タイトル＆チケット (一番上) */
+    .text-header-flex {
+        order: 1;
+        display: flex;
+        align-items: center;
+        /* 垂直中央揃え */
+        gap: 15px;
+        margin-bottom: 20px;
+        width: 100%;
+        border-bottom: 1px dashed #ccc;
+        padding-bottom: 10px;
+    }
+
+    /* ② 画像 (真ん中) */
+    .row-visual {
+        order: 2;
+        width: 100%;
+        margin-bottom: 25px;
+    }
+
+    /* ③ 本文・その他 (一番下) */
+    .row-text>p,
+    .row-text>.emphasis-text,
+    .row-text>.deco-icon {
+        order: 3;
+    }
+
+    /* --- 各要素のスマホ調整 --- */
+    .scene-ticket {
+        margin-bottom: 0;
+        transform: scale(0.9);
+        flex-shrink: 0;
+    }
+
+    .row-title {
+        font-size: 1.3rem;
+        line-height: 1.3;
+        margin-bottom: 0;
+        border-bottom: none;
+        /* 個別の下線は消してflex側で引く */
+        padding-bottom: 0;
+        text-align: left;
+    }
+
+    .img-wrapper.cinema-style {
+        padding: 15px 20px;
+        /* 穴の余白調整 */
+    }
+
+    /* --- スマホ用の線路 (縦の直線) --- */
+    .connector-curve {
+        height: 80px;
+        margin: 0;
+        width: 100%;
+        order: 4;
+        /* 一番下（次の要素へのつなぎ） */
+    }
+
+    /* SVGのS字カーブは非表示 */
+    .connector-curve svg {
+        display: none;
+    }
+
+    /* 代わりにCSSで「縦の線路」を描画 */
+    .connector-curve::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 0;
+        height: 100%;
+        width: 16px;
+        /* 線路幅 */
+        transform: translateX(-50%);
+
+        /* 枕木 (グラデーションで縞々を作る) */
+        background-image: linear-gradient(to bottom,
+                var(--c-deep-green) 40%,
+                transparent 40%);
+        background-size: 100% 12px;
+        /* 縞の間隔 */
+        opacity: 0.6;
+
+        /* 左右のレール */
+        border-left: 2px solid #444;
+        border-right: 2px solid #444;
+    }
+}
+
+/* =========================================
+   MOBILE & RESPONSIVE (SOPHISTICATED & UNIFIED)
+   洗練された統一感のあるレスポンシブデザイン
+========================================= */
+@media (max-width: 768px) {
+
+    /* --- 1. 全体の余白と背景 --- */
+    #scenario {
+        padding-top: 60px;
+        padding-bottom: 100px;
+        background-color: #fcfaf5;
+        /* 優しい紙の色 */
+        /* 薄いグリッド背景で整列感を演出 */
+        background-image:
+            linear-gradient(rgba(30, 77, 64, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(30, 77, 64, 0.03) 1px, transparent 1px);
+        background-size: 20px 20px;
+    }
+
+    /* --- 2. シーンレイアウト (Flexboxで順序制御) --- */
+    .scenario-row,
+    .scenario-row.reverse {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        margin-bottom: 0;
+        position: relative;
+        /* display: contents; をやめてFlexboxで制御し、安定させる */
+    }
+
+    /* テキストエリアの構成要素を分解して配置 */
+    .row-text {
+        display: contents;
+        /* 子要素をフラットに並べる */
+    }
+
+    /* --- 順序定義 (ORDER) --- */
+
+    /* ① ヘッダー群 (チケット + タイトル) */
+    .text-header-flex {
+        order: 1;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        /* 縦積みに変更 */
+        align-items: center;
+        /* 中央揃え */
+        gap: 15px;
+        margin-bottom: 25px;
+        padding-top: 40px;
+        /* 線路との余白 */
+    }
+
+    /* ② ビジュアル (画像) */
+    .row-visual {
+        order: 2;
+        width: 100%;
+        margin-bottom: 30px;
+        padding: 0 10px;
+        /* 左右にわずかな余白 */
+    }
+
+    /* ③ 本文・スペック・アイコン */
+    .row-text>p,
+    .row-text>.emphasis-text,
+    .row-text>.spec-list,
+    .row-text>.eat-walk-box {
+        order: 3;
+        width: 100%;
+        max-width: 500px;
+        /* 読みやすい幅に制限 */
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0 10px;
+    }
+
+    /* ④ アイコン */
+    .deco-icon {
+        order: 4;
+        width: 100%;
+        text-align: center;
+        margin: 20px 0;
+        font-size: 2rem;
+        opacity: 0.4;
+    }
+
+    /* ⑤ 線路コネクター (次のシーンへのつなぎ) */
+    .connector-rail {
+        order: 5;
+        height: 60px;
+        /* 短くスマートに */
+        margin: 0 auto;
+    }
+
+    /* --- 各パーツのスタイリング --- */
+
+    /* チケット (中央配置) */
+    .scene-ticket {
+        margin: 0;
+        transform: none;
+        box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.15);
+    }
+
+    /* タイトル (中央揃え・装飾) */
+    .row-title {
+        text-align: center;
+        font-size: 1.6rem;
+        line-height: 1.4;
+        margin: 0;
+        border-bottom: none;
+        padding-bottom: 0;
+        /* 映画タイトルのような装飾 */
+        background: linear-gradient(transparent 70%, rgba(212, 175, 55, 0.3) 70%);
+        display: inline-block;
+    }
+
+    /* 本文 (読みやすさ重視) */
+    .scene-text p,
+    .row-text>p {
+        text-align: justify;
+        font-size: 0.95rem;
+        line-height: 1.9;
+        color: #444;
+        margin-bottom: 1.5rem;
+    }
+
+    /* フィルム画像 (レスポンシブ調整) */
+    .img-wrapper.cinema-style {
+        padding: 20px 15px;
+        /* 穴の余白 */
+        background: #1a1a1a;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    }
+
+    /* 穴のサイズ */
+    .img-wrapper.cinema-style::before,
+    .img-wrapper.cinema-style::after {
+        width: 10px;
+        background-size: 100% 16px;
+    }
+
+    .img-wrapper.cinema-style::before {
+        left: 4px;
+    }
+
+    .img-wrapper.cinema-style::after {
+        right: 4px;
+    }
+
+    /* キャプションタグ */
+    .caption-tag {
+        bottom: 15px;
+        right: 15px;
+        font-size: 0.7rem;
+        padding: 4px 10px;
+    }
+
+    /* --- 線路 (縦の直線) --- */
+    .rail-track {
+        width: 30px;
+        /* 細身に */
+    }
+
+    .rail-line {
+        width: 4px;
+        background: #444;
+    }
+
+    .rail-ties {
+        left: 4px;
+        right: 4px;
+        background-image: linear-gradient(to bottom, #555 40%, transparent 40%);
+        background-size: 100% 12px;
+        box-shadow: none;
+    }
+
+    /* --- 特殊パーツ --- */
+    .emphasis-text {
+        border-left: 4px solid var(--c-deep-red);
+        background: #fff;
+        padding: 20px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        font-size: 1.1rem;
+        margin-bottom: 20px !important;
+    }
+
+    .eat-walk-box {
+        margin: 10px auto 20px;
+        padding: 15px;
+    }
+
+    .spec-list {
+        text-align: center;
+        /* スペックは中央揃え */
+        border-top: 1px solid #ddd;
+        padding-top: 15px;
+    }
+}

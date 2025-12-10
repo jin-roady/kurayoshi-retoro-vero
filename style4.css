@@ -1,0 +1,697 @@
+/* =========================================
+   VARIABLES & RESET
+========================================= */
+:root {
+    /* カラーパレット */
+    --c-primary: #1a2a3a;
+    /* ネイビー：全体の引き締め */
+    --c-accent: #ff6b35;
+    /* オレンジ：食欲、活気、アクセント */
+    --c-bg: #f5f7fa;
+    /* オフホワイト：清潔感 */
+    --c-text: #333333;
+    /* メインテキスト */
+    --c-gray: #e0e4e8;
+    /* ボーダーや背景装飾 */
+    --c-white: #ffffff;
+
+    /* フォント */
+    --f-jp: 'Noto Sans JP', sans-serif;
+    --f-en: 'Oswald', sans-serif;
+}
+
+body {
+    font-family: var(--f-jp);
+    color: var(--c-text);
+    background-color: var(--c-white);
+    margin: 0;
+    line-height: 1.8;
+    letter-spacing: 0.05em;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+img {
+    max-width: 100%;
+    vertical-align: bottom;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-accent {
+    color: var(--c-accent);
+}
+
+.mt-5 {
+    margin-top: 3rem;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    padding: 0 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-family: var(--f-en);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--c-primary);
+    margin: 0;
+}
+
+.logo .color-accent {
+    color: var(--c-accent);
+}
+
+.pc-nav ul {
+    display: flex;
+    gap: 30px;
+}
+
+.pc-nav a {
+    font-family: var(--f-en);
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--c-primary);
+    position: relative;
+}
+
+.pc-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--c-accent);
+    transition: 0.3s;
+}
+
+.pc-nav a:hover::after {
+    width: 100%;
+}
+
+.btn-header {
+    background: var(--c-primary);
+    color: #fff;
+    padding: 8px 25px;
+    border-radius: 4px;
+    font-family: var(--f-en);
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.btn-header:hover {
+    background: var(--c-accent);
+}
+
+@media (max-width: 768px) {
+    .pc-nav {
+        display: none;
+    }
+
+    .header-inner {
+        padding: 0 20px;
+    }
+}
+
+/* =========================================
+   HERO SECTION (Modern Split)
+========================================= */
+.hero-modern {
+    position: relative;
+    padding-top: 140px;
+    /* ヘッダー分 + 余白 */
+    padding-bottom: 100px;
+    overflow: hidden;
+}
+
+/* 斜めの背景装飾 */
+.hero-bg-diagonal {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 55%;
+    height: 100%;
+    background: var(--c-bg);
+    transform: skewX(-15deg);
+    transform-origin: top right;
+    z-index: -1;
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hero-text {
+    flex: 1;
+    padding-right: 50px;
+}
+
+.hero-sub {
+    font-family: var(--f-en);
+    color: var(--c-accent);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    margin-bottom: 15px;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    font-weight: 900;
+    color: var(--c-primary);
+    margin-bottom: 30px;
+}
+
+.d-block {
+    display: block;
+}
+
+.text-gradient {
+    background: linear-gradient(45deg, var(--c-primary), var(--c-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-desc {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 40px;
+    border-left: 4px solid var(--c-gray);
+    padding-left: 20px;
+}
+
+.hero-status {
+    display: flex;
+    gap: 30px;
+}
+
+.status-item .label {
+    display: block;
+    font-size: 0.7rem;
+    font-family: var(--f-en);
+    color: #999;
+    font-weight: 700;
+}
+
+.status-item .value {
+    font-family: var(--f-en);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--c-primary);
+}
+
+.status-item .value small {
+    font-size: 0.9rem;
+    margin-left: 2px;
+}
+
+/* ビジュアル */
+.hero-visual {
+    flex: 1;
+    position: relative;
+    height: 500px;
+}
+
+.img-box {
+    position: absolute;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1s;
+}
+
+.img-box:hover img {
+    transform: scale(1.05);
+}
+
+.img-main {
+    width: 90%;
+    height: 80%;
+    top: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.img-sub {
+    width: 200px;
+    height: 200px;
+    bottom: 20px;
+    left: -20px;
+    z-index: 2;
+    border: 5px solid #fff;
+}
+
+@media (max-width: 768px) {
+    .hero-modern {
+        padding-top: 100px;
+        padding-bottom: 60px;
+    }
+
+    .hero-bg-diagonal {
+        width: 100%;
+        top: 30%;
+        transform: skewY(-5deg);
+    }
+
+    .hero-container {
+        flex-direction: column;
+    }
+
+    .hero-text {
+        padding-right: 0;
+        margin-bottom: 50px;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-visual {
+        width: 100%;
+        height: 350px;
+    }
+
+    .img-main {
+        width: 100%;
+        right: auto;
+        left: 0;
+    }
+
+    .img-sub {
+        width: 120px;
+        height: 120px;
+        left: 10px;
+        bottom: -20px;
+    }
+}
+
+/* =========================================
+   COMMON SECTION
+========================================= */
+.section {
+    padding: 100px 0;
+}
+
+.bg-light {
+    background-color: var(--c-bg);
+}
+
+.bg-dark {
+    background-color: var(--c-primary);
+    color: #fff;
+}
+
+.section-header {
+    margin-bottom: 60px;
+}
+
+.section-en {
+    display: block;
+    font-family: var(--f-en);
+    color: var(--c-accent);
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.section-jp {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* =========================================
+   ABOUT
+========================================= */
+.concept-content {
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 2.2;
+    font-size: 1.05rem;
+    text-align: center;
+}
+
+.concept-text strong {
+    background: linear-gradient(transparent 70%, rgba(255, 107, 53, 0.2) 70%);
+}
+
+/* =========================================
+   COURSE
+========================================= */
+.course-wrapper {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+.course-card {
+    flex: 1;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s;
+    border: 1px solid #eee;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.map-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.5);
+    font-family: var(--f-en);
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.badge-cat {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: #333;
+    color: #fff;
+    padding: 5px 12px;
+    font-size: 0.75rem;
+    font-family: var(--f-en);
+    border-radius: 4px;
+}
+
+.badge-cat.highlight {
+    background: var(--c-accent);
+}
+
+.card-body {
+    padding: 30px;
+}
+
+.card-body h3 {
+    margin: 0 0 20px;
+    font-size: 1.25rem;
+}
+
+.specs-grid {
+    display: flex;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+}
+
+.spec-item {
+    flex: 1;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.spec-item .num {
+    font-family: var(--f-en);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--c-primary);
+}
+
+.spec-item .num small {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #999;
+}
+
+.desc {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0;
+}
+
+.btn-outline {
+    display: inline-block;
+    border: 2px solid var(--c-primary);
+    color: var(--c-primary);
+    padding: 12px 40px;
+    font-weight: 700;
+    border-radius: 50px;
+}
+
+.btn-outline:hover {
+    background: var(--c-primary);
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .course-wrapper {
+        flex-direction: column;
+    }
+}
+
+/* =========================================
+   SWEETS
+========================================= */
+.sweets-modern-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.sweets-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.sweets-thumb {
+    width: 80px;
+    height: 80px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    flex-shrink: 0;
+}
+
+.sweets-detail h4 {
+    margin: 0 0 5px;
+    font-size: 1.1rem;
+    border-bottom: 2px solid var(--c-accent);
+    display: inline-block;
+    padding-bottom: 2px;
+}
+
+.sweets-detail p {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.note {
+    font-size: 0.8rem;
+    color: #999;
+    margin-top: 40px;
+}
+
+/* =========================================
+   OUTLINE (Dark Mode)
+========================================= */
+.row-flex {
+    display: flex;
+    gap: 50px;
+}
+
+.outline-header {
+    flex: 0 0 250px;
+}
+
+.outline-body {
+    flex: 1;
+}
+
+.outline-list {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 20px 0;
+    margin: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+}
+
+.outline-list dt {
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.outline-list dd {
+    margin: 0;
+}
+
+.price-box {
+    margin-bottom: 10px;
+    font-family: var(--f-en);
+    font-size: 1.2rem;
+}
+
+.price-box span {
+    font-size: 0.8rem;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+@media (max-width: 768px) {
+    .row-flex {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .outline-list {
+        grid-template-columns: 100px 1fr;
+    }
+}
+
+/* =========================================
+   ENTRY & FOOTER
+========================================= */
+.section-entry {
+    background: url('https://placehold.jp/333333/ffffff/1200x600.png?text=Ride%20BG') no-repeat center center/cover;
+    position: relative;
+    color: #fff;
+    padding: 120px 0;
+}
+
+.entry-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(26, 42, 58, 0.8);
+    /* Navy overlay */
+}
+
+.relative {
+    position: relative;
+    z-index: 1;
+}
+
+.entry-title {
+    font-family: var(--f-en);
+    font-size: 5rem;
+    font-weight: 700;
+    line-height: 1;
+    margin: 0 0 20px;
+    letter-spacing: 0.05em;
+}
+
+.entry-text {
+    font-size: 1.2rem;
+    margin-bottom: 50px;
+    opacity: 0.9;
+}
+
+.entry-actions {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 8px;
+    display: inline-block;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.status-text {
+    margin-bottom: 20px;
+    font-weight: 700;
+    color: var(--c-accent);
+}
+
+.btn-primary-lg {
+    display: inline-block;
+    background: var(--c-accent);
+    color: #fff;
+    padding: 15px 60px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 4px;
+    box-shadow: 0 10px 20px rgba(255, 107, 53, 0.4);
+    transition: transform 0.2s;
+}
+
+.btn-primary-lg:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(255, 107, 53, 0.5);
+    background: #ff7b4d;
+}
+
+.footer-modern {
+    background: #111;
+    color: #666;
+    padding: 40px 0;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+@media (max-width: 768px) {
+    .entry-title {
+        font-size: 3rem;
+    }
+}

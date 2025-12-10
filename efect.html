@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>くるくる回るテキスト</title>
+    <style>
+        /* 回転させるテキストのスタイル */
+        .spin-text {
+            display: inline-block;
+            /* 回転させるために必要 */
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff69b4;
+            /* 可愛いピンク色にしてみました */
+
+            /* アニメーションの設定 */
+            /* 名前: spin, 時間: 3秒で1周, 動き方: 一定速度(linear), 繰り返し: 無限(infinite) */
+            animation: spin 3s linear infinite;
+        }
+
+        /* 回転アニメーションの定義 */
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+                /* 開始時は0度 */
+            }
+
+            100% {
+                transform: rotate(360deg);
+                /* 終了時に360度まで回転 */
+            }
+        }
+
+        /* 見た目を整えるためのスタイル（必須ではありません） */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="spin-text">sweet×ride</div>
+
+</body>
+
+</html>
