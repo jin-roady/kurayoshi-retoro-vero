@@ -1,0 +1,1 @@
+# kurayoshi-retoro-vero
