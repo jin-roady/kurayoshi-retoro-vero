@@ -4,421 +4,642 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>倉吉あま〜いライド2025｜スイーツ×サイクリング</title>
-    <link rel="stylesheet" href="style.css">
+    <title>KURAYOSHI RETRO VELO 2026 - Time Slip Ride</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@500&family=Zen+Maru+Gothic:wght@500;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Kaushan+Script&family=Shippori+Mincho:wght@500;700;800&family=Zen+Maru+Gothic:wght@500;700&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="style5.css">
 </head>
 
 <body>
+    <div id="cinematic-loader">
+        <div class="loader-bg-noise"></div>
 
-    <div class="bg-decoration">
-        <span class="float-item item-1">🍩</span>
-        <span class="float-item item-2">🚴‍♀️</span>
-        <span class="float-item item-3">🍰</span>
+        <div class="loader-shutter shutter-top"></div>
+        <div class="loader-shutter shutter-bottom"></div>
+
+        <div class="loader-visual-container">
+            <svg class="record-svg" viewBox="0 0 200 200">
+                <circle class="groove-track" cx="100" cy="100" r="90" />
+                <circle class="groove-track" cx="100" cy="100" r="70" />
+                <circle class="groove-track" cx="100" cy="100" r="50" />
+
+                <circle class="groove-progress" cx="100" cy="100" r="80" />
+
+                <circle class="center-label" cx="100" cy="100" r="25" />
+                <text x="100" y="102" text-anchor="middle" class="label-text">RV</text>
+            </svg>
+
+            <div class="stylus-arm">
+                <div class="stylus-line"></div>
+                <div class="stylus-head"></div>
+            </div>
+
+            <div class="loading-text-wrap">
+                <span class="loading-word">LOADING</span>
+                <span class="loading-dots">...</span>
+            </div>
+        </div>
     </div>
 
-    <section class="hero-poster">
-        <div class="hero-bg-blob blob-1"></div>
-        <div class="hero-bg-blob blob-2"></div>
+    <div class="bg-texture"></div>
 
-        <div class="hero-inner">
-            <div class="hero-content">
-                <h1 class="main-title">
-                    <span class="title-sub"><span class="icon">🍩</span> SWEETS RIDE</span>
-                    <div class="title-main-wrapper">
-                        <span class="char-block color-brown">倉吉</span>
-                        <span class="char-block color-pink pop-anim">あま〜い</span>
-                        <span class="char-block color-brown">ライド</span>
-                        <span class="title-year">2025</span>
-                    </div>
-                </h1>
+    <header class="retro-header">
+        <div class="container header-flex">
+            <h1 class="brand-logo">
+                <span class="logo-main">KURAYOSHI <br>RETRO VELO</span>
+                <span class="logo-sub">Time Slip Ride 2026</span>
+            </h1>
 
-                <p class="hero-catch">
-                    ペダルを回せば、<br class="sp-only">そこはスイーツ天国。<br>
-                    <strong>#推しスイーツ</strong> を見つける<br class="sp-only">春のサイクリング旅。
+            <button class="mobile-menu-btn">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="retro-nav">
+                <ul>
+                    <li><a href="#concept" class="nav-link">STORY</a></li>
+                    <li><a href="#scenario" class="nav-link">TRACKS</a></li>
+                    <li><a href="#shirakabe" class="nav-link">GOURMET</a></li>
+                    <li><a href="#outline" class="nav-link">OUTLINE</a></li>
+                    <li><a href="#sns" class="nav-link">SNS</a></li>
+                </ul>
+                <a href="#entry" class="btn-header-action nav-link">ENTRY</a>
+                <div class="lang-switcher">
+                    <button type="button" class="lang-btn is-active" onclick="location.href='index5.html'">JP</button>
+                    <button type="button" class="lang-btn" onclick="location.href='en.html'">EN</button>
+                </div>
+            </nav>
+        </div>
+
+    </header>
+
+    <section class="hero-section">
+        <div class="container hero-layout">
+            <div class="hero-text-area js-fade">
+                <div class="hero-label">TOTTORI / KURAYOSHI</div>
+                <h2 class="hero-headline">
+                    <span class="jp-main">あの日見た景色へ、<br>時をかけるペダル。</span>
+                    <span class="en-sub">Ride into the Scene.</span>
+                </h2>
+                <p class="hero-lead">
+                    まるで銀幕の中へ迷い込んだような街・倉吉。<br>
+                    そこは、時間がゆっくりと呼吸する街。<br>
+                    自転車と散策で巡る、大人のための<br>
+                    シネマティック・タイムスリップ体験。
                 </p>
+
+                <div class="hero-tags">
+                    <span class="tag">#レトロベロ</span>
+                    <span class="tag">#白壁土蔵群散策</span>
+                    <span class="tag">#旧国鉄倉吉線</span>
+                </div>
 
                 <div class="hero-actions">
-                    <a href="#entry" class="btn-hero-new">
-                        ENTRY NOW <span class="arrow-bounce">⤵</span>
-                    </a>
-                    <div class="date-tag">
-                        <span class="tag-pin">📍</span> 2025 SPRING
-                    </div>
+                    <span class="date-badge">EVENT DATE : 2026.03.22</span>
                 </div>
             </div>
 
-            <div class="hero-visual-new">
-
-                <div class="morph-image-wrapper">
-                    <img src="images/fv-1.png" alt="Cycling Girl" class="morph-img">
-                    <div class="spinning-text">
-                        <svg viewBox="0 0 200 200">
-                            <defs>
-                                <path id="circlePath"
-                                    d="M100,20 C150,20 180,70 180,100 C180,150 130,180 100,180 C50,180 20,130 20,100 C20,50 70,20 100,20 Z" />
-                            </defs>
-                        </svg>
+            <div class="hero-visual-area js-fade delay-1">
+                <div class="record-tire-container">
+                    <div class="record-disk">
+                        <div class="record-label">
+                            <span class="label-text">RETRO<br>VELO<br>SIDE-A</span>
+                        </div>
                     </div>
                 </div>
-
             </div>
         </div>
-
-        <svg class="wave-bottom" viewBox="0 0 1440 100" xmlns="http://www.w3.org/2000/svg">
-            <path fill="#fffcf0"
-                d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,320L0,320Z">
-            </path>
-        </svg>
+        <div class="hero-border-bottom"></div>
     </section>
 
-    <section id="about" class="section scroll-fade">
-        <div class="container text-center">
-            <h3 class="section-subtitle">- Concept -</h3>
-            <h2 class="section-title">甘い香りに誘われて<br>心ほどける「ごほうび旅」。</h2>
-            <div class="note-paper">
-                <p>
-                    ペダルを漕ぐたび、ふわりと届くおいしい予感。<br>
-                    「倉吉あま〜いライド」は、順位やタイムを競うレースではありません。<br>
-                    主役は、倉吉が誇る<strong>「絶品スイーツ」</strong>と、レトロで可愛い<strong>「街並み」</strong>です。<br>
-                    <br>
-                    白壁土蔵群のノスタルジックな風景に癒やされながら、<br>
-                    エイドステーションで待つ「とっておきのおやつ」を目指してプチ冒険。<br>
-                    <br>
-                    運動したあとのスイーツは、きっと世界一おいしい魔法の味。<br>
-                    自転車はじめてさんも、スイーツ女子も。<br>
-                    五感で楽しむ、あま〜い休日を一緒に過ごしませんか？
+    <div id="side-a-wrapper">
+
+        <div class="container" id="concept">
+            <div class="side-label js-fade">
+                <div class="side-line"></div>
+                <div class="side-text">SIDE-A : STORY</div>
+                <div class="side-line"></div>
+            </div>
+
+            <section class="concept-section">
+                <p class="concept-text js-fade delay-1">
+
+                    <span class="concept-lead">ペダルを回せば、風景が映画になる。</span><br><br>
+
+                    昭和の面影と、白壁の情景が重なる街、倉吉。<br>
+                    古き良き路地、打吹山、そして旧国鉄倉吉線の廃線跡——。<br>
+                    そこには今も、日常とは違う“物語の空気”が漂っています。<br><br>
+                    「倉吉レトロベロ」は、速さを競わない
+                    <span class="cinematic-highlight">シネマティック・ライド</span>。<br>
+                    ペダルを漕ぐたび、忘れていた時間がそっとほどけ、<br>
+                    目の前の景色は、まるで映画のワンシーンのように揺らぎます。<br><br>
+
+                    さあ、時を超える旅へ。<br>
+                    “あの日”のあなたが、どこかで待っているかもしれません。
                 </p>
-                <span class="tape-top"></span>
+            </section>
+
+        </div>
+
+        <section class="marquee-section overlay-mode js-fade">
+            <div class="quote-overlay">
+                <p class="quote-en">"Time flows differently here."</p>
+                <p class="quote-ja">ここでは、時間さえも<br>ゆっくりとペダルを漕いでいる。</p>
+            </div>
+
+            <div class="marquee-container">
+                <div class="marquee-track">
+                    <div class="marquee-item" style="--rot: 1deg;"><img src="images/scene1.jpg" alt="Scene 1"></div>
+                    <div class="marquee-item" style="--rot: -2deg;"><img src="images/scene2.jpg" alt="Scene 2"></div>
+                    <div class="marquee-item" style="--rot: 1.5deg;"><img src="images/scene3.jpg" alt="Scene 3"></div>
+                    <div class="marquee-item" style="--rot: -1deg;"><img src="images/scene4.jpg" alt="Scene 4"></div>
+                    <div class="marquee-item" style="--rot: 2deg;"><img src="images/scene5.jpg" alt="Scene 5"></div>
+                    <div class="marquee-item" style="--rot: 1deg;"><img src="images/scene1.jpg" alt="Scene 1"></div>
+                    <div class="marquee-item" style="--rot: -2deg;"><img src="images/scene2.jpg" alt="Scene 2"></div>
+                    <div class="marquee-item" style="--rot: 1.5deg;"><img src="images/scene3.jpg" alt="Scene 3"></div>
+                    <div class="marquee-item" style="--rot: -1deg;"><img src="images/scene4.jpg" alt="Scene 4"></div>
+                    <div class="marquee-item" style="--rot: 2deg;"><img src="images/scene5.jpg" alt="Scene 5"></div>
+                </div>
+            </div>
+
+            <div class="vignette-layer"></div>
+        </section>
+    </div>
+
+    <div class="container" id="scenario">
+        <div class="bg-typography-layer">SCREENPLAY</div>
+
+        <div class="side-label js-fade">
+            <div class="side-line"></div>
+            <div class="side-text type-b">SIDE-B : THE SCENARIO</div>
+            <div class="side-line"></div>
+        </div>
+
+        <div class="section-heading js-fade">
+            <span class="eng-title">RIDE SCRIPT</span>
+            <div class="course-title-box cinema-mode">
+                <span class="course-label">OFFICIAL TITLE</span>
+                <h2 class="course-main-title">旅の脚本（ルート構成）</h2>
+                <div class="title-decoration-line"></div>
+            </div>
+        </div>
+
+        <div class="scenario-row js-fade delay-1">
+            <div class="row-text">
+                <div class="text-header-flex">
+                    <div class="scene-ticket">
+                        <span class="ticket-header">SCENE</span>
+                        <span class="ticket-num">01</span>
+                    </div>
+                    <h3 class="row-title">クランクイン：<br>関金の湯けむり</h3>
+                </div>
+                <p>
+                    物語の始まりは、静寂に包まれた湯の里「関金」。<br>
+                    カチンコが鳴るようにペダルを踏み込めば、日常のノイズがフェードアウトしていく。<br>
+                    まずは心を整える、静かなプロローグから。
+                </p>
+                <div class="deco-icon icon-bike">🚲</div>
+            </div>
+            <div class="row-visual">
+                <div class="img-wrapper cinema-style">
+                    <img src="images/urban exchange center.png" alt="関金スタート">
+                </div>
+            </div>
+        </div>
+
+        <div class="connector-curve type-r-to-l js-fade">
+            <svg viewBox="0 0 500 150" preserveAspectRatio="none">
+                <path d="M450,0 Q450,75 250,75 T50,150" class="rail-ties" />
+                <path d="M450,0 Q450,75 250,75 T50,150" class="rail-line" />
+            </svg>
+        </div>
+
+        <div class="scenario-row reverse js-fade delay-1">
+            <div class="row-text">
+                <div class="text-header-flex">
+                    <div class="scene-ticket">
+                        <span class="ticket-header">SCENE</span>
+                        <span class="ticket-num">02</span>
+                    </div>
+                    <h3 class="row-title">トラッキング・ショット：<br>現代と過去の交差点</h3>
+                </div>
+                <p>
+                    関金の田園から、天神川の風に乗って北へ。<br>
+                    「現代」の倉吉駅に一度タッチして折り返す。<br>
+                    そこから先は、時代が移ろうグラデーションを感じながら、舞台は物語の核心へ。
+                </p>
+                <div class="deco-icon icon-map">📍</div>
+            </div>
+            <div class="row-visual">
+                <div class="img-wrapper cinema-style">
+                    <img src="images/kurayoshi station.png" alt="倉吉へのアプローチ">
+                </div>
+            </div>
+        </div>
+
+        <div class="connector-curve type-l-to-r js-fade">
+            <svg viewBox="0 0 500 150" preserveAspectRatio="none">
+                <path d="M50,0 Q50,75 250,75 T450,150" class="rail-ties" />
+                <path d="M50,0 Q50,75 250,75 T450,150" class="rail-line" />
+            </svg>
+        </div>
+
+        <div class="scenario-row js-fade delay-1" id="shirakabe">
+            <div class="row-text">
+                <div class="text-header-flex">
+                    <div class="scene-ticket feature-ticket">
+                        <span class="ticket-header">MAIN</span>
+                        <span class="ticket-num">CUT</span>
+                    </div>
+                    <h3 class="row-title">ズームイン：<br>白壁と美食の迷宮</h3>
+                </div>
+                <p class="emphasis-text">
+                    自転車を降りて、五感で味わう。<br>
+                    「食べ歩き」こそが、最高の補給食。
+                </p>
+                <p>
+                    玉川沿いに並ぶ白壁土蔵群と赤瓦の街並み。<br>
+                    シューズの音を響かせて、ふと路地裏へ。<br>
+                    <strong>「グルメチケット」</strong>を片手に美食を巡れば、<br>
+                    まるで映画の主人公になったような、特別な時間が流れ出します。
+                </p>
+                <div class="deco-icon icon-food">🍡</div>
+            </div>
+            <div class="row-visual">
+                <div class="img-wrapper highlight-wrapper cinema-style">
+                    <img src="images/scene3.jpg" alt="白壁土蔵群">
+                    <div class="caption-tag">Walk & Gourmet</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="connector-curve type-r-to-l js-fade">
+            <svg viewBox="0 0 500 150" preserveAspectRatio="none">
+                <path d="M450,0 Q450,75 250,75 T50,150" class="rail-ties" />
+                <path d="M450,0 Q450,75 250,75 T50,150" class="rail-line" />
+            </svg>
+        </div>
+
+        <div class="scenario-row reverse js-fade delay-1">
+            <div class="row-text">
+                <div class="text-header-flex">
+                    <div class="scene-ticket">
+                        <span class="ticket-header">SCENE</span>
+                        <span class="ticket-num">04</span>
+                    </div>
+                    <h3 class="row-title">クランクアップ：<br>湯の温もり</h3>
+                </div>
+                <p>
+                    満たされたお腹と心で、再び関金へ。<br>
+                    フィニッシュ後は、名湯「関金温泉」が待っています。<br>
+                    心地よい疲労感を、温かい湯が解きほぐす。<br>
+                    <br>
+                    「また、この景色に会いに来よう」<br>
+                    そう思える旅が、ここで完結します。
+                </p>
+                <div class="deco-icon icon-onsen">♨</div>
+            </div>
+            <div class="row-visual">
+                <div class="img-wrapper cinema-style">
+                    <img src="images/yuumeikan.jpg" alt="関金温泉ゴール">
+                </div>
+            </div>
+        </div>
+    </div>
+    <section id="excursion" class="section bg-paper">
+        <div class="container">
+            <div class="excursion-frame js-fade">
+                <div class="excursion-label">SPIN-OFF / OPTIONAL</div>
+                <h2 class="excursion-title">【特別興行】 旧国鉄倉吉線廃線跡</h2>
+
+                <div class="excursion-content">
+                    <div class="excursion-text">
+                        <h3>レールに残る、昭和の残像。</h3>
+                        <p>
+                            本編（サイクリング）の前日に開催される、特別なエクスカーション。<br>
+                            1985年に廃線となった旧国鉄倉吉線。<br>
+                            今も残るレールと、それを覆う幻想的な竹林。<br>
+                            「日本一美しい廃線跡」と呼ばれる場所を、専門ガイドと共に歩きます。<br>
+                            <small>※希望者のみの別枠開催（ウォーキングツアー）となります。</small>
+                        </p>
+                        <a href="#" class="btn-excursion">詳細を見る（準備中）</a>
+                    </div>
+                    <div class="excursion-img">
+                        <img src="images/course_long.png" alt="旧国鉄倉吉線">
+                        <div class="film-grain"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="sweets" class="section bg-check scroll-fade">
+    <section id="history-archive" class="section bg-paper-dark">
         <div class="container">
-            <h3 class="section-subtitle">- Sweets Collection -</h3>
-            <h2 class="section-title">エイドを彩る<br>協力予定のスイーツ</h2>
+            <div class="archive-container js-fade">
+                <div class="archive-header-row">
+                    <span class="archive-id">FILE NO. 1985-0331</span>
+                    <h3 class="archive-main-title">旧国鉄倉吉線とは</h3>
+                    <span class="archive-sub-title">THE LOST MEMORY OF SHOWA</span>
+                </div>
 
-            <div class="sweets-grid">
-                <div class="sweets-card scroll-fade">
-                    <span class="pin">📌</span>
-                    <div class="sweets-img" style="background-color:#ffe4e1;">🍡</div>
-                    <div class="sweets-info">
-                        <h3>打吹公園だんご</h3>
-                        <p>石谷精華堂の代表銘菓。<br>食べやすいサイズでエイドに最適！</p>
+                <div class="archive-grid">
+                    <div class="archive-desc">
+                        <p>
+                            <strong>「街と山を結び、人々の営みを運んだ鉄路」</strong><br>
+                            旧国鉄倉吉線は、かつて山陰本線の上井駅（現・倉吉駅）から、関金町の山守駅までを結んでいた全長約20kmの鉄道路線です。<br>
+                            明治45年（1912年）に開業し、長きにわたり地域住民の足として、またクロム鉱石や木材などの物資輸送の要として活躍しました。
+                        </p>
+                        <p>
+                            モータリゼーションの普及に伴い、昭和60年（1985年）3月31日、惜しまれつつその歴史に幕を下ろしましたが、廃線から数十年が経過した現在でも、レール、ホーム跡、トンネルなどが当時の姿を色濃く残しています。<br>
+                            特に泰久寺（たいきゅうじ）駅跡周辺の<strong>「竹林が覆う廃線跡」</strong>は、その幻想的な美しさから、全国の廃線ファンや写真愛好家を魅了し続けています。
+                        </p>
                     </div>
-                </div>
-                <div class="sweets-card scroll-fade delay-100">
-                    <span class="pin">📌</span>
-                    <div class="sweets-img" style="background-color:#e0ffff;">🍰</div>
-                    <div class="sweets-info">
-                        <h3>チロルのケーキ</h3>
-                        <p>市内で人気の洋菓子店。<br>写真映えするカットケーキが登場かも？</p>
-                    </div>
-                </div>
-                <div class="sweets-card scroll-fade delay-200">
-                    <span class="pin">📌</span>
-                    <div class="sweets-img" style="background-color:#fffacd;">🎁</div>
-                    <div class="sweets-info">
-                        <h3>宝製菓のお菓子</h3>
-                        <p>「風呂敷サンド」など、<br>地元の定番人気スイーツをご用意。</p>
+                    <div class="archive-data-box">
+                        <dl>
+                            <dt>開業</dt>
+                            <dd>明治45年 (1912)</dd>
+                            <dt>廃止</dt>
+                            <dd>昭和60年 (1985)</dd>
+                            <dt>区間</dt>
+                            <dd>倉吉 〜 山守 (20.0km)</dd>
+                            <dt>状態</dt>
+                            <dd>レール・枕木が現存</dd>
+                        </dl>
+                        <div class="stamp-mark">CLOSED</div>
                     </div>
                 </div>
             </div>
-            <p class="text-center" style="margin-top:20px; font-size:0.8rem; color:#999;">
-                ※写真はイメージです。実際の提供メニューとは異なる場合があります。</p>
         </div>
     </section>
 
-    <section id="course" class="section scroll-fade">
-        <div class="footsteps">
-            <span>🐾</span><span>🐾</span><span>🐾</span>
-        </div>
-
+    <section id="outline" class="section bg-dark text-white">
         <div class="container">
-            <h3 class="section-subtitle">- Course Map -</h3>
-            <h2 class="section-title">選べる２つのコース</h2>
-            <p class="text-center" style="margin-bottom:40px;">
-                関金温泉エリアを発着点に、<br>気分に合わせて選べる2つのルート。
+            <div class="section-heading text-white js-fade">
+                <span class="eng-title color-yellow">PRODUCTION NOTE</span>
+                <h2 class="jp-title text-stroke-none">開催概要</h2>
+            </div>
+
+            <div class="spec-sheet js-fade delay-1">
+                <dl>
+                    <dt>TITLE</dt>
+                    <dd>KURAYOSHI RETRO VELO 2026</dd>
+
+                    <dt>DATE</dt>
+                    <dd>2026年3月22日（日）</dd>
+
+                    <dt>LOCATION</dt>
+                    <dd>
+                        鳥取県倉吉市<br>
+                        <small>（関金 〜 倉吉駅 〜 白壁土蔵群 〜 関金）</small>
+                    </dd>
+
+                    <dt>STYLE</dt>
+                    <dd>
+                        <strong>シネマティック・サイクリング</strong><br>
+                        <small>白壁エリアでの食べ歩き散策</small>
+                    </dd>
+
+                    <dt>LUNCH</dt>
+                    <dd>
+                        <span class="cat cat-short">食べ歩き</span><br>
+                        白壁土蔵群エリア内でのグルメチケット制
+                    </dd>
+
+                    <dt>FEE</dt>
+                    <dd>¥5,000 <small>（税込・保険・グルメチケット・入浴券込）</small></dd>
+                </dl>
+            </div>
+        </div>
+    </section>
+    <section id="entry" class="section entry-section js-fade">
+        <div class="container text-center relative">
+            <div
+                style="display:inline-block; background:var(--c-mustard); color:var(--c-deep-green); padding:5px 20px; font-family:var(--f-en); font-weight:bold; letter-spacing:0.2em; border:2px solid var(--c-deep-green); margin-bottom:20px;">
+                STATUS : PREPARING
+            </div>
+
+            <h2 class="entry-catch">COMING SOON</h2>
+
+            <p class="entry-sub">
+                エントリー受付準備中<br>
+                旅の切符が発行されるまで、もうしばらくお待ちください。
             </p>
 
-            <div class="course-grid">
-                <div class="course-box course-pink scroll-fade">
-                    <div class="tape-center"></div>
-                    <div class="course-header">
-                        <span class="badge">ファミリー・初心者向け</span>
-                        <h3 style="font-size:1.3rem;">レトロ線路をてくてく♪<br>おさんぽショート</h3>
-                        <p class="distance">約 9.8 km</p>
-                    </div>
-                    <div class="course-body">
-                        <p class="desc">
-                            「せきがね廃線路」を横目に歴史を感じるのんびりルート。<br>
-                            平坦な道を走って、観光案内所でスイーツをぱくり♪
-                        </p>
-                        <ul class="specs">
-                            <li><span>獲得標高</span> 約 98 m</li>
-                            <li><span>主な経由</span> 関金廃線路観光案内所</li>
-                        </ul>
-                        <div class="map-area-mini">Map Image</div>
-                    </div>
-                </div>
-
-                <div class="course-box course-blue scroll-fade delay-100">
-                    <div class="tape-center"></div>
-                    <div class="course-header">
-                        <span class="badge">観光・中級者向け</span>
-                        <h3 style="font-size:1.3rem;">ときめきスイーツ旅♡<br>ごほうびミドル</h3>
-                        <p class="distance">約 34.7 km</p>
-                    </div>
-                    <div class="course-body">
-                        <p class="desc">
-                            白壁土蔵群や倉吉駅方面へ足をのばす、よくばりコース。<br>
-                            ペダルを回した後は、温泉入浴券でゆったり癒やされて。
-                        </p>
-                        <ul class="specs">
-                            <li><span>獲得標高</span> 約 222 m</li>
-                            <li><span>主な経由</span> 倉吉駅（折り返し）</li>
-                        </ul>
-                        <div class="map-area-mini">Map Image</div>
-                    </div>
-                </div>
+            <div style="opacity: 0.8; margin-top: 30px;">
+                <span class="btn-entry-big"
+                    style="background: #333; color: #999; border-color: #555; cursor: default; box-shadow: none; pointer-events: none;">
+                    ENTRY START JAN 2025
+                </span>
             </div>
 
-            <div class="text-center" style="margin-top:40px;">
-                <a href="#" class="btn-main btn-mini">詳しいルートマップを見る <span class="icon">🗺️</span></a>
-            </div>
+            <p style="margin-top: 15px; color: var(--c-accent-cream); font-size: 0.9rem; opacity: 0.8;">
+                ▼ 最新情報は下記SNSにて ▼
+            </p>
         </div>
     </section>
 
-    <section id="schedule" class="section scroll-fade">
+    <section id="sns" class="section bg-cream">
         <div class="container">
-            <h3 class="section-subtitle">- Time Schedule -</h3>
-            <h2 class="section-title">当日のながれ（予定）</h2>
-
-            <div class="timeline-box">
-                <ul class="timeline">
-                    <li>
-                        <span class="time">午前</span>
-                        <div class="content">
-                            <h4>集合・受付</h4>
-                            <p>都市交流センター（関金）に集合。<br>ワクワクの1日が始まります。</p>
-                        </div>
-                    </li>
-                    <li>
-                        <span class="time">START</span>
-                        <div class="content">
-                            <h4>順次スタート 🚲</h4>
-                            <p>グループごとに分かれて出発！</p>
-                        </div>
-                    </li>
-                    <li>
-                        <span class="time">Ride</span>
-                        <div class="content">
-                            <h4>スイーツ休憩 🍡</h4>
-                            <p>エイドステーションでお菓子をチャージ。<br>写真を撮るのも忘れずに。</p>
-                        </div>
-                    </li>
-                    <li>
-                        <span class="time">GOAL</span>
-                        <div class="content">
-                            <h4>ゴール・解散 🏁</h4>
-                            <p>完走後はお土産を買ったり、温泉で汗を流したり。<br>倉吉を満喫してください。</p>
-                        </div>
-                    </li>
-                </ul>
+            <div class="section-heading js-fade">
+                <span class="eng-title">OFFICIAL ACCOUNT</span>
+                <h2 class="jp-title">最新情報をお見逃しなく</h2>
             </div>
-        </div>
-    </section>
 
-    <section id="faq" class="section bg-check scroll-fade">
-        <div class="container">
-            <h3 class="section-subtitle">- Q & A -</h3>
-            <h2 class="section-title">よくある質問</h2>
-
-            <div class="faq-list">
-                <div class="faq-item">
-                    <div class="question">
-                        <span class="icon-q">Q</span>
-                        <p>どんな自転車でも参加できますか？</p>
-                    </div>
-                    <div class="answer">
-                        <span class="icon-a">A</span>
-                        <p>はい！ママチャリでもクロスバイクでもOKです。<br>ただし、整備された自転車で参加してね。</p>
-                    </div>
+            <div class="sns-wrapper text-center js-fade delay-1">
+                <div class="sns-logo-container" style="margin-bottom: 35px;">
+                    <img src="images/logo.png" alt="KURAYOSHI RETRO VELO ロゴマーク"
+                        style="max-width: 220px; height: auto; display: inline-block;">
                 </div>
-                <div class="faq-item">
-                    <div class="question">
-                        <span class="icon-q">Q</span>
-                        <p>ヘルメットは必要ですか？</p>
-                    </div>
-                    <div class="answer">
-                        <span class="icon-a">A</span>
-                        <p>安全のため、必ず着用のうえご参加ください。<br>※レンタルのご用意はありません。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section id="outline" class="section scroll-fade">
-        <div class="container">
-            <h3 class="section-subtitle">- Outline -</h3>
-            <h2 class="section-title">開催がいよう</h2>
+                <p style="margin-bottom: 40px; font-family: var(--f-serif);">
+                    開催日やエントリー開始日のお知らせは、<br>
+                    公式SNSにて随時発信しています。
+                </p>
 
-            <div class="outline-board">
-                <div class="board-clip"></div>
+                <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
 
-                <table class="outline-table">
-                    <tr>
-                        <th>大会名</th>
-                        <td>倉吉あま〜いライド</td>
-                    </tr>
-                    <tr>
-                        <th>開催日</th>
-                        <td>
-                            2025年3月末〜4月初旬（予定）<br>
-                            <span class="note">※現在調整中です</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>集合場所</th>
-                        <td>
-                            都市交流センター（関金）<br>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>種目・定員</th>
-                        <td>
-                            <ul class="course-list-simple">
-                                <li><strong>🌸 レトロ線路おさんぽ（ショート）</strong> 20名</li>
-                                <li><strong>🚴‍♂️ ときめきごほうび（ミドル）</strong> 80名</li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>参加費</th>
-                        <td>
-                            <p class="price-row">
-                                <span class="label-cat">ミドル</span>
-                                <span class="price">4,000円</span>
-                            </p>
-                            <p class="note" style="margin-bottom:10px;">（入浴券付き）</p>
-
-                            <p class="price-row">
-                                <span class="label-cat">ショート</span>
-                                <span class="price">2,500円</span>
-                            </p>
-                            <p class="note" style="margin-bottom:10px;">（スイーツ券付き）</p>
-                            <p class="note">※小学生未満の参加費は調整中</p>
-                            <p class="note">※スポーツ安全保険料を含みます</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>主催</th>
-                        <td>鳥取中部ツーリズム協議会</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-    </section>
-
-    <section id="access" class="section scroll-fade">
-        <div class="container">
-            <h3 class="section-subtitle">- Access -</h3>
-            <h2 class="section-title">会場へのアクセス</h2>
-
-            <div class="postcard">
-                <div class="stamp-area">
-                    <div class="stamp">SEKIGANE<br>2025</div>
-                </div>
-                <div class="address-area">
-                    <h4>集合場所：都市交流センター</h4>
-                    <p>（鳥取県倉吉市関金町）</p>
-                    <hr>
-                    <p class="access-note">
-                        🚗 <strong>お車でお越しの方</strong><br>
-                        関金温泉エリアを目指してお越しください。<br>
-                        駐車場情報は後日ご案内します。
-                    </p>
-                </div>
-                <div class="map-embed-placeholder">Google Map Area</div>
-            </div>
-        </div>
-    </section>
-    <!-- 
-    <section id="entry" class="section scroll-fade">
-        <div class="container">
-            <div class="entry-box">
-                <h2 class="section-title">Join Us!</h2>
-                <p>下記いずれかの方法でお申し込みください。<br>定員になり次第、受付終了となります。</p>
-
-                <div class="entry-buttons">
-                    <a href="#" class="btn-main btn-google">
-                        <span class="sub">手軽に申し込む</span><br>
-                        Googleフォーム
+                    <a href="https://www.instagram.com/kurayoshi_retrovelo/" target="_blank" style="
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 10px;
+                        width: 240px;
+                        padding: 15px;
+                        background: #fff;
+                        color: var(--c-deep-green);
+                        text-decoration: none;
+                        border: 2px solid var(--c-deep-green);
+                        box-shadow: 4px 4px 0 var(--c-mustard);
+                        font-family: var(--f-en);
+                        font-weight: bold;
+                        font-size: 1.1rem;
+                        transition: transform 0.2s;
+                    " onmouseover="this.style.transform='translate(2px,2px)'; this.style.boxShadow='2px 2px 0 var(--c-mustard)'"
+                        onmouseout="this.style.transform='translate(0,0)'; this.style.boxShadow='4px 4px 0 var(--c-mustard)'">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="currentColor">
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                        </svg>
+                        INSTAGRAM
                     </a>
-                    <a href="#" class="btn-main btn-sports">
-                        <span class="sub">会員の方はこちら</span><br>
-                        スポーツエントリー
+
+                    <a href="https://www.facebook.com/kurayoshi.retrovelo
+" target="_blank" style="
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 10px;
+                        width: 240px;
+                        padding: 15px;
+                        background: #fff;
+                        color: var(--c-deep-green);
+                        text-decoration: none;
+                        border: 2px solid var(--c-deep-green);
+                        box-shadow: 4px 4px 0 var(--c-mustard);
+                        font-family: var(--f-en);
+                        font-weight: bold;
+                        font-size: 1.1rem;
+                        transition: transform 0.2s;
+                    " onmouseover="this.style.transform='translate(2px,2px)'; this.style.boxShadow='2px 2px 0 var(--c-mustard)'"
+                        onmouseout="this.style.transform='translate(0,0)'; this.style.boxShadow='4px 4px 0 var(--c-mustard)'">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="currentColor">
+                            <path
+                                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.791-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                        </svg>
+                        FACEBOOK
+                    </a>
+
+                    <a href="https://x.com/kurayoshi_rv" target="_blank" style="
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 10px;
+                        width: 240px;
+                        padding: 15px;
+                        background: #000;
+                        color: #fff;
+                        text-decoration: none;
+                        border: 2px solid var(--c-deep-green);
+                        box-shadow: 4px 4px 0 var(--c-mustard);
+                        font-family: var(--f-en);
+                        font-weight: bold;
+                        font-size: 1.1rem;
+                        transition: transform 0.2s;
+                    " onmouseover="this.style.transform='translate(2px,2px)'; this.style.boxShadow='2px 2px 0 var(--c-mustard)'"
+                        onmouseout="this.style.transform='translate(0,0)'; this.style.boxShadow='4px 4px 0 var(--c-mustard)'">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                            fill="currentColor">
+                            <path
+                                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                        </svg>
+                        OFFICIAL X
                     </a>
                 </div>
-
-                <p class="note" style="margin-top:20px;">※2025年1月頃 受付開始予定</p>
-            </div>
-        </div>
-    </section>
-    -->
-    <section id="entry" class="section scroll-fade">
-        <div class="container">
-            <div class="entry-box">
-                <h2 class="section-title">Join Us!</h2>
-                <p>12月〜1月頃 エントリー開始予定！<br>最新情報はSNSでチェックしてね。</p>
-                <a href="#" class="btn-main btn-pink">公式サイトをチェック <span>❤︎</span></a>
             </div>
         </div>
     </section>
 
-    <footer class="footer">
+    <footer class="footer-retro">
         <div class="container">
-            <p>Copyright © Tottori Central Tourism Council. All Rights Reserved.</p>
+            <p>Copyright © Tottori Central Tourism Council.<br>Designed for Nostalgic Riders.</p>
         </div>
     </footer>
 
-    <nav class="floating-nav">
-        <ul>
-            <li><a href="#about"><span class="nav-icon">📖</span><span class="nav-text">Concept</span></a></li>
-            <li><a href="#sweets"><span class="nav-icon">🍩</span><span class="nav-text">Sweets</span></a></li>
-            <li class="main-action"><a href="#entry"><span class="nav-icon">❤︎</span><span
-                        class="nav-text">Entry</span></a></li>
-            <li><a href="#course"><span class="nav-icon">🚲</span><span class="nav-text">Course</span></a></li>
-            <li><a href="#outline"><span class="nav-icon">ℹ️</span><span class="nav-text">Outline</span></a></li>
-        </ul>
-    </nav>
-
     <script>
-        const targets = document.querySelectorAll('.scroll-fade');
-        const options = {
-            root: null,
-            rootMargin: '0px 0px -100px 0px',
-            threshold: 0
-        };
-        const observer = new IntersectionObserver((entries, observer) => {
+        // --- ローディング画面の制御 ---
+
+        // ★対策1: 読み込み開始直後にスクロール復元を無効化し、トップへ戻す
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        window.scrollTo(0, 0);
+
+        // ★対策2: bodyにスクロール禁止クラスを付与
+        document.body.classList.add('noscroll');
+
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('cinematic-loader');
+
+            // 念のためロード完了時にもトップへ（ハッシュリンク対策）
+            window.scrollTo(0, 0);
+
+            // 2.5秒待機（アニメーションの完走を待つ）
+            setTimeout(() => {
+                loader.classList.add('loaded');
+
+                // ★対策2解除: ローディングが終わったらスクロール禁止を解除
+                document.body.classList.remove('noscroll');
+
+                // アニメーション完了後に非表示
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                }, 1200); // シャッターが開ききる時間
+
+            }, 2500);
+        });
+        // ハンバーガーメニュー
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('.retro-nav');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        menuBtn.addEventListener('click', () => {
+            menuBtn.classList.toggle('active');
+            nav.classList.toggle('active');
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menuBtn.classList.remove('active');
+                nav.classList.remove('active');
+            });
+        });
+
+        // スクロールフェード監視スクリプト（既存）
+        const fadeElements = document.querySelectorAll('.js-fade');
+
+        const scrollObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target);
+                    entry.target.classList.add('scroll-in');
+                    scrollObserver.unobserve(entry.target);
                 }
             });
-        }, options);
-        targets.forEach(target => {
-            observer.observe(target);
+        }, {
+            rootMargin: "0px 0px -100px 0px"
         });
-    </script>
 
+        fadeElements.forEach(el => {
+            scrollObserver.observe(el);
+        });
+
+
+        // ───────────────────────
+        // コンセプトセクションの霧エフェクト
+        // ───────────────────────
+        const conceptSection = document.querySelector('.concept-section');
+
+        if (conceptSection) {
+            const fogObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // セクションが見え始めたら霧アニメーションをスタート
+                        conceptSection.classList.add('fog-reading');
+                        fogObserver.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.3
+            });
+
+            fogObserver.observe(conceptSection);
+        }
+
+
+
+    </script>
 </body>
 
 </html>
