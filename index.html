@@ -11,6 +11,18 @@
         href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Kaushan+Script&family=Shippori+Mincho:wght@500;700;800&family=Zen+Maru+Gothic:wght@500;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style5.css">
+
+    <link rel="stylesheet" href="style5.css">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-42EPK5WTVC"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-42EPK5WTVC');
+    </script>
+
 </head>
 
 <body>
@@ -311,7 +323,7 @@
         <div class="container">
             <div class="excursion-frame js-fade">
                 <div class="excursion-label">SPIN-OFF / OPTIONAL</div>
-                <h2 class="excursion-title">【特別興行】 旧国鉄倉吉線廃線跡</h2>
+                <h2 class="excursion-title">【特別興行】 旧国鉄倉吉線廃線跡ウォーキングツアー</h2>
 
                 <div class="excursion-content">
                     <div class="excursion-text">
@@ -323,7 +335,7 @@
                             「日本一美しい廃線跡」と呼ばれる場所を、専門ガイドと共に歩きます。<br>
                             <small>※希望者のみの別枠開催（ウォーキングツアー）となります。</small>
                         </p>
-                        <a href="#" class="btn-excursion">詳細を見る（準備中）</a>
+                        <a href="lost-line-walk.html" class="btn-excursion">詳細を見る</a>
                     </div>
                     <div class="excursion-img">
                         <img src="images/course_long.png" alt="旧国鉄倉吉線">
@@ -397,7 +409,7 @@
                     <dt>STYLE</dt>
                     <dd>
                         <strong>シネマティック・サイクリング</strong><br>
-                        <small>白壁土蔵郡エリアでの食べ歩き散策</small>
+                        <small>白壁土蔵群エリアでの食べ歩き散策</small>
                     </dd>
 
                     <dt>LUNCH</dt>
@@ -407,7 +419,7 @@
                     </dd>
 
                     <dt>FEE</dt>
-                    <dd>¥5,000 <small>（税込・保険・グルメチケット・関金湯命館入浴券込）</small></dd>
+                    <dd>¥5,000 <small>（税込・保険・グルメチケット・せきがね湯命館入浴券込）</small></dd>
                 </dl>
             </div>
         </div>
@@ -415,26 +427,43 @@
     <section id="entry" class="section entry-section js-fade">
         <div class="container text-center relative">
             <div
-                style="display:inline-block; background:var(--c-mustard); color:var(--c-deep-green); padding:5px 20px; font-family:var(--f-en); font-weight:bold; letter-spacing:0.2em; border:2px solid var(--c-deep-green); margin-bottom:20px;">
-                STATUS : PREPARING
+                style="display:inline-block; background:var(--c-deep-red); color:var(--c-accent-cream); padding:5px 20px; font-family:var(--f-en); font-weight:bold; letter-spacing:0.2em; border:2px solid var(--c-mustard); margin-bottom:20px; box-shadow: 4px 4px 0 rgba(0,0,0,0.3);">
+                STATUS : ENTRY OPEN
             </div>
 
-            <h2 class="entry-catch">COMING SOON</h2>
+            <h2 class="entry-catch">NOW ACCEPTING</h2>
 
             <p class="entry-sub">
-                エントリー受付準備中<br>
-                旅の切符が発行されるまで、もうしばらくお待ちください。
+                エントリー受付を開始しました。<br>
+                ご希望の方法で申し込みをお願いいたします。
             </p>
 
-            <div style="opacity: 0.8; margin-top: 30px;">
-                <span class="btn-entry-big"
-                    style="background: #333; color: #999; border-color: #555; cursor: default; box-shadow: none; pointer-events: none;">
-                    ENTRY START JAN 2025
-                </span>
+            <div class="entry-actions-wrapper">
+
+                <div class="entry-box">
+
+                    <a href="https://www.sportsentry.ne.jp/..." target="_blank"
+                        class="btn-entry-big btn-sports active-mode">
+                        SPORTS ENTRY
+                    </a>
+                </div>
+
+                <div class="entry-divider">
+                    <span>or</span>
+                </div>
+
+                <div class="entry-box">
+
+                    <a href="https://docs.google.com/forms/..." target="_blank"
+                        class="btn-entry-big btn-google active-mode">
+                        GOOGLE FORM
+                    </a>
+                </div>
+
             </div>
 
-            <p style="margin-top: 15px; color: var(--c-accent-cream); font-size: 0.9rem; opacity: 0.8;">
-                ▼ 最新情報は下記SNSにて ▼
+            <p style="margin-top: 30px; color: var(--c-accent-cream); font-size: 0.9rem; opacity: 0.8;">
+                ※定員に達し次第、受付を終了いたします
             </p>
         </div>
     </section>
@@ -640,6 +669,18 @@
 
 
     </script>
+    <script>
+        // ハッシュ遷移を page_view として送信
+        window.addEventListener('hashchange', () => {
+            if (typeof gtag === 'function') {
+                gtag('event', 'page_view', {
+                    page_path: location.pathname + location.hash,
+                    page_title: document.title
+                });
+            }
+        });
+    </script>
+
 </body>
 
 </html>

@@ -2302,3 +2302,168 @@ body.noscroll {
         padding-top: 15px;
     }
 }
+
+/* =========================================
+   ENTRY DUAL BUTTONS
+========================================= */
+
+/* ボタン配置用の枠（PCは横並び、スマホは縦並び） */
+.entry-actions-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.entry-box {
+    text-align: center;
+}
+
+.entry-box-label {
+    font-size: 0.8rem;
+    color: var(--c-mustard);
+    margin-bottom: 10px;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    opacity: 0.9;
+}
+
+/* OR の装飾 */
+.entry-divider span {
+    font-family: var(--f-en);
+    font-size: 1.2rem;
+    color: var(--c-mustard);
+    opacity: 0.6;
+}
+
+/* 共通ボタンスタイル（ベース） */
+.btn-entry-big.active-mode {
+    cursor: pointer;
+    pointer-events: auto;
+    box-shadow: 6px 6px 0 var(--c-deep-green);
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    text-decoration: none;
+    min-width: 260px;
+    /* 幅を揃える */
+    text-align: center;
+}
+
+.btn-entry-big.active-mode:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 4px 4px 0 var(--c-deep-green);
+}
+
+/* スポーツエントリー（赤系） */
+.btn-sports {
+    background: var(--c-deep-red);
+    color: var(--c-accent-cream);
+    border-color: var(--c-mustard);
+}
+
+.btn-sports:hover {
+    background: var(--c-mustard);
+    color: var(--c-deep-green);
+}
+
+/* Googleフォーム（青緑系：テーマカラーに合わせつつ区別） */
+.btn-google {
+    background: #2a6f5f;
+    /* サイトの深緑より少し明るい色 */
+    color: #fff;
+    border-color: #fff;
+}
+
+.btn-google:hover {
+    background: #fff;
+    color: var(--c-deep-green);
+    border-color: var(--c-deep-green);
+}
+
+/* スマホ対応：縦並びにする */
+@media (max-width: 768px) {
+    .entry-actions-wrapper {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .entry-divider {
+        display: none;
+        /* スマホでは間隔だけで十分なので消す、または margin で調整 */
+    }
+
+    .btn-entry-big.active-mode {
+        width: 100%;
+        /* スマホは幅いっぱいでもOK */
+        padding: 20px 0;
+    }
+}
+
+/* =========================
+ Excursion section - brighter
+========================= */
+
+#excursion.section.bg-paper {
+    background: rgba(255, 251, 242, .78);
+}
+
+/* フレーム：暗幕をやめて “明るい紙” に寄せる */
+.excursion-frame {
+    background:
+        radial-gradient(circle at 18% 10%, rgba(198, 162, 74, .18), transparent 60%),
+        radial-gradient(circle at 85% 30%, rgba(255, 255, 255, .65), transparent 55%),
+        rgba(255, 251, 242, .98);
+
+    border: 2px solid rgba(23, 58, 51, .18);
+    box-shadow: 10px 10px 0 rgba(0, 0, 0, .06);
+}
+
+/* ラベルも明るく（濃い緑ベタ感を消す） */
+.excursion-label {
+    background: rgba(198, 162, 74, .14);
+    border: 1px solid rgba(198, 162, 74, .35);
+    color: var(--green);
+}
+
+/* タイトル・本文も少し明るめに */
+.excursion-title {
+    color: var(--green);
+}
+
+.excursion-text p {
+    color: rgba(30, 27, 22, .78);
+}
+
+.excursion-text small {
+    color: rgba(30, 27, 22, .58);
+}
+
+/* 画像：暗幕を撤去して明るく、額縁は残す */
+.excursion-img {
+    background: rgba(255, 255, 255, .55);
+    border: 2px solid rgba(23, 58, 51, .18);
+    box-shadow: 8px 8px 0 rgba(198, 162, 74, .28);
+}
+
+.excursion-img::after {
+    /* 暗くする原因なので無効化 */
+    content: none;
+}
+
+/* ボタン：白寄りで軽く */
+.btn-excursion {
+    background: #fff;
+    border-color: rgba(198, 162, 74, .85);
+    box-shadow: 6px 6px 0 rgba(198, 162, 74, .45);
+}
+
+.btn-excursion:hover {
+    background: rgba(255, 255, 255, .96);
+    box-shadow: 4px 4px 0 rgba(198, 162, 74, .45);
+}
+
+.btn-excursion:hover {
+    background: #555;
+    color: var(--c-mustard);
+}
