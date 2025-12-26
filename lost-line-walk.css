@@ -1925,3 +1925,109 @@ a {
         padding: 20px;
     }
 }
+
+/* =========================
+   Loading Screen (Railway)
+========================= */
+
+/* 全画面カバー */
+#loader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: var(--bg);
+    /* 背景色 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+/* 読み込み完了時のクラス */
+#loader.loaded {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.loader-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+/* 線路のデザイン */
+.rail-track {
+    position: relative;
+    width: 160px;
+    height: 40px;
+    /* 上下のレール */
+    border-top: 3px solid var(--green);
+    border-bottom: 3px solid var(--green);
+    overflow: hidden;
+}
+
+/* 枕木（まくらぎ）のアニメーション */
+.rail-track .ties {
+    position: absolute;
+    inset: 0;
+    /* 枕木の縞模様 */
+    background-image: linear-gradient(90deg,
+            transparent 0%,
+            transparent 50%,
+            var(--line-strong) 50%,
+            var(--line-strong) 100%);
+    background-size: 20px 100%;
+    /* 枕木の太さと間隔 */
+    animation: trackFlow 1s linear infinite;
+    opacity: 0.6;
+}
+
+/* 枕木が流れる動き */
+@keyframes trackFlow {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-20px);
+        /* 左へ流れる＝右へ進む感覚 */
+    }
+}
+
+/* テキストまわり */
+.loader-text {
+    text-align: center;
+    color: var(--green);
+    font-family: var(--f-bold);
+    letter-spacing: .15em;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.text-main {
+    font-size: 1.2rem;
+    animation: blink 2s infinite ease-in-out;
+}
+
+.text-sub {
+    font-family: var(--f-serif);
+    font-size: 0.85rem;
+    color: var(--muted);
+    letter-spacing: .1em;
+}
+
+/* 点滅アニメーション */
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+}
