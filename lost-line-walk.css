@@ -2031,3 +2031,32 @@ a {
         opacity: 0.4;
     }
 }
+
+/* =========================
+   Entry Single Button Fix
+   エントリーボタンを1つにする修正
+========================= */
+
+/* グリッドを解除して中央揃えのFlexboxにする */
+.entry-actions {
+    display: flex;
+    justify-content: center;
+    grid-template-columns: none;
+    /* グリッド設定を打ち消し */
+    gap: 0;
+    margin: 36px 0;
+}
+
+/* ボタンが横に長くなりすぎないように制限をかける */
+.entry-btn {
+    width: 100%;
+    max-width: 480px;
+    /* 程よい幅に制限 */
+}
+
+/* スマホでは幅いっぱいにする */
+@media (max-width: 768px) {
+    .entry-btn {
+        max-width: 100%;
+    }
+}
