@@ -2467,3 +2467,89 @@ body.noscroll {
     background: #555;
     color: var(--c-mustard);
 }
+
+/* スマホ表示時の調整 */
+@media (max-width: 768px) {
+
+    /* 巨大な見出し文字をスマホ用に小さくする */
+    .entry-catch {
+        font-size: 2.0rem;
+        /* 3.5remから縮小 */
+        word-break: break-all;
+        /* 長い単語での改行を許可 */
+    }
+
+    /* STATUSバッジの調整 */
+    #entry .container>div[style*="display:inline-block"] {
+        font-size: 0.8rem;
+        /* 文字サイズを少し下げる */
+        padding: 5px 10px !important;
+        letter-spacing: 0.1em !important;
+        width: 90%;
+        /* 画面幅に収まるように制限 */
+        max-width: 300px;
+        box-sizing: border-box;
+    }
+
+    /* エントリーボタンの余白調整（念のため） */
+    .btn-entry-big.active-mode {
+        width: 100%;
+        max-width: 320px;
+        /* 幅が広がりすぎないように */
+        padding: 20px 0;
+        /* 横の余白を消して幅に収める */
+        box-sizing: border-box;
+    }
+}
+
+/* =========================
+   Concept Text Responsive Fix
+   コンセプトテキストの改行調整
+========================================= */
+
+/* デフォルト（PC）ではスマホ用改行を無効化 */
+.sp-br {
+    display: none;
+}
+
+@media (max-width: 768px) {
+
+    /* スマホでは有効化 */
+    .sp-br {
+        display: block;
+        margin-top: 0;
+        /* 必要に応じて調整 */
+        content: "";
+    }
+
+    /* コンセプトテキスト自体の調整 */
+    .concept-text {
+        font-size: 1.05rem;
+        /* 少し小さくして可読性アップ */
+        line-height: 2.2;
+        /* 行間を少し詰める */
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0 10px;
+        /* 画面端に張り付かないように */
+    }
+
+    /* リード文（ペダルを回せば〜）の調整 */
+    .concept-lead {
+        font-size: 1.6rem;
+        line-height: 1.6;
+    }
+}
+
+@media (max-width: 768px) {
+    /* 既存のコードがあればその下に追記、もしくは修正 */
+
+    .cinematic-highlight {
+        font-size: 1.25rem;
+        /* 文字サイズを少し小さく */
+        display: inline-block;
+        /* ブロックとして扱うことで背景を綺麗に */
+        white-space: nowrap;
+        /* ★ここで「改行禁止」を指定 */
+    }
+}
